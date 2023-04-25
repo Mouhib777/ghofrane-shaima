@@ -58,7 +58,6 @@ class _homeScreenState extends State<homeScreen> {
                     top: 24.0,
                     bottom: 64.0,
                   ),
-                  clipBehavior: Clip.antiAlias,
                   decoration: BoxDecoration(
                     color: Colors.black26,
                     shape: BoxShape.circle,
