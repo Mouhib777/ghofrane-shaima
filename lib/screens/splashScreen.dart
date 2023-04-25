@@ -1,5 +1,5 @@
 import 'dart:async';
-import 'package:e_learning/screens/welcomeScreen.dart';
+import 'package:e_learning/screens/login.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -22,7 +22,7 @@ class _splashSCreenState extends State<splashSCreen> {
           //? edheyya script li ikhalik tnavi bin les pages (besh tefhemha akther aml recherche al initState() super.iniState() )
           context,
           MaterialPageRoute(
-            builder: (context) => welcomeScreen(),
+            builder: (context) => loginScreen(),
           ));
     });
 
