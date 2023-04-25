@@ -12,6 +12,16 @@ class registreScreen extends StatefulWidget {
 class _registreScreenState extends State<registreScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [Colors.blueAccent, Colors.pink],
+          ),
+        ),
+        child: Scaffold(
+          backgroundColor: Colors.transparent,
+        ));
   }
 }

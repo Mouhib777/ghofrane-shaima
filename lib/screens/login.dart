@@ -226,12 +226,14 @@ class _loginScreenState extends State<loginScreen> {
                                             color: Colors.white),
                                       ),
                                       onTap: () {
-                                        Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                              builder: (context) =>
-                                                  registreScreen(),
-                                            ));
+                                        Navigator.of(context).push(
+                                            PageRouteBuilder(
+                                                transitionDuration:
+                                                    Duration.zero,
+                                                pageBuilder: (context,
+                                                        animation,
+                                                        secondaryAnimation) =>
+                                                    registreScreen()));
                                       },
                                     ),
                                   )
