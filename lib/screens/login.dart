@@ -216,7 +216,7 @@ class _loginScreenState extends State<loginScreen> {
                                     width: 20,
                                   ),
                                   FadeIn(
-                                    delay: Duration(seconds: 1),
+                                    delay: Duration(milliseconds: 1500),
                                     child: InkWell(
                                       child: Text(
                                         "inscrivez-vous",
