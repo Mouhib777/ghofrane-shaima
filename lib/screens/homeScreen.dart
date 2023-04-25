@@ -69,22 +69,32 @@ class _homeScreenState extends State<homeScreen> {
                 ListTile(
                   onTap: () {},
                   leading: Icon(Icons.home),
-                  title: Text('Home'),
+                  title: Text(
+                    'Accueil',
+                    style: GoogleFonts.montserrat(letterSpacing: 2),
+                  ),
+                ),
+                SizedBox(
+                  height: 40,
                 ),
                 ListTile(
                   onTap: () {},
                   leading: Icon(Icons.account_circle_rounded),
-                  title: Text('Profile'),
+                  title: Text(
+                    'Profile',
+                    style: GoogleFonts.montserrat(letterSpacing: 2),
+                  ),
                 ),
-                ListTile(
-                  onTap: () {},
-                  leading: Icon(Icons.favorite),
-                  title: Text('Favourites'),
+                SizedBox(
+                  height: 40,
                 ),
                 ListTile(
                   onTap: () {},
                   leading: Icon(Icons.settings),
-                  title: Text('Settings'),
+                  title: Text(
+                    'Paramétres',
+                    style: GoogleFonts.montserrat(letterSpacing: 2),
+                  ),
                 ),
                 Spacer(),
                 DefaultTextStyle(
