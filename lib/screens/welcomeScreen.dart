@@ -178,14 +178,14 @@ class _welcomeScreenState extends State<welcomeScreen> {
                                                 maintainState: false));
                                       } on FirebaseAuthException catch (ex) {
                                         if (ex.code == 'user-not-found') {
+                                          print("not found");
                                           AnimatedSnackBar.material(
-                                            'User Not Found !',
+                                            "pas d'utilisateur avec cet e-mail",
                                             type: AnimatedSnackBarType.error,
                                             duration: Duration(seconds: 4),
                                             mobileSnackBarPosition:
                                                 MobileSnackBarPosition
                                                     .bottom, // Position of snackbar on mobile devices
-                                            // Position of snackbar on desktop devices
                                           ).show(context);
                                         } else if (ex.code ==
                                             'wrong-password') {
