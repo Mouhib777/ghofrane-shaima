@@ -200,7 +200,7 @@ class _welcomeScreenState extends State<welcomeScreen> {
                                           ).show(context);
                                         } else if (ex.code == 'invalid-email') {
                                           AnimatedSnackBar.material(
-                                            'invalid email !',
+                                            'addresse-email est invalide',
                                             type: AnimatedSnackBarType.error,
                                             duration: Duration(seconds: 4),
                                             mobileSnackBarPosition:
