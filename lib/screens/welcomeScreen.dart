@@ -190,7 +190,7 @@ class _welcomeScreenState extends State<welcomeScreen> {
                                         } else if (ex.code ==
                                             'wrong-password') {
                                           AnimatedSnackBar.material(
-                                            'Wrong password !',
+                                            'mot de passe incorrect',
                                             type: AnimatedSnackBarType.error,
                                             duration: Duration(seconds: 6),
                                             mobileSnackBarPosition:
