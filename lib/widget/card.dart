@@ -15,7 +15,7 @@ class CustomCard extends StatelessWidget {
       child: Card(
         elevation: 8,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(92)),
-        color: Colors.pink,
+        color: Colors.purple,
         child: Padding(
           padding: const EdgeInsets.all(34.0),
           child: Column(
@@ -41,7 +41,7 @@ class CustomCard extends StatelessWidget {
                     fontSize: 20),
                 textAlign: TextAlign.left,
               ),
-              const SizedBox(
+              SizedBox(
                 height: 24,
               ),
               Row(

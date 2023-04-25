@@ -142,13 +142,17 @@ class _homeScreenState extends State<homeScreen> {
           ),
         ),
         child: Container(
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.topRight,
-              end: Alignment.topLeft,
-              colors: [Colors.pink, Colors.blue],
-            ),
-          ),
+          color: Colors.white,
+          // decoration: BoxDecoration(
+          //   gradient: LinearGradient(
+          //     begin: Alignment.topRight,
+          //     end: Alignment.topLeft,
+          //     colors: [
+          //       Colors.purple,
+          //       Colors.blue,
+          //     ],
+          //   ),
+          // ),
           child: Scaffold(
               backgroundColor: Colors.transparent,
               appBar: AppBar(
