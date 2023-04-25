@@ -53,7 +53,7 @@ class _loginScreenState extends State<loginScreen> {
                   )),
                 ),
                 SizedBox(height: MediaQuery.of(context).size.height * 0.2),
-                FadeInUp(
+                FadeInUpBig(
                   child: Stack(
                     children: [
                       Container(

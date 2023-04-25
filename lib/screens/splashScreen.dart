@@ -1,5 +1,7 @@
 import 'dart:async';
+import 'package:e_learning/screens/homeScreen.dart';
 import 'package:e_learning/screens/login.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -18,12 +20,26 @@ class _splashSCreenState extends State<splashSCreen> {
         Duration(
           seconds: 3,
         ), () async {
-      Navigator.push(
-          //? edheyya script li ikhalik tnavi bin les pages (besh tefhemha akther aml recherche al initState() super.iniState() )
-          context,
-          MaterialPageRoute(
-            builder: (context) => loginScreen(),
-          ));
+      FirebaseAuth.instance.authStateChanges().listen((User? user) {
+        if (user == null) {
+          Navigator.of(context).push(
+            PageRouteBuilder(
+              transitionDuration: Duration.zero,
+              pageBuilder: (context, animation, secondaryAnimation) =>
+                  loginScreen(),
+            ),
+          );
+        } else {
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => homeScreen()));
+        }
+      });
+      // Navigator.push(
+      //     //? edheyya script li ikhalik tnavi bin les pages (besh tefhemha akther aml recherche al initState() super.iniState() )
+      //     context,
+      //     MaterialPageRoute(
+      //       builder: (context) => loginScreen(),
+      //     ));
     });
 
     super.initState();
