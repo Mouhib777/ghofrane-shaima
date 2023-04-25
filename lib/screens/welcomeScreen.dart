@@ -63,16 +63,17 @@ class _welcomeScreenState extends State<welcomeScreen> {
                           ),
                         ),
                         child: Padding(
-                          padding: const EdgeInsets.fromLTRB(30, 20, 30, 20),
+                          padding: EdgeInsets.fromLTRB(30, 7, 30, 20),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
                               Text(
-                                "Se connectez",
+                                "Se connecter",
                                 style: GoogleFonts.montserrat(
-                                  fontSize: 40,
-                                  fontWeight: FontWeight.bold,
-                                ),
+                                    fontSize: 40,
+                                    letterSpacing: 3,
+                                    fontWeight: FontWeight.bold,
+                                    color: Color.fromARGB(197, 255, 255, 255)),
                               ),
                               SizedBox(
                                 height: 20,
@@ -81,10 +82,9 @@ class _welcomeScreenState extends State<welcomeScreen> {
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Text(
-                                    "Email",
+                                    "Addresse e-mail",
                                     style: GoogleFonts.poppins(
-                                      fontSize: 18,
-                                    ),
+                                        fontSize: 18, letterSpacing: 3),
                                   ),
                                   SizedBox(
                                     height: 20,
@@ -96,8 +96,7 @@ class _welcomeScreenState extends State<welcomeScreen> {
                                   Text(
                                     "Mot de passe",
                                     style: GoogleFonts.poppins(
-                                      fontSize: 18,
-                                    ),
+                                        fontSize: 18, letterSpacing: 3),
                                   ),
                                   SizedBox(
                                     height: 20,
@@ -105,6 +104,20 @@ class _welcomeScreenState extends State<welcomeScreen> {
                                   TextFormField()
                                 ],
                               ),
+                              SizedBox(
+                                height: 20,
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  ElevatedButton(
+                                      onPressed: () {},
+                                      child: Text(
+                                        "Connectez-vous",
+                                        style: GoogleFonts.montserrat(),
+                                      )),
+                                ],
+                              )
                             ],
                           ),
                         ),
