@@ -12,6 +12,8 @@ class cour1 extends StatefulWidget {
 class _cour1State extends State<cour1> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      appBar: AppBar(title: Text("Cour 1 ")),
+    );
   }
 }

@@ -191,83 +191,81 @@ class _homeScreenState extends State<homeScreen> {
                     )),
               ),
               body: FadeInRightBig(
-                child: InkWell(
-                    child: SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.8,
-                        width: MediaQuery.of(context).size.width,
-                        child: Swiper(
-                          itemCount: courInfo.length,
-                          itemWidth: MediaQuery.of(context).size.width,
-                          itemHeight: MediaQuery.of(context).size.height,
-                          layout: SwiperLayout.TINDER,
-                          pagination: SwiperPagination(
-                              builder: DotSwiperPaginationBuilder(
-                                  color: Colors.pink,
-                                  activeColor: Colors.blue,
-                                  activeSize: 12,
-                                  space: 4)),
-                          itemBuilder: (context, index) {
-                            return InkWell(
-                              onTap: () {
-                                if (courInfo[index].name == 'cour 1') {
-                                  Navigator.push(
-                                      context,
-                                      PageRouteBuilder(
-                                          pageBuilder: (context, animation,
-                                                  secondaryAnimation) =>
-                                              cour1()));
-                                } else if (courInfo[index].name == 'cour 2') {
-                                  Navigator.push(
-                                      context,
-                                      PageRouteBuilder(
-                                          pageBuilder: (context, animation,
-                                                  secondaryAnimation) =>
-                                              cour2()));
-                                } else if (courInfo[index].name == 'cour 3') {
-                                  Navigator.push(
-                                      context,
-                                      PageRouteBuilder(
-                                          pageBuilder: (context, animation,
-                                                  secondaryAnimation) =>
-                                              cour3()));
-                                } else if (courInfo[index].name == 'cour 4') {
-                                  Navigator.push(
-                                      context,
-                                      PageRouteBuilder(
-                                          pageBuilder: (context, animation,
-                                                  secondaryAnimation) =>
-                                              cour4()));
-                                }
-                              },
-                              child: Stack(
+                child: SizedBox(
+                    height: MediaQuery.of(context).size.height * 0.8,
+                    width: MediaQuery.of(context).size.width,
+                    child: Swiper(
+                      itemCount: courInfo.length,
+                      itemWidth: MediaQuery.of(context).size.width,
+                      itemHeight: MediaQuery.of(context).size.height,
+                      layout: SwiperLayout.TINDER,
+                      pagination: SwiperPagination(
+                          builder: DotSwiperPaginationBuilder(
+                              color: Colors.pink,
+                              activeColor: Colors.blue,
+                              activeSize: 12,
+                              space: 4)),
+                      itemBuilder: (context, index) {
+                        return InkWell(
+                          onTap: () {
+                            if (courInfo[index].name == 'cour 1') {
+                              Navigator.push(
+                                  context,
+                                  PageRouteBuilder(
+                                      pageBuilder: (context, animation,
+                                              secondaryAnimation) =>
+                                          cour1()));
+                            } else if (courInfo[index].name == 'cour 2') {
+                              Navigator.push(
+                                  context,
+                                  PageRouteBuilder(
+                                      pageBuilder: (context, animation,
+                                              secondaryAnimation) =>
+                                          cour2()));
+                            } else if (courInfo[index].name == 'cour 3') {
+                              Navigator.push(
+                                  context,
+                                  PageRouteBuilder(
+                                      pageBuilder: (context, animation,
+                                              secondaryAnimation) =>
+                                          cour3()));
+                            } else if (courInfo[index].name == 'cour 4') {
+                              Navigator.push(
+                                  context,
+                                  PageRouteBuilder(
+                                      pageBuilder: (context, animation,
+                                              secondaryAnimation) =>
+                                          cour4()));
+                            }
+                          },
+                          child: Stack(
+                            children: [
+                              Column(
                                 children: [
-                                  Column(
-                                    children: [
-                                      const SizedBox(
-                                        height: 100,
-                                      ),
-                                      CustomCard(
-                                        name: courInfo[index].name,
-                                        description:
-                                            courInfo[index].description,
-                                      ),
-                                    ],
+                                  const SizedBox(
+                                    height: 100,
                                   ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(
-                                        left: 140, top: 100),
-                                    child: Hero(
-                                        tag: courInfo[index].position,
-                                        child: Image.asset(
-                                          courInfo[index].iconImage,
-                                          height: 150,
-                                        )),
-                                  )
+                                  CustomCard(
+                                    name: courInfo[index].name,
+                                    description: courInfo[index].description,
+                                  ),
                                 ],
                               ),
-                            );
-                          },
-                        ))),
+                              Padding(
+                                padding:
+                                    const EdgeInsets.only(left: 140, top: 100),
+                                child: Hero(
+                                    tag: courInfo[index].position,
+                                    child: Image.asset(
+                                      courInfo[index].iconImage,
+                                      height: 150,
+                                    )),
+                              )
+                            ],
+                          ),
+                        );
+                      },
+                    )),
               )),
         ));
   }

@@ -22,7 +22,7 @@ List<CourInfo> courInfo = [
       iconImage: 'assets/images/logo.png',
       description: "blablablabla"),
   CourInfo(4,
-      name: "cour4",
+      name: "cour 4",
       iconImage: 'assets/images/logo.png',
       description: "blablablabla"),
 ];
