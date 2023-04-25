@@ -89,7 +89,24 @@ class _welcomeScreenState extends State<welcomeScreen> {
                                   SizedBox(
                                     height: 20,
                                   ),
-                                  TextFormField(),
+                                  TextField(
+                                    decoration: InputDecoration(
+                                      hintStyle: GoogleFonts.montserrat(),
+                                      labelStyle: GoogleFonts.montserrat(),
+                                      counterStyle: GoogleFonts.montserrat(),
+                                      hintText: 'address@mail.com',
+                                      border: OutlineInputBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(35)),
+                                      labelText: '  Addresse e-mail',
+                                    ),
+                                    autofocus: false,
+                                    keyboardType: TextInputType.emailAddress,
+                                    // maxLength: 40,
+                                    onChanged: (value) {
+                                      email = value;
+                                    },
+                                  ),
                                   SizedBox(
                                     height: 20,
                                   ),
@@ -101,21 +118,54 @@ class _welcomeScreenState extends State<welcomeScreen> {
                                   SizedBox(
                                     height: 20,
                                   ),
-                                  TextFormField()
+                                  TextField(
+                                    decoration: InputDecoration(
+                                        hintStyle: GoogleFonts.montserrat(),
+                                        labelStyle: GoogleFonts.montserrat(),
+                                        counterStyle: GoogleFonts.montserrat(),
+                                        border: OutlineInputBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(35)),
+                                        labelText: '  Password',
+                                        hintText: 'pass1234'),
+                                    autofocus: false,
+                                    keyboardType: TextInputType.visiblePassword,
+                                    onChanged: (data) {
+                                      password = data;
+                                    },
+                                    obscureText: true,
+                                  ),
                                 ],
                               ),
                               SizedBox(
-                                height: 20,
+                                height: 10,
                               ),
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   ElevatedButton(
+                                      style: ElevatedButton.styleFrom(
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(8),
+                                        ),
+                                      ),
                                       onPressed: () {},
                                       child: Text(
                                         "Connectez-vous",
                                         style: GoogleFonts.montserrat(),
                                       )),
+                                  SizedBox(
+                                    width: 20,
+                                  ),
+                                  InkWell(
+                                    child: Text(
+                                      "Connectez-vous",
+                                      style: GoogleFonts.montserrat(
+                                          color: Colors.white),
+                                    ),
+                                    onTap: () {},
+                                  )
                                 ],
                               )
                             ],
