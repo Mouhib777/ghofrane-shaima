@@ -19,14 +19,14 @@ class _welcomeScreenState extends State<welcomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.black,
-      // decoration: BoxDecoration(
-      //   gradient: LinearGradient(
-      //     begin: Alignment.topCenter,
-      //     end: Alignment.bottomCenter,
-      //     colors: [Colors.blueAccent, Colors.pink],
-      //   ),
-      // ),
+      // color: Colors.black,
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          colors: [Colors.blueAccent, Colors.pink],
+        ),
+      ),
       child: Scaffold(
         appBar: AppBar(
           shadowColor: Colors.transparent,
