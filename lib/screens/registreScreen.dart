@@ -43,9 +43,9 @@ class _registreScreenState extends State<registreScreen> {
                   child: Text(
                     "Inscrivez-Vous",
                     style: GoogleFonts.montserrat(
-                        fontSize: 22,
+                        fontSize: 25,
                         color: Colors.white,
-                        fontWeight: FontWeight.w600,
+                        fontWeight: FontWeight.w700,
                         letterSpacing: 9),
                   ),
                 ),
@@ -132,8 +132,8 @@ class _registreScreenState extends State<registreScreen> {
                                         autofocus: false,
                                         keyboardType:
                                             TextInputType.visiblePassword,
-                                        onChanged: (data) {
-                                          password = data;
+                                        onChanged: (value) {
+                                          password = value;
                                         },
                                         obscureText: true,
                                       ),
