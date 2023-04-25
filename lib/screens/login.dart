@@ -215,14 +215,17 @@ class _loginScreenState extends State<loginScreen> {
                                   SizedBox(
                                     width: 20,
                                   ),
-                                  InkWell(
-                                    child: Text(
-                                      "inscrivez-vous",
-                                      style: GoogleFonts.montserrat(
-                                          letterSpacing: 3,
-                                          color: Colors.white),
+                                  FadeIn(
+                                    delay: Duration(seconds: 1),
+                                    child: InkWell(
+                                      child: Text(
+                                        "inscrivez-vous",
+                                        style: GoogleFonts.montserrat(
+                                            letterSpacing: 3,
+                                            color: Colors.white),
+                                      ),
+                                      onTap: () {},
                                     ),
-                                    onTap: () {},
                                   )
                                 ],
                               )
