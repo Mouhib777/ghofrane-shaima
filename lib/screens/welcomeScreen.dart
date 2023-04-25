@@ -1,4 +1,7 @@
 import 'package:animate_do/animate_do.dart';
+import 'package:animated_snack_bar/animated_snack_bar.dart';
+import 'package:e_learning/screens/homeScreen.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
@@ -144,17 +147,71 @@ class _welcomeScreenState extends State<welcomeScreen> {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   ElevatedButton(
-                                      style: ElevatedButton.styleFrom(
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(8),
-                                        ),
+                                    style: ElevatedButton.styleFrom(
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(8),
                                       ),
-                                      onPressed: () {},
-                                      child: Text(
-                                        "Connectez-vous",
-                                        style: GoogleFonts.montserrat(),
-                                      )),
+                                    ),
+                                    child: Text(
+                                      "Connectez-vous",
+                                      style: GoogleFonts.montserrat(),
+                                    ),
+                                    onPressed: () async {
+                                      FocusScopeNode currentFocus =
+                                          FocusScope.of(context);
+                                      if (!currentFocus.hasPrimaryFocus) {
+                                        currentFocus.unfocus();
+                                      }
+                                      //EasyLoading.showToast('Loading...');
+                                      try {
+                                        UserCredential user = await FirebaseAuth
+                                            .instance
+                                            .signInWithEmailAndPassword(
+                                                email: email!.trim(),
+                                                password: password!.trim());
+                                        //  CircularProgressIndicator();
+                                        Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    homeScreen(),
+                                                maintainState: false));
+                                      } on FirebaseAuthException catch (ex) {
+                                        if (ex.code == 'user-not-found') {
+                                          AnimatedSnackBar.material(
+                                            'User Not Found !',
+                                            type: AnimatedSnackBarType.error,
+                                            duration: Duration(seconds: 4),
+                                            mobileSnackBarPosition:
+                                                MobileSnackBarPosition
+                                                    .bottom, // Position of snackbar on mobile devices
+                                            // Position of snackbar on desktop devices
+                                          ).show(context);
+                                        } else if (ex.code ==
+                                            'wrong-password') {
+                                          AnimatedSnackBar.material(
+                                            'Wrong password !',
+                                            type: AnimatedSnackBarType.error,
+                                            duration: Duration(seconds: 6),
+                                            mobileSnackBarPosition:
+                                                MobileSnackBarPosition
+                                                    .bottom, // Position of snackbar on mobile devices
+                                            // Position of snackbar on desktop devices
+                                          ).show(context);
+                                        } else if (ex.code == 'invalid-email') {
+                                          AnimatedSnackBar.material(
+                                            'invalid email !',
+                                            type: AnimatedSnackBarType.error,
+                                            duration: Duration(seconds: 4),
+                                            mobileSnackBarPosition:
+                                                MobileSnackBarPosition
+                                                    .bottom, // Position of snackbar on mobile devices
+                                            // Position of snackbar on desktop devices
+                                          ).show(context);
+                                        }
+                                      }
+                                    },
+                                  ),
                                   SizedBox(
                                     width: 20,
                                   ),
