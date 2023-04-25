@@ -160,8 +160,9 @@ class _welcomeScreenState extends State<welcomeScreen> {
                                   ),
                                   InkWell(
                                     child: Text(
-                                      "Connectez-vous",
+                                      "inscrivez-vous",
                                       style: GoogleFonts.montserrat(
+                                          letterSpacing: 3,
                                           color: Colors.white),
                                     ),
                                     onTap: () {},
