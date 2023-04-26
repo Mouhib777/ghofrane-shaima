@@ -1,13 +1,15 @@
+import 'package:e_learning/screens/registreScreen.dart';
 import 'package:e_learning/screens/splashScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 
 void main() async {
-  runApp(MyApp());
+  WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -22,7 +24,7 @@ class MyApp extends StatelessWidget {
       // theme: ThemeData(
       //   primarySwatch: Colors.blue,
       // ),
-      home: splashSCreen(),
+      home: registreScreen(),
     );
   }
 }
