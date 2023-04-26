@@ -236,6 +236,8 @@ class _homeScreenState extends State<homeScreen> {
                                       pageBuilder: (context, animation,
                                               secondaryAnimation) =>
                                           cour4()));
+                            } else {
+                              return null;
                             }
                           },
                           child: Stack(

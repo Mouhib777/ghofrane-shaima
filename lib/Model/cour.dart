@@ -21,7 +21,7 @@ List<CourInfo> courInfo = [
       name: "cour 3",
       iconImage: 'assets/images/logo.png',
       description: "blablablabla"),
-  CourInfo(4,
+  CourInfo(1,
       name: "cour 4",
       iconImage: 'assets/images/logo.png',
       description: "blablablabla"),
