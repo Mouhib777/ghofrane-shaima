@@ -18,6 +18,8 @@ class registreScreen extends StatefulWidget {
 
 class _registreScreenState extends State<registreScreen> {
   User? user1 = FirebaseAuth.instance.currentUser;
+  String? nom;
+  String? prenom;
   String? email;
   String? password;
   @override
@@ -50,15 +52,15 @@ class _registreScreenState extends State<registreScreen> {
                   ),
                 ),
                 SizedBox(
-                  height: MediaQuery.of(context).size.height / 3.27,
+                  height: MediaQuery.of(context).size.height * 0.07,
                 ),
                 Stack(
                   children: [
-                    FadeInUp(
+                    FadeInUpBig(
                       child: Stack(
                         children: [
                           Container(
-                            height: MediaQuery.of(context).size.height * 0.478,
+                            height: MediaQuery.of(context).size.height * 0.9,
                             width: double.infinity,
                             decoration: BoxDecoration(
                               color: Color.fromARGB(113, 255, 255, 255),
@@ -79,6 +81,66 @@ class _registreScreenState extends State<registreScreen> {
                                     crossAxisAlignment:
                                         CrossAxisAlignment.center,
                                     children: [
+                                      Text(
+                                        "Nom",
+                                        style: GoogleFonts.poppins(
+                                            fontSize: 18, letterSpacing: 3),
+                                      ),
+                                      SizedBox(
+                                        height: 20,
+                                      ),
+                                      TextField(
+                                        decoration: InputDecoration(
+                                          hintStyle: GoogleFonts.montserrat(),
+                                          labelStyle: GoogleFonts.montserrat(),
+                                          counterStyle:
+                                              GoogleFonts.montserrat(),
+                                          hintText: 'Foulen',
+                                          border: OutlineInputBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(35)),
+                                          labelText: '  Nom',
+                                        ),
+                                        autofocus: false,
+                                        keyboardType:
+                                            TextInputType.emailAddress,
+                                        onChanged: (value) {
+                                          nom = value;
+                                        },
+                                      ),
+                                      SizedBox(
+                                        height: 20,
+                                      ),
+                                      Text(
+                                        "Prénom",
+                                        style: GoogleFonts.poppins(
+                                            fontSize: 18, letterSpacing: 3),
+                                      ),
+                                      SizedBox(
+                                        height: 20,
+                                      ),
+                                      TextField(
+                                        decoration: InputDecoration(
+                                          hintStyle: GoogleFonts.montserrat(),
+                                          labelStyle: GoogleFonts.montserrat(),
+                                          counterStyle:
+                                              GoogleFonts.montserrat(),
+                                          hintText: 'Fleni',
+                                          border: OutlineInputBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(35)),
+                                          labelText: '  Prenom',
+                                        ),
+                                        autofocus: false,
+                                        keyboardType:
+                                            TextInputType.emailAddress,
+                                        onChanged: (value) {
+                                          email = value;
+                                        },
+                                      ),
+                                      SizedBox(
+                                        height: 20,
+                                      ),
                                       Text(
                                         "Addresse e-mail",
                                         style: GoogleFonts.poppins(
