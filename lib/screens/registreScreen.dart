@@ -1,6 +1,7 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:animated_snack_bar/animated_snack_bar.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:e_learning/screens/login.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -135,7 +136,7 @@ class _registreScreenState extends State<registreScreen> {
                                         keyboardType:
                                             TextInputType.emailAddress,
                                         onChanged: (value) {
-                                          email = value;
+                                          prenom = value;
                                         },
                                       ),
                                       SizedBox(
@@ -217,32 +218,40 @@ class _registreScreenState extends State<registreScreen> {
                                     ),
                                     onPressed: () async {
                                       try {
+                                        final User? userr =
+                                            FirebaseAuth.instance.currentUser;
+                                        final _uid = userr!.uid;
                                         UserCredential user = await FirebaseAuth
                                             .instance
                                             .createUserWithEmailAndPassword(
                                                 email: email!.trim(),
                                                 password: password!.trim());
-
-                                        await FirebaseFirestore.instance
-                                            .collection('utilisateur')
-                                            .doc(user1!.uid)
-                                            .set({
-                                          "email": email,
-                                          "id": user1!.uid,
-                                          "password": password,
-                                        });
-                                        await FirebaseFirestore.instance
-                                            .collection('utilisateur')
-                                            .doc(user1!.uid)
-                                            .collection('score')
-                                            .doc(user1!.uid)
-                                            .set({"test 1": "0"});
+                                        try {
+                                          await FirebaseFirestore.instance
+                                              .collection('utilisateur')
+                                              .doc(_uid)
+                                              .set({
+                                            "email": email,
+                                            "id": _uid,
+                                            "password": password,
+                                            "prenom": prenom,
+                                            "nom": nom,
+                                          });
+                                          await FirebaseFirestore.instance
+                                              .collection('utilisateur')
+                                              .doc(_uid)
+                                              .collection('score')
+                                              .doc(_uid)
+                                              .set({"test 1": "0"});
+                                        } catch (ex) {
+                                          print(ex);
+                                        }
 
                                         Navigator.push(
                                             context,
                                             MaterialPageRoute(
                                                 builder: (context) =>
-                                                    homeScreen()));
+                                                    loginScreen()));
                                       } on FirebaseAuthException catch (e) {
                                         if (e.code == 'weak-password') {
                                           AnimatedSnackBar.material(
