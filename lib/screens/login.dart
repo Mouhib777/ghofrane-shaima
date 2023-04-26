@@ -32,18 +32,21 @@ class _loginScreenState extends State<loginScreen> {
         ),
       ),
       child: Scaffold(
-        appBar: AppBar(
-          shadowColor: Colors.transparent,
-          backgroundColor: Colors.transparent,
-          foregroundColor: Colors.transparent,
-          surfaceTintColor: Colors.transparent,
-        ),
+        // appBar: AppBar(
+        //   shadowColor: Colors.transparent,
+        //   backgroundColor: Colors.transparent,
+        //   foregroundColor: Colors.transparent,
+        //   surfaceTintColor: Colors.transparent,
+        // ),
         backgroundColor: Colors.transparent,
         body: SingleChildScrollView(
           child: Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                SizedBox(
+                  height: 80,
+                ),
                 FadeInDown(
                   child: SizedBox(
                       child: Image.asset(
@@ -52,12 +55,12 @@ class _loginScreenState extends State<loginScreen> {
                     width: 180,
                   )),
                 ),
-                SizedBox(height: MediaQuery.of(context).size.height * 0.2),
+                SizedBox(height: MediaQuery.of(context).size.height * 0.1),
                 FadeInUpBig(
                   child: Stack(
                     children: [
                       Container(
-                        height: MediaQuery.of(context).size.height * 0.478,
+                        height: MediaQuery.of(context).size.height * 0.8,
                         width: double.infinity,
                         decoration: BoxDecoration(
                           color: Color.fromARGB(113, 255, 255, 255),
