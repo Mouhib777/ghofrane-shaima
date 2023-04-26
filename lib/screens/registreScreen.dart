@@ -218,9 +218,6 @@ class _registreScreenState extends State<registreScreen> {
                                     ),
                                     onPressed: () async {
                                       try {
-                                        final User? userr =
-                                            FirebaseAuth.instance.currentUser;
-                                        final _uid = userr!.uid;
                                         UserCredential user = await FirebaseAuth
                                             .instance
                                             .createUserWithEmailAndPassword(
@@ -229,19 +226,19 @@ class _registreScreenState extends State<registreScreen> {
                                         try {
                                           await FirebaseFirestore.instance
                                               .collection('utilisateur')
-                                              .doc(_uid)
+                                              .doc(user1!.uid)
                                               .set({
                                             "email": email,
-                                            "id": _uid,
+                                            "id": user1!.uid,
                                             "password": password,
                                             "prenom": prenom,
                                             "nom": nom,
                                           });
                                           await FirebaseFirestore.instance
                                               .collection('utilisateur')
-                                              .doc(_uid)
+                                              .doc(user1!.uid)
                                               .collection('score')
-                                              .doc(_uid)
+                                              .doc(user1!.uid)
                                               .set({"test 1": "0"});
                                         } catch (ex) {
                                           print(ex);
@@ -251,7 +248,7 @@ class _registreScreenState extends State<registreScreen> {
                                             context,
                                             MaterialPageRoute(
                                                 builder: (context) =>
-                                                    loginScreen()));
+                                                    homeScreen()));
                                       } on FirebaseAuthException catch (e) {
                                         if (e.code == 'weak-password') {
                                           AnimatedSnackBar.material(
