@@ -616,54 +616,9 @@ class _homeScreenState extends State<homeScreen> {
                                         cour40(),
                                   ),
                                 );
+                              } else {
+                                return null;
                               }
-
-                              // if (courInfo[index].name == 'cour 1') {
-                              //   Navigator.push(
-                              //       context,
-                              //       PageRouteBuilder(
-                              //           pageBuilder: (context, animation,
-                              //                   secondaryAnimation) =>
-                              //               cour1()));
-                              // } else if (courInfo[index].name == 'cour 2') {
-                              //   Navigator.push(
-                              //       context,
-                              //       PageRouteBuilder(
-                              //           pageBuilder: (context, animation,
-                              //                   secondaryAnimation) =>
-                              //               cour2()));
-                              // } else if (courInfo[index].name == 'cour 3') {
-                              //   Navigator.push(
-                              //       context,
-                              //       PageRouteBuilder(
-                              //           pageBuilder: (context, animation,
-                              //                   secondaryAnimation) =>
-                              //               cour3()));
-                              // } else if (courInfo[index].name == 'cour 4') {
-                              //   Navigator.push(
-                              //       context,
-                              //       PageRouteBuilder(
-                              //           pageBuilder: (context, animation,
-                              //                   secondaryAnimation) =>
-                              //               cour4()));
-                              // } else if (courInfo[index].name == 'cour 5') {
-                              //   Navigator.push(
-                              //       context,
-                              //       PageRouteBuilder(
-                              //           pageBuilder: (context, animation,
-                              //                   secondaryAnimation) =>
-                              //               cour5()));
-                              // } else if (courInfo[index].name == 'cour 6') {
-                              //   Navigator.push(
-                              //       context,
-                              //       PageRouteBuilder(
-                              //           pageBuilder: (context, animation,
-                              //                   secondaryAnimation) =>
-                              //               cour6()));
-                              // }
-                              // else {
-                              //   return null;
-                              // }
                             },
                             child: Stack(
                               children: [
