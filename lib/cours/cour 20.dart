@@ -2,18 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 
-class cour2 extends StatefulWidget {
-  const cour2({super.key});
-
+class cour20 extends StatefulWidget {
   @override
-  State<cour2> createState() => _cour2State();
+  State<cour20> createState() => _cour20State();
 }
 
-class _cour2State extends State<cour2> {
+class _cour20State extends State<cour20> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Cour 2 ")),
+      appBar: AppBar(
+        title: Text("Cour 20 "),
+        centerTitle: true,
+      ),
+      body: Column(
+        children: [],
+      ),
     );
   }
 }

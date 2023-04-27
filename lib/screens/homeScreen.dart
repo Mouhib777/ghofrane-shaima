@@ -24,6 +24,31 @@ import '../cours/cour 12.dart';
 import '../cours/cour 13.dart';
 import '../cours/cour 14.dart';
 import '../cours/cour 15.dart';
+import '../cours/cour 16.dart';
+import '../cours/cour 17.dart';
+import '../cours/cour 18.dart';
+import '../cours/cour 19.dart';
+import '../cours/cour 20.dart';
+import '../cours/cour 21.dart';
+import '../cours/cour 22.dart';
+import '../cours/cour 23.dart';
+import '../cours/cour 24.dart';
+import '../cours/cour 25.dart';
+import '../cours/cour 26.dart';
+import '../cours/cour 27.dart';
+import '../cours/cour 28.dart';
+import '../cours/cour 29.dart';
+import '../cours/cour 30.dart';
+import '../cours/cour 31.dart';
+import '../cours/cour 32.dart';
+import '../cours/cour 33.dart';
+import '../cours/cour 34.dart';
+import '../cours/cour 35.dart';
+import '../cours/cour 36.dart';
+import '../cours/cour 37.dart';
+import '../cours/cour 38.dart';
+import '../cours/cour 39.dart';
+import '../cours/cour 40.dart';
 import '../cours/cour 6.dart';
 import '../cours/cour 8.dart';
 import '../cours/cour 9.dart';
@@ -364,6 +389,231 @@ class _homeScreenState extends State<homeScreen> {
                                     pageBuilder: (context, animation,
                                             secondaryAnimation) =>
                                         cour15(),
+                                  ),
+                                );
+                              } else if (courInfo[index].name == 'cour 16') {
+                                Navigator.push(
+                                  context,
+                                  PageRouteBuilder(
+                                    pageBuilder: (context, animation,
+                                            secondaryAnimation) =>
+                                        cour16(),
+                                  ),
+                                );
+                              } else if (courInfo[index].name == 'cour 17') {
+                                Navigator.push(
+                                  context,
+                                  PageRouteBuilder(
+                                    pageBuilder: (context, animation,
+                                            secondaryAnimation) =>
+                                        cour17(),
+                                  ),
+                                );
+                              } else if (courInfo[index].name == 'cour 18') {
+                                Navigator.push(
+                                  context,
+                                  PageRouteBuilder(
+                                    pageBuilder: (context, animation,
+                                            secondaryAnimation) =>
+                                        cour18(),
+                                  ),
+                                );
+                              } else if (courInfo[index].name == 'cour 19') {
+                                Navigator.push(
+                                  context,
+                                  PageRouteBuilder(
+                                    pageBuilder: (context, animation,
+                                            secondaryAnimation) =>
+                                        cour19(),
+                                  ),
+                                );
+                              } else if (courInfo[index].name == 'cour 20') {
+                                Navigator.push(
+                                  context,
+                                  PageRouteBuilder(
+                                    pageBuilder: (context, animation,
+                                            secondaryAnimation) =>
+                                        cour20(),
+                                  ),
+                                );
+                              } else if (courInfo[index].name == 'cour 21') {
+                                Navigator.push(
+                                  context,
+                                  PageRouteBuilder(
+                                    pageBuilder: (context, animation,
+                                            secondaryAnimation) =>
+                                        cour21(),
+                                  ),
+                                );
+                              } else if (courInfo[index].name == 'cour 22') {
+                                Navigator.push(
+                                  context,
+                                  PageRouteBuilder(
+                                    pageBuilder: (context, animation,
+                                            secondaryAnimation) =>
+                                        cour22(),
+                                  ),
+                                );
+                              } else if (courInfo[index].name == 'cour 23') {
+                                Navigator.push(
+                                  context,
+                                  PageRouteBuilder(
+                                    pageBuilder: (context, animation,
+                                            secondaryAnimation) =>
+                                        cour23(),
+                                  ),
+                                );
+                              } else if (courInfo[index].name == 'cour 24') {
+                                Navigator.push(
+                                  context,
+                                  PageRouteBuilder(
+                                    pageBuilder: (context, animation,
+                                            secondaryAnimation) =>
+                                        cour24(),
+                                  ),
+                                );
+                              } else if (courInfo[index].name == 'cour 25') {
+                                Navigator.push(
+                                  context,
+                                  PageRouteBuilder(
+                                    pageBuilder: (context, animation,
+                                            secondaryAnimation) =>
+                                        cour25(),
+                                  ),
+                                );
+                              } else if (courInfo[index].name == 'cour 26') {
+                                Navigator.push(
+                                  context,
+                                  PageRouteBuilder(
+                                    pageBuilder: (context, animation,
+                                            secondaryAnimation) =>
+                                        cour26(),
+                                  ),
+                                );
+                              } else if (courInfo[index].name == 'cour 27') {
+                                Navigator.push(
+                                  context,
+                                  PageRouteBuilder(
+                                    pageBuilder: (context, animation,
+                                            secondaryAnimation) =>
+                                        cour27(),
+                                  ),
+                                );
+                              } else if (courInfo[index].name == 'cour 28') {
+                                Navigator.push(
+                                  context,
+                                  PageRouteBuilder(
+                                    pageBuilder: (context, animation,
+                                            secondaryAnimation) =>
+                                        cour28(),
+                                  ),
+                                );
+                              } else if (courInfo[index].name == 'cour 29') {
+                                Navigator.push(
+                                  context,
+                                  PageRouteBuilder(
+                                    pageBuilder: (context, animation,
+                                            secondaryAnimation) =>
+                                        cour29(),
+                                  ),
+                                );
+                              } else if (courInfo[index].name == 'cour 30') {
+                                Navigator.push(
+                                  context,
+                                  PageRouteBuilder(
+                                    pageBuilder: (context, animation,
+                                            secondaryAnimation) =>
+                                        cour30(),
+                                  ),
+                                );
+                              } else if (courInfo[index].name == 'cour 31') {
+                                Navigator.push(
+                                  context,
+                                  PageRouteBuilder(
+                                    pageBuilder: (context, animation,
+                                            secondaryAnimation) =>
+                                        cour31(),
+                                  ),
+                                );
+                              } else if (courInfo[index].name == 'cour 32') {
+                                Navigator.push(
+                                  context,
+                                  PageRouteBuilder(
+                                    pageBuilder: (context, animation,
+                                            secondaryAnimation) =>
+                                        cour32(),
+                                  ),
+                                );
+                              } else if (courInfo[index].name == 'cour 33') {
+                                Navigator.push(
+                                  context,
+                                  PageRouteBuilder(
+                                    pageBuilder: (context, animation,
+                                            secondaryAnimation) =>
+                                        cour33(),
+                                  ),
+                                );
+                              } else if (courInfo[index].name == 'cour 34') {
+                                Navigator.push(
+                                  context,
+                                  PageRouteBuilder(
+                                    pageBuilder: (context, animation,
+                                            secondaryAnimation) =>
+                                        cour34(),
+                                  ),
+                                );
+                              } else if (courInfo[index].name == 'cour 35') {
+                                Navigator.push(
+                                  context,
+                                  PageRouteBuilder(
+                                    pageBuilder: (context, animation,
+                                            secondaryAnimation) =>
+                                        cour35(),
+                                  ),
+                                );
+                              } else if (courInfo[index].name == 'cour 36') {
+                                Navigator.push(
+                                  context,
+                                  PageRouteBuilder(
+                                    pageBuilder: (context, animation,
+                                            secondaryAnimation) =>
+                                        cour36(),
+                                  ),
+                                );
+                              } else if (courInfo[index].name == 'cour 37') {
+                                Navigator.push(
+                                  context,
+                                  PageRouteBuilder(
+                                    pageBuilder: (context, animation,
+                                            secondaryAnimation) =>
+                                        cour37(),
+                                  ),
+                                );
+                              } else if (courInfo[index].name == 'cour 38') {
+                                Navigator.push(
+                                  context,
+                                  PageRouteBuilder(
+                                    pageBuilder: (context, animation,
+                                            secondaryAnimation) =>
+                                        cour38(),
+                                  ),
+                                );
+                              } else if (courInfo[index].name == 'cour 39') {
+                                Navigator.push(
+                                  context,
+                                  PageRouteBuilder(
+                                    pageBuilder: (context, animation,
+                                            secondaryAnimation) =>
+                                        cour39(),
+                                  ),
+                                );
+                              } else if (courInfo[index].name == 'cour 40') {
+                                Navigator.push(
+                                  context,
+                                  PageRouteBuilder(
+                                    pageBuilder: (context, animation,
+                                            secondaryAnimation) =>
+                                        cour40(),
                                   ),
                                 );
                               }
