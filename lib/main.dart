@@ -1,4 +1,5 @@
-import 'package:e_learning/cours/cour1.dart';
+import 'package:e_learning/cours/cour%201.dart';
+import 'package:e_learning/screens/homeScreen.dart';
 import 'package:e_learning/screens/login.dart';
 import 'package:e_learning/screens/registreScreen.dart';
 import 'package:e_learning/screens/splashScreen.dart';
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
       // theme: ThemeData(
       //   primarySwatch: Colors.blue,
       // ),
-      home: cour1(),
+      home: homeScreen(),
     );
   }
 }
