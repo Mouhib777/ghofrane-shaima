@@ -12,7 +12,7 @@ class _cour13State extends State<cour13> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Cour 12 "),
+        title: Text("Cour 13 "),
         centerTitle: true,
       ),
       body: Column(
