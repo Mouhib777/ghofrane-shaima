@@ -208,7 +208,7 @@ class _homeScreenState extends State<homeScreen> {
                         itemCount: courInfo.length,
                         itemWidth: MediaQuery.of(context).size.width,
                         itemHeight: MediaQuery.of(context).size.height,
-                        layout: SwiperLayout.TINDER,
+                        layout: SwiperLayout.DEFAULT,
                         pagination: SwiperPagination(
                             builder: DotSwiperPaginationBuilder(
                                 color: Colors.pink,
@@ -263,16 +263,16 @@ class _homeScreenState extends State<homeScreen> {
                                     ),
                                   ],
                                 ),
-                                // Padding(
-                                //   padding: const EdgeInsets.only(
-                                //       left: 140, top: 100),
-                                //   child: Hero(
-                                //       tag: courInfo[index].position,
-                                //       child: Image.asset(
-                                //         courInfo[index].iconImage,
-                                //         height: 150,
-                                //       )),
-                                // )
+                                Padding(
+                                  padding: const EdgeInsets.only(
+                                      left: 140, top: 100),
+                                  child: Hero(
+                                      tag: courInfo[index].position,
+                                      child: Image.asset(
+                                        courInfo[index].iconImage,
+                                        height: 150,
+                                      )),
+                                )
                               ],
                             ),
                           );
