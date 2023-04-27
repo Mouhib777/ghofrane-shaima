@@ -3,8 +3,6 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 
 class cour8 extends StatefulWidget {
-  // const cour1({super.key});
-
   @override
   State<cour8> createState() => _cour8State();
 }

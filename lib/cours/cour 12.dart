@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 
-class cour1 extends StatefulWidget {
-  const cour1({super.key});
+class cour12 extends StatefulWidget {
+  // const cour21({super.key});
 
   @override
-  State<cour1> createState() => _cour1State();
+  State<cour12> createState() => _cour12State();
 }
 
-class _cour1State extends State<cour1> {
+class _cour12State extends State<cour12> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,9 +18,7 @@ class _cour1State extends State<cour1> {
         centerTitle: true,
       ),
       body: Column(
-        children: [
-          
-        ],
+        children: [],
       ),
     );
   }
