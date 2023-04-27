@@ -210,11 +210,12 @@ class _homeScreenState extends State<homeScreen> {
                         itemHeight: MediaQuery.of(context).size.height,
                         layout: SwiperLayout.DEFAULT,
                         pagination: SwiperPagination(
-                            builder: DotSwiperPaginationBuilder(
-                                color: Colors.pink,
-                                activeColor: Colors.blue,
-                                activeSize: 12,
-                                space: 4)),
+                            builder: FractionPaginationBuilder(
+                          color: Colors.grey,
+                          activeColor: Colors.pink,
+                          // activeSize: 12,
+                          // space: 2
+                        )),
                         itemBuilder: (context, index) {
                           return InkWell(
                             onTap: () {
