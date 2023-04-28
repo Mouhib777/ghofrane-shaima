@@ -158,7 +158,7 @@ class _cour1State extends State<cour1> {
             ),
             content: Column(
               children: [
-                Image.asset("assets/images/6.png"),
+                Image.asset("assets/images/7.png"),
                 SizedBox(
                   height: 20,
                 ),
