@@ -108,7 +108,7 @@ class _cour1State extends State<cour1> {
                 height: 35,
               ),
               Text(
-                "Bon nuit",
+                "Bonne nuit",
                 style: GoogleFonts.montserrat(fontSize: 25, letterSpacing: 4),
               ),
               SizedBox(

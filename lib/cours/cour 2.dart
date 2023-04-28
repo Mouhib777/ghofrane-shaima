@@ -13,7 +13,10 @@ class _cour2State extends State<cour2> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Cour 2 ")),
+      appBar: AppBar(
+        title: Text("L'état civil et la nationalité :"),
+        centerTitle: true,
+      ),
     );
   }
 }
