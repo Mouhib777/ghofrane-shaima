@@ -296,12 +296,12 @@ class _cour1State extends State<cour1> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     SizedBox(
-                      width: 100,
+                      width: 130,
                       child: Expanded(
                           child: ElevatedButton(
                         onPressed: ControlsDetails.onStepContinue,
                         child: Text(
-                          lastStep ? 'Confirmer' : 'Suivant',
+                          lastStep ? 'Cour suivant' : 'Suivant',
                           style: GoogleFonts.raleway(),
                         ),
                         style: ElevatedButton.styleFrom(
