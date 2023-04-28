@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
@@ -24,7 +25,7 @@ class _cour5State extends State<cour5> {
       ),
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Image.asset(
               "assets/images/15.png",
@@ -32,16 +33,58 @@ class _cour5State extends State<cour5> {
             SizedBox(
               height: 20,
             ),
-            Text(
-              "Les parents",
-              style: GoogleFonts.montserrat(
-                  letterSpacing: 4, fontSize: 18, fontWeight: FontWeight.bold),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  "Les parents",
+                  style: GoogleFonts.montserrat(
+                      letterSpacing: 4,
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold),
+                ),
+                SizedBox(
+                  width: 20,
+                ),
+                IconButton(
+                  onPressed: () {},
+                  icon: Icon(
+                    CupertinoIcons.speaker_3_fill,
+                    size: 40,
+                  ),
+                ),
+              ],
             ),
             SizedBox(
               height: 40,
             ),
             Image.asset(
               "assets/images/16.png",
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  "Les enfants",
+                  style: GoogleFonts.montserrat(
+                      letterSpacing: 4,
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold),
+                ),
+                SizedBox(
+                  width: 20,
+                ),
+                IconButton(
+                  onPressed: () {},
+                  icon: Icon(
+                    CupertinoIcons.speaker_3_fill,
+                    size: 40,
+                  ),
+                ),
+              ],
             ),
           ],
         ),

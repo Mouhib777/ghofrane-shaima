@@ -28,6 +28,9 @@ class _cour2State extends State<cour2> {
                 "assets/images/12.png",
                 height: 155,
               ),
+              SizedBox(
+                height: 50,
+              ),
               Text(
                 "• Nom* : Dupont\n• Prénom : Éric\n• Sexe : Masculin (un homme) Féminin (une femme)\n• Né(e) le : 22 février 1995**\n• À : New Delhi (Inde)\n• Nationalité : indienne",
                 style: GoogleFonts.montserrat(fontSize: 16),
