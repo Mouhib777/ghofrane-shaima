@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
+
 import 'package:google_fonts/google_fonts.dart';
 
 class cour1 extends StatefulWidget {
@@ -94,7 +93,7 @@ class _cour1State extends State<cour1> {
           state: currentStep > 2 ? StepState.complete : StepState.indexed,
           isActive: currentStep >= 1,
           title: Text(
-            'Bonsoir',
+            'Bon nuit',
             style: GoogleFonts.raleway(fontSize: 12),
           ),
           content: Column(
