@@ -22,7 +22,7 @@ class _cour2State extends State<cour2> {
             style: GoogleFonts.raleway(fontSize: 12),
           ),
           content: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Image.asset(
                 "assets/images/12.png",
@@ -33,10 +33,7 @@ class _cour2State extends State<cour2> {
                 style: GoogleFonts.montserrat(fontSize: 16),
               ),
               SizedBox(
-                height: 35,
-              ),
-              SizedBox(
-                height: 35,
+                height: 85,
               ),
               IconButton(
                 onPressed: () {},
@@ -69,15 +66,15 @@ class _cour2State extends State<cour2> {
             steps: getSteps(),
             currentStep: currentStep,
             onStepContinue: () {
-              final lastStep = currentStep == getSteps().length - 1;
+              // final lastStep = currentStep == getSteps().length - 1;
 
-              if (lastStep) {
-                print('okk');
-              } else {
-                setState(() {
-                  currentStep += 1;
-                });
-              }
+              // if (lastStep) {
+              //   print('okk');
+              // } else {
+              //   setState(() {
+              //     currentStep += 1;
+              //   });
+              // }
             },
             onStepCancel: () {
               currentStep == 0
