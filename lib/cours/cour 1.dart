@@ -170,6 +170,28 @@ class _cour1State extends State<cour1> {
                   ),
                 ),
               ],
+            )),
+        Step(
+            state: currentStep > 5 ? StepState.complete : StepState.indexed,
+            isActive: currentStep >= 1,
+            title: Text(
+              '',
+              style: GoogleFonts.raleway(fontSize: 12),
+            ),
+            content: Column(
+              children: [
+                Image.asset("assets/images/7.png"),
+                SizedBox(
+                  height: 20,
+                ),
+                IconButton(
+                  onPressed: () {},
+                  icon: Icon(
+                    CupertinoIcons.speaker_3_fill,
+                    size: 40,
+                  ),
+                ),
+              ],
             ))
       ];
   @override
