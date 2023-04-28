@@ -77,7 +77,7 @@ class _loginScreenState extends State<loginScreen> {
                               Text(
                                 "Se connecter",
                                 style: GoogleFonts.montserrat(
-                                    fontSize: 40,
+                                    fontSize: 30,
                                     letterSpacing: 3,
                                     fontWeight: FontWeight.bold,
                                     color: Color.fromARGB(197, 255, 255, 255)),
