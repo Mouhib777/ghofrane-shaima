@@ -253,6 +253,56 @@ class _cour1State extends State<cour1> {
                 ),
               ],
             )),
+        Step(
+            state: currentStep > 8 ? StepState.complete : StepState.indexed,
+            isActive: currentStep >= 1,
+            title: Text(
+              '',
+              style: GoogleFonts.raleway(fontSize: 12),
+            ),
+            content: Column(
+              children: [
+                Image.asset(
+                  "assets/images/10.png",
+                  height: 150,
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                IconButton(
+                  onPressed: () {},
+                  icon: Icon(
+                    CupertinoIcons.speaker_3_fill,
+                    size: 40,
+                  ),
+                ),
+              ],
+            )),
+        Step(
+            state: currentStep > 9 ? StepState.complete : StepState.indexed,
+            isActive: currentStep >= 1,
+            title: Text(
+              '',
+              style: GoogleFonts.raleway(fontSize: 12),
+            ),
+            content: Column(
+              children: [
+                Image.asset(
+                  "assets/images/11.png",
+                  height: 150,
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                IconButton(
+                  onPressed: () {},
+                  icon: Icon(
+                    CupertinoIcons.speaker_3_fill,
+                    size: 40,
+                  ),
+                ),
+              ],
+            )),
       ];
   @override
   Widget build(BuildContext context) {
@@ -306,7 +356,7 @@ class _cour1State extends State<cour1> {
                         ),
                         style: ElevatedButton.styleFrom(
                             backgroundColor:
-                                lastStep ? Colors.blue : Colors.pink,
+                                lastStep ? Colors.pinkAccent : Colors.pink,
                             shape: RoundedRectangleBorder(
                                 side: BorderSide.none,
                                 borderRadius: BorderRadius.circular(15))),
