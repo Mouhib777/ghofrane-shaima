@@ -136,7 +136,11 @@ class _cour1State extends State<cour1> {
             ),
             content: Column(
               children: [
-                Image.asset("assets/images/5.png"),
+                Image.asset(
+                  "assets/images/5.png",
+                  height: 155,
+                  // width: 380,
+                ),
                 SizedBox(
                   height: 20,
                 ),
@@ -158,7 +162,10 @@ class _cour1State extends State<cour1> {
             ),
             content: Column(
               children: [
-                Image.asset("assets/images/7.png"),
+                Image.asset(
+                  "assets/images/6.png",
+                  height: 155,
+                ),
                 SizedBox(
                   height: 20,
                 ),
@@ -180,7 +187,10 @@ class _cour1State extends State<cour1> {
             ),
             content: Column(
               children: [
-                Image.asset("assets/images/7.png"),
+                Image.asset(
+                  "assets/images/7.png",
+                  height: 150,
+                ),
                 SizedBox(
                   height: 20,
                 ),
