@@ -131,10 +131,46 @@ class _cour1State extends State<cour1> {
             state: currentStep > 3 ? StepState.complete : StepState.indexed,
             isActive: currentStep >= 1,
             title: Text(
-              'Bonsoir',
+              '',
               style: GoogleFonts.raleway(fontSize: 12),
             ),
-            content: Container())
+            content: Column(
+              children: [
+                Image.asset("assets/images/5.png"),
+                SizedBox(
+                  height: 20,
+                ),
+                IconButton(
+                  onPressed: () {},
+                  icon: Icon(
+                    CupertinoIcons.speaker_3_fill,
+                    size: 40,
+                  ),
+                ),
+              ],
+            )),
+        Step(
+            state: currentStep > 4 ? StepState.complete : StepState.indexed,
+            isActive: currentStep >= 1,
+            title: Text(
+              '',
+              style: GoogleFonts.raleway(fontSize: 12),
+            ),
+            content: Column(
+              children: [
+                Image.asset("assets/images/6.png"),
+                SizedBox(
+                  height: 20,
+                ),
+                IconButton(
+                  onPressed: () {},
+                  icon: Icon(
+                    CupertinoIcons.speaker_3_fill,
+                    size: 40,
+                  ),
+                ),
+              ],
+            ))
       ];
   @override
   Widget build(BuildContext context) {
