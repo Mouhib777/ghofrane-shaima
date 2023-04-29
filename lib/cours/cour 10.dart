@@ -65,6 +65,27 @@ class _cour10State extends State<cour10> {
                     size: 40,
                   ),
                 ),
+                SizedBox(
+                  height: 30,
+                ),
+                Image.asset("assets/images/30-removebg-preview.png"),
+                SizedBox(
+                  height: 30,
+                ),
+                Text(
+                  "Les saisons dans l'hémisphère nord ",
+                  style: GoogleFonts.montserrat(),
+                ),
+                IconButton(
+                  onPressed: () {},
+                  icon: Icon(
+                    CupertinoIcons.speaker_3_fill,
+                    size: 40,
+                  ),
+                ),
+                SizedBox(
+                  height: 30,
+                )
               ])),
         ));
   }
