@@ -85,7 +85,51 @@ class _cour10State extends State<cour10> {
                 ),
                 SizedBox(
                   height: 30,
-                )
+                ),
+                Image.asset("assets/images/31-removebg-preview.png"),
+                SizedBox(
+                  height: 30,
+                ),
+                Text(
+                  "le printemps (avril, mai, juin) ",
+                  style: GoogleFonts.montserrat(),
+                ),
+                SizedBox(
+                  height: 30,
+                ),
+                Image.asset("assets/images/32-removebg-preview.png"),
+                SizedBox(
+                  height: 30,
+                ),
+                Text(
+                  "l'été (juillet, août, septembre)",
+                  style: GoogleFonts.montserrat(),
+                ),
+                SizedBox(
+                  height: 30,
+                ),
+                Image.asset("assets/images/33-removebg-preview.png"),
+                SizedBox(
+                  height: 30,
+                ),
+                Text(
+                  "l'automne (octobre, novembre, décembre) ",
+                  style: GoogleFonts.montserrat(),
+                ),
+                SizedBox(
+                  height: 30,
+                ),
+                Image.asset("assets/images/34-removebg-preview.png"),
+                SizedBox(
+                  height: 30,
+                ),
+                Text(
+                  "l'hiver (janvier, février, mars) ",
+                  style: GoogleFonts.montserrat(),
+                ),
+                SizedBox(
+                  height: 40,
+                ),
               ])),
         ));
   }
