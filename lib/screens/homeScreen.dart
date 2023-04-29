@@ -1,5 +1,6 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:card_swiper/card_swiper.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:e_learning/Model/cour.dart';
 import 'package:e_learning/cours/cour%201.dart';
 import 'package:e_learning/cours/cour%202.dart';
@@ -61,6 +62,9 @@ class homeScreen extends StatefulWidget {
 }
 
 class _homeScreenState extends State<homeScreen> {
+  final CollectionReference collectionRef =
+      FirebaseFirestore.instance.collection('cours');
+
   List<Container> cards = [
     Container(
       alignment: Alignment.center,
@@ -651,6 +655,15 @@ class _homeScreenState extends State<homeScreen> {
                 )),
           )),
     );
+  }
+
+  void getCourNumber() {
+    var collectionRef = FirebaseFirestore.instance
+        .collection('cours')
+        .get()
+        .then((querySnapshot) {
+      final int numOfCours = querySnapshot.size;
+    });
   }
 
   void _handleMenuButtonPressed() {
