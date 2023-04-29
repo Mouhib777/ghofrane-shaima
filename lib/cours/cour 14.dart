@@ -20,16 +20,19 @@ class _cour14State extends State<cour14> {
         ),
         centerTitle: true,
       ),
-      body: Center(
-        child: SingleChildScrollView(
+      body: SingleChildScrollView(
+        child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              SizedBox(
+                height: 80,
+              ),
               Image.asset(
                 "assets/images/64-removebg-preview.png",
               ),
               SizedBox(
-                height: 20,
+                height: 40,
               ),
               IconButton(
                 onPressed: () {},
@@ -39,13 +42,13 @@ class _cour14State extends State<cour14> {
                 ),
               ),
               SizedBox(
-                height: 20,
+                height: 50,
               ),
               Image.asset(
                 "assets/images/65-removebg-preview.png",
               ),
               SizedBox(
-                height: 20,
+                height: 40,
               ),
               IconButton(
                 onPressed: () {},
