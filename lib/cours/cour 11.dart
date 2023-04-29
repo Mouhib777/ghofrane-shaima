@@ -96,6 +96,11 @@ class _cour11State extends State<cour11> {
               SizedBox(
                 height: 35,
               ),
+              Text(
+                "Il pleut\n#Il ne pleut pas",
+                textAlign: TextAlign.center,
+                style: GoogleFonts.montserrat(),
+              ),
               SizedBox(
                 height: 35,
               ),
@@ -125,6 +130,11 @@ class _cour11State extends State<cour11> {
                 SizedBox(
                   height: 20,
                 ),
+                Text(
+                  "Il y a du vent\n#Il n'y a pas de vent",
+                  textAlign: TextAlign.center,
+                  style: GoogleFonts.montserrat(),
+                ),
                 IconButton(
                   onPressed: () {},
                   icon: Icon(
@@ -150,6 +160,11 @@ class _cour11State extends State<cour11> {
                 SizedBox(
                   height: 20,
                 ),
+                Text(
+                  " Il y a des nuages\n# Il n'y a pas de nuages",
+                  textAlign: TextAlign.center,
+                  style: GoogleFonts.montserrat(),
+                ),
                 IconButton(
                   onPressed: () {},
                   icon: Icon(
@@ -170,10 +185,14 @@ class _cour11State extends State<cour11> {
               children: [
                 Image.asset(
                   "assets/images/39-removebg-preview.png",
-                  height: 150,
                 ),
                 SizedBox(
                   height: 20,
+                ),
+                Text(
+                  "• Il neige (action).\n # Il ne neige pas\n• Il y a de la neige (résultat).\n # Il n'y a pas de neige.",
+                  textAlign: TextAlign.center,
+                  style: GoogleFonts.montserrat(),
                 ),
                 IconButton(
                   onPressed: () {},
