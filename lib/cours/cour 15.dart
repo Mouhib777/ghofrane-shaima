@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
@@ -19,8 +20,46 @@ class _cour15State extends State<cour15> {
         ),
         centerTitle: true,
       ),
-      body: Column(
-        children: [],
+      body: SingleChildScrollView(
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SizedBox(
+                height: 80,
+              ),
+              Image.asset(
+                "assets/images/66-removebg-preview.png",
+              ),
+              SizedBox(
+                height: 40,
+              ),
+              IconButton(
+                onPressed: () {},
+                icon: Icon(
+                  CupertinoIcons.speaker_3_fill,
+                  size: 40,
+                ),
+              ),
+              SizedBox(
+                height: 50,
+              ),
+              Image.asset(
+                "assets/images/67-removebg-preview.png",
+              ),
+              SizedBox(
+                height: 40,
+              ),
+              IconButton(
+                onPressed: () {},
+                icon: Icon(
+                  CupertinoIcons.speaker_3_fill,
+                  size: 40,
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
