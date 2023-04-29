@@ -25,8 +25,6 @@ class _cour1State extends State<cour1> {
             children: [
               Image.asset(
                 "assets/images/sunny.png",
-                height: 100,
-                width: 100,
               ),
               SizedBox(
                 height: 35,
@@ -63,8 +61,6 @@ class _cour1State extends State<cour1> {
             children: [
               Image.asset(
                 "assets/images/half-moon.png",
-                height: 100,
-                width: 100,
               ),
               SizedBox(
                 height: 35,
@@ -93,7 +89,7 @@ class _cour1State extends State<cour1> {
           state: currentStep > 2 ? StepState.complete : StepState.indexed,
           isActive: currentStep >= 1,
           title: Text(
-            'Bon nuit',
+            'Bonne nuit',
             style: GoogleFonts.raleway(fontSize: 12),
           ),
           content: Column(
@@ -101,8 +97,6 @@ class _cour1State extends State<cour1> {
             children: [
               Image.asset(
                 "assets/images/day.png",
-                height: 80,
-                width: 100,
               ),
               SizedBox(
                 height: 35,
