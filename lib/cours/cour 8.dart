@@ -21,24 +21,42 @@ class _cour8State extends State<cour8> {
         ),
         centerTitle: true,
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Image.asset(
-              "assets/images/19.png",
-            ),
-            SizedBox(
-              height: 30,
-            ),
-            IconButton(
-              onPressed: () {},
-              icon: Icon(
-                CupertinoIcons.speaker_3_fill,
-                size: 40,
+      body: SingleChildScrollView(
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Image.asset(
+                "assets/images/19.png",
               ),
-            ),
-          ],
+              SizedBox(
+                height: 30,
+              ),
+              IconButton(
+                onPressed: () {},
+                icon: Icon(
+                  CupertinoIcons.speaker_3_fill,
+                  size: 40,
+                ),
+              ),
+              SizedBox(
+                height: 30,
+              ),
+              Image.asset(
+                "assets/images/18-5.png",
+              ),
+              SizedBox(
+                height: 30,
+              ),
+              IconButton(
+                onPressed: () {},
+                icon: Icon(
+                  CupertinoIcons.speaker_3_fill,
+                  size: 40,
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
