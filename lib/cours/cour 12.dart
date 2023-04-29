@@ -31,7 +31,7 @@ class _cour12State extends State<cour12> {
                 height: 40,
               ),
               Image.asset(
-                "assets/images/40-removebg-preview.png",
+                "assets/images/41-removebg-preview.png",
               ),
               SizedBox(
                 height: 60,
@@ -47,7 +47,7 @@ class _cour12State extends State<cour12> {
                 height: 60,
               ),
               Image.asset(
-                "assets/images/41-removebg-preview.png",
+                "assets/images/42-removebg-preview.png",
               ),
               SizedBox(
                 height: 30,
