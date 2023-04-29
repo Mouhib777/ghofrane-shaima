@@ -60,6 +60,15 @@ class _cour11State extends State<cour11> {
               SizedBox(
                 height: 35,
               ),
+              Text(
+                "Il y a du soleil = Il fait beau.\n#Il n'y a pas de soleil.",
+                textAlign: TextAlign.center,
+                style: GoogleFonts.montserrat(),
+              ),
+              SizedBox(
+                height: 35,
+              ),
+
               IconButton(
                 onPressed: () {},
                 icon: Icon(
