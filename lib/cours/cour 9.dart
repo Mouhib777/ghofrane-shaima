@@ -81,7 +81,7 @@ class _cour9State extends State<cour9> {
           isActive: currentStep >= 1,
           title: Text(
             'Il est une heure',
-            style: GoogleFonts.raleway(fontSize: 12),
+            style: GoogleFonts.raleway(fontSize: 16),
           ),
           content: Column(
             mainAxisAlignment: MainAxisAlignment.start,
@@ -112,13 +112,13 @@ class _cour9State extends State<cour9> {
             state: currentStep > 3 ? StepState.complete : StepState.indexed,
             isActive: currentStep >= 1,
             title: Text(
-              '',
-              style: GoogleFonts.raleway(fontSize: 12),
+              'II est trois heures vingt',
+              style: GoogleFonts.raleway(fontSize: 16),
             ),
             content: Column(
               children: [
                 Image.asset(
-                  "assets/images/5.png",
+                  "assets/images/23.png",
                   height: 155,
                   // width: 380,
                 ),
@@ -138,13 +138,13 @@ class _cour9State extends State<cour9> {
             state: currentStep > 4 ? StepState.complete : StepState.indexed,
             isActive: currentStep >= 1,
             title: Text(
-              '',
-              style: GoogleFonts.raleway(fontSize: 12),
+              'Il est six heures moins le quart.',
+              style: GoogleFonts.raleway(fontSize: 16),
             ),
             content: Column(
               children: [
                 Image.asset(
-                  "assets/images/6.png",
+                  "assets/images/24-removebg-preview.png",
                   height: 155,
                 ),
                 SizedBox(
@@ -163,13 +163,13 @@ class _cour9State extends State<cour9> {
             state: currentStep > 5 ? StepState.complete : StepState.indexed,
             isActive: currentStep >= 1,
             title: Text(
-              '',
-              style: GoogleFonts.raleway(fontSize: 12),
+              '00:00 minuit',
+              style: GoogleFonts.raleway(fontSize: 16),
             ),
             content: Column(
               children: [
                 Image.asset(
-                  "assets/images/7.png",
+                  "assets/images/25-removebg-preview.png",
                   height: 150,
                 ),
                 SizedBox(
@@ -188,88 +188,13 @@ class _cour9State extends State<cour9> {
             state: currentStep > 6 ? StepState.complete : StepState.indexed,
             isActive: currentStep >= 1,
             title: Text(
-              '',
-              style: GoogleFonts.raleway(fontSize: 12),
+              '12:00 midi',
+              style: GoogleFonts.raleway(fontSize: 16),
             ),
             content: Column(
               children: [
                 Image.asset(
-                  "assets/images/8.png",
-                  height: 150,
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                IconButton(
-                  onPressed: () {},
-                  icon: Icon(
-                    CupertinoIcons.speaker_3_fill,
-                    size: 40,
-                  ),
-                ),
-              ],
-            )),
-        Step(
-            state: currentStep > 7 ? StepState.complete : StepState.indexed,
-            isActive: currentStep >= 1,
-            title: Text(
-              '',
-              style: GoogleFonts.raleway(fontSize: 12),
-            ),
-            content: Column(
-              children: [
-                Image.asset(
-                  "assets/images/9.png",
-                  height: 150,
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                IconButton(
-                  onPressed: () {},
-                  icon: Icon(
-                    CupertinoIcons.speaker_3_fill,
-                    size: 40,
-                  ),
-                ),
-              ],
-            )),
-        Step(
-            state: currentStep > 8 ? StepState.complete : StepState.indexed,
-            isActive: currentStep >= 1,
-            title: Text(
-              '',
-              style: GoogleFonts.raleway(fontSize: 12),
-            ),
-            content: Column(
-              children: [
-                Image.asset(
-                  "assets/images/10.png",
-                  height: 150,
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                IconButton(
-                  onPressed: () {},
-                  icon: Icon(
-                    CupertinoIcons.speaker_3_fill,
-                    size: 40,
-                  ),
-                ),
-              ],
-            )),
-        Step(
-            state: currentStep > 9 ? StepState.complete : StepState.indexed,
-            isActive: currentStep >= 1,
-            title: Text(
-              '',
-              style: GoogleFonts.raleway(fontSize: 12),
-            ),
-            content: Column(
-              children: [
-                Image.asset(
-                  "assets/images/11.png",
+                  "assets/images/26-removebg-preview.png",
                   height: 150,
                 ),
                 SizedBox(
@@ -331,12 +256,12 @@ class _cour9State extends State<cour9> {
                           child: ElevatedButton(
                         onPressed: ControlsDetails.onStepContinue,
                         child: Text(
-                          lastStep ? 'Cour suivant' : 'Suivant',
+                          lastStep ? '' : 'Suivant',
                           style: GoogleFonts.raleway(),
                         ),
                         style: ElevatedButton.styleFrom(
                             backgroundColor:
-                                lastStep ? Colors.pinkAccent : Colors.pink,
+                                lastStep ? Colors.white : Colors.pink,
                             shape: RoundedRectangleBorder(
                                 side: BorderSide.none,
                                 borderRadius: BorderRadius.circular(15))),
