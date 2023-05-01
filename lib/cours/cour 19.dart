@@ -13,7 +13,7 @@ class _cour19State extends State<cour19> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Cour 19 ")),
+      appBar: AppBar(title: Text("À la boulangerie")),
     );
   }
 }
