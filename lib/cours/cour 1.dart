@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -11,13 +12,32 @@ class cour1 extends StatefulWidget {
 }
 
 class _cour1State extends State<cour1> {
+  //! edheya fonction li shtjib données mn database
+  var cour_data;
+
+  @override
+  void initState() {
+    getUser_Data();
+    super.initState();
+  }
+
+  Future<DocumentSnapshot> getUser_Data() async {
+    var result1 =
+        await FirebaseFirestore.instance.collection('cours').doc("1").get();
+    setState(() {
+      cour_data = result1;
+    });
+    return result1;
+  }
+  //! end
+
   int currentStep = 0;
   List<Step> getSteps() => [
         Step(
           state: currentStep > 0 ? StepState.complete : StepState.indexed,
           isActive: currentStep >= 0,
           title: Text(
-            'Bonjour',
+            "",
             style: GoogleFonts.raleway(fontSize: 12),
           ),
           content: Column(
@@ -30,7 +50,7 @@ class _cour1State extends State<cour1> {
                 height: 35,
               ),
               Text(
-                "Bonjour",
+                cour_data["text1"],
                 style: GoogleFonts.montserrat(fontSize: 25, letterSpacing: 4),
               ),
               SizedBox(
