@@ -20,9 +20,16 @@ class _cour20State extends State<cour20> {
         centerTitle: true,
       ),
       body: SingleChildScrollView(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [],
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              SizedBox(
+                height: 30,
+              ),
+              Image.asset("assets/images/111-removebg-preview.png")
+            ],
+          ),
         ),
       ),
     );
