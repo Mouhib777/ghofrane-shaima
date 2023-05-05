@@ -173,8 +173,7 @@ class _loginScreenState extends State<loginScreen> {
                                             .signInWithEmailAndPassword(
                                                 email: email!.trim(),
                                                 password: password!.trim());
-                                        if (email ==
-                                                'admin@quebec_center.com' &&
+                                        if (email == 'admin@quebeccenter.com' &&
                                             password == 'quebec_center2023') {
                                           Navigator.push(
                                               context,
