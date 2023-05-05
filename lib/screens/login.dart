@@ -6,6 +6,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class loginScreen extends StatefulWidget {
@@ -168,14 +169,15 @@ class _loginScreenState extends State<loginScreen> {
                                       }
                                       if (email == 'admin@quebeccenter.com' &&
                                           password == 'quebec_center2023') {
+                                        EasyLoading.showInfo(
+                                            "Entrer en mode admin");
                                         Navigator.push(
                                             context,
                                             MaterialPageRoute(
-                                                builder: (context) =>
-                                                    homeScreen(
-                                                      isAdmin: true,
-                                                    ),
-                                                maintainState: false));
+                                              builder: (context) => homeScreen(
+                                                isAdmin: "true",
+                                              ),
+                                            ));
                                       } else {
                                         //EasyLoading.showToast('Loading...');
                                         try {
@@ -193,7 +195,7 @@ class _loginScreenState extends State<loginScreen> {
                                               MaterialPageRoute(
                                                 builder: (context) =>
                                                     homeScreen(
-                                                  isAdmin: false,
+                                                  isAdmin: "false",
                                                 ),
                                               ));
                                         } on FirebaseAuthException catch (ex) {

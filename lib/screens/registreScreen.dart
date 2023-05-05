@@ -249,7 +249,7 @@ class _registreScreenState extends State<registreScreen> {
                                             MaterialPageRoute(
                                                 builder: (context) =>
                                                     homeScreen(
-                                                      isAdmin: false,
+                                                      isAdmin: "false",
                                                     )));
                                       } on FirebaseAuthException catch (e) {
                                         if (e.code == 'weak-password') {

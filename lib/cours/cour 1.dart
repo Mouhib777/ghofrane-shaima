@@ -1,11 +1,17 @@
+import 'dart:math';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
+
+import '../provider/image.dart';
 
 class cour1 extends StatefulWidget {
-  final bool? isAdmin;
+  final String? isAdmin;
   const cour1({super.key, required this.isAdmin});
 
   @override
@@ -13,6 +19,17 @@ class cour1 extends StatefulWidget {
 }
 
 class _cour1State extends State<cour1> {
+  picture _image = picture();
+
+  final Random _random = Random();
+  String? imageUrl1;
+
+  String generateRandomName(int length) {
+    const chars = 'abcdefghijklmnopqrstuvwxyz0123456789';
+    return String.fromCharCodes(Iterable.generate(
+        length, (_) => chars.codeUnitAt(_random.nextInt(chars.length))));
+  }
+
   //! edheya fonction li shtjib données mn database
   var cour_data;
 
@@ -45,7 +62,13 @@ class _cour1State extends State<cour1> {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               InkWell(
-                onTap: () async {},
+                onLongPress: () {
+                  if (widget.isAdmin == 'true') {
+                    _image.addGallery();
+                  } else {
+                    EasyLoading.showError("Vous n'etes pas adminstrateur");
+                  }
+                },
                 child: Image.network(
                   //! lezem tkoun image.network
                   //? cour_data["ismha fil firestore"]
@@ -318,6 +341,7 @@ class _cour1State extends State<cour1> {
       ];
   @override
   Widget build(BuildContext context) {
+    final image = Provider.of<picture>(context, listen: false);
     return Scaffold(
         appBar: AppBar(
           title: Text(

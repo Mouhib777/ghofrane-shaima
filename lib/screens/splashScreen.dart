@@ -34,7 +34,7 @@ class _splashSCreenState extends State<splashSCreen> {
               context,
               MaterialPageRoute(
                   builder: (context) => homeScreen(
-                        isAdmin: false,
+                        isAdmin: "false",
                       )));
         }
       });

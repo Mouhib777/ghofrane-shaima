@@ -1,10 +1,13 @@
 import 'package:e_learning/cours/cour%201.dart';
+import 'package:e_learning/provider/image.dart';
 import 'package:e_learning/screens/homeScreen.dart';
 import 'package:e_learning/screens/login.dart';
 import 'package:e_learning/screens/registreScreen.dart';
 import 'package:e_learning/screens/splashScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:provider/provider.dart';
 import 'firebase_options.dart';
 
 void main() async {
@@ -12,7 +15,9 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  runApp(MyApp());
+  runApp(MultiProvider(
+      providers: [ChangeNotifierProvider(create: (_) => picture())],
+      child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -23,12 +28,13 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'ghofrane+shaima',
+      builder: EasyLoading.init(),
       // theme: ThemeData(
       //   primarySwatch: Colors.blue,
       // ),
-      home: homeScreen(
-        isAdmin: false,
-      ),
+      home: splashSCreen(
+          // isAdmin: false,
+          ),
     );
   }
 }
