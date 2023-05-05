@@ -189,11 +189,11 @@ class _loginScreenState extends State<loginScreen> {
                                           Navigator.push(
                                               context,
                                               MaterialPageRoute(
-                                                  builder: (context) =>
-                                                      homeScreen(
-                                                        isAdmin: false,
-                                                      ),
-                                                  maintainState: false));
+                                                builder: (context) =>
+                                                    homeScreen(
+                                                  isAdmin: false,
+                                                ),
+                                              ));
                                         }
                                       } on FirebaseAuthException catch (ex) {
                                         if (ex.code == 'user-not-found') {

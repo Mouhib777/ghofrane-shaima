@@ -31,7 +31,11 @@ class _splashSCreenState extends State<splashSCreen> {
           );
         } else {
           Navigator.push(
-              context, MaterialPageRoute(builder: (context) => homeScreen()));
+              context,
+              MaterialPageRoute(
+                  builder: (context) => homeScreen(
+                        isAdmin: false,
+                      )));
         }
       });
       // Navigator.push(

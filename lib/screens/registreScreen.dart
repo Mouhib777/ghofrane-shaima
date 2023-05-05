@@ -248,7 +248,9 @@ class _registreScreenState extends State<registreScreen> {
                                             context,
                                             MaterialPageRoute(
                                                 builder: (context) =>
-                                                    homeScreen()));
+                                                    homeScreen(
+                                                      isAdmin: false,
+                                                    )));
                                       } on FirebaseAuthException catch (e) {
                                         if (e.code == 'weak-password') {
                                           AnimatedSnackBar.material(
