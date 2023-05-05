@@ -173,13 +173,28 @@ class _loginScreenState extends State<loginScreen> {
                                             .signInWithEmailAndPassword(
                                                 email: email!.trim(),
                                                 password: password!.trim());
-                                        //  CircularProgressIndicator();
-                                        Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                                builder: (context) =>
-                                                    homeScreen(),
-                                                maintainState: false));
+                                        if (email ==
+                                                'admin@quebec_center.com' &&
+                                            password == 'quebec_center2023') {
+                                          Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      homeScreen(
+                                                        isAdmin: true,
+                                                      ),
+                                                  maintainState: false));
+                                        } else {
+                                          //  CircularProgressIndicator();
+                                          Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      homeScreen(
+                                                        isAdmin: false,
+                                                      ),
+                                                  maintainState: false));
+                                        }
                                       } on FirebaseAuthException catch (ex) {
                                         if (ex.code == 'user-not-found') {
                                           print("not found");

@@ -55,7 +55,8 @@ import '../cours/cour 8.dart';
 import '../cours/cour 9.dart';
 
 class homeScreen extends StatefulWidget {
-  const homeScreen({super.key});
+  final bool? isAdmin;
+  const homeScreen({super.key, required this.isAdmin});
 
   @override
   State<homeScreen> createState() => _homeScreenState();
@@ -136,20 +137,20 @@ class _homeScreenState extends State<homeScreen> {
                         'assets/images/logo.png',
                       ),
                     ),
-                    ListTile(
-                      onTap: () {
-                        Navigator.of(context).push(PageRouteBuilder(
-                            transitionDuration: Duration.zero,
-                            pageBuilder:
-                                (context, animation, secondaryAnimation) =>
-                                    homeScreen()));
-                      },
-                      leading: Icon(Icons.home),
-                      title: Text(
-                        'Accueil',
-                        style: GoogleFonts.montserrat(letterSpacing: 2),
-                      ),
-                    ),
+                    // ListTile(
+                    //   onTap: () {
+                    //     Navigator.of(context).push(PageRouteBuilder(
+                    //         transitionDuration: Duration.zero,
+                    //         pageBuilder:
+                    //             (context, animation, secondaryAnimation) =>
+                    //                 homeScreen(isAdmin:'' ,)));
+                    //   },
+                    //   leading: Icon(Icons.home),
+                    //   title: Text(
+                    //     'Accueil',
+                    //     style: GoogleFonts.montserrat(letterSpacing: 2),
+                    //   ),
+                    // ),
                     SizedBox(
                       height: 40,
                     ),
