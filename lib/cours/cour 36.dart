@@ -3,7 +3,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 
 class cour36 extends StatefulWidget {
-  final bool? isAdmin;
+  final String? isAdmin;
   const cour36({super.key, required this.isAdmin});
   @override
   State<cour36> createState() => _cour36State();
