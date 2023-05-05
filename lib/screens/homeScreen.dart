@@ -9,10 +9,12 @@ import 'package:e_learning/cours/cour%203.dart';
 import 'package:e_learning/cours/cour%204.dart';
 import 'package:e_learning/cours/cour%205.dart';
 import 'package:e_learning/cours/cour%207.dart';
+import 'package:e_learning/screens/login.dart';
 
 import 'package:e_learning/screens/profileScreen.dart';
 import 'package:e_learning/screens/settingScreen.dart';
 import 'package:e_learning/widget/card.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import 'package:google_fonts/google_fonts.dart';
@@ -187,6 +189,17 @@ class _homeScreenState extends State<homeScreen> {
                       ),
                     ),
                     Spacer(),
+                    InkWell(
+                      child: Text("deconnecter"),
+                      onTap: () {
+                        FirebaseAuth.instance.signOut();
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => loginScreen(),
+                            ));
+                      },
+                    ),
                     DefaultTextStyle(
                       style: TextStyle(
                         fontSize: 12,

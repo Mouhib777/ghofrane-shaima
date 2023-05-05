@@ -1,10 +1,13 @@
+import 'dart:io';
 import 'dart:math';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'package:google_fonts/google_fonts.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 
@@ -19,7 +22,10 @@ class cour1 extends StatefulWidget {
 }
 
 class _cour1State extends State<cour1> {
-  picture _image = picture();
+  File? _pickedImage;
+  ImagePicker? imagePicker;
+  final ImagePicker _picker = ImagePicker();
+  // picture _image = picture();
 
   final Random _random = Random();
   String? imageUrl1;
@@ -62,9 +68,25 @@ class _cour1State extends State<cour1> {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               InkWell(
-                onLongPress: () {
+                onLongPress: () async {
                   if (widget.isAdmin == 'true') {
-                    _image.addGallery();
+                    addGallery();
+
+                    final randomName = generateRandomName(10);
+                    //? edheya script li yaaml upload
+                    final ref = FirebaseStorage.instance
+                        .ref()
+                        .child('cour1')
+                        .child(randomName + '.jpg');
+                    await ref.putFile(_pickedImage!);
+
+                    imageUrl1 = await ref.getDownloadURL();
+                    print(imageUrl1);
+                    FirebaseFirestore.instance
+                        .collection('cours')
+                        .doc('1')
+                        .update({"img1": imageUrl1});
+                    EasyLoading.showSuccess("mriguel");
                   } else {
                     EasyLoading.showError("Vous n'etes pas adminstrateur");
                   }
@@ -78,9 +100,17 @@ class _cour1State extends State<cour1> {
               SizedBox(
                 height: 35,
               ),
-              Text(
-                cour_data["text1"],
-                style: GoogleFonts.montserrat(fontSize: 25, letterSpacing: 4),
+              InkWell(
+                onLongPress: () {
+                  if (widget.isAdmin == 'true') {
+                  } else {
+                    EasyLoading.showError("Vous n'etes pas adminstrateur");
+                  }
+                },
+                child: Text(
+                  cour_data["text1"],
+                  style: GoogleFonts.montserrat(fontSize: 25, letterSpacing: 4),
+                ),
               ),
               SizedBox(
                 height: 35,
@@ -341,7 +371,7 @@ class _cour1State extends State<cour1> {
       ];
   @override
   Widget build(BuildContext context) {
-    final image = Provider.of<picture>(context, listen: false);
+    // final image = Provider.of<picture>(context, listen: false);
     return Scaffold(
         appBar: AppBar(
           title: Text(
@@ -423,5 +453,24 @@ class _cour1State extends State<cour1> {
                 ),
               );
             }));
+  }
+
+  // File get imagee => _pickedImage!;
+  addCamera() async {
+    XFile? pickedFile = await _picker.pickImage(source: ImageSource.camera);
+    _pickedImage = File(pickedFile!.path);
+
+    if (_pickedImage != null) {
+      _pickedImage;
+    } else {}
+  }
+
+  addGallery() async {
+    XFile? pickedFile = await _picker.pickImage(source: ImageSource.gallery);
+    _pickedImage = File(pickedFile!.path);
+
+    if (_pickedImage != null) {
+      _pickedImage;
+    } else {}
   }
 }
