@@ -4,6 +4,8 @@ import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class cour19 extends StatefulWidget {
+  final bool? isAdmin;
+  const cour19({super.key, required this.isAdmin});
   // const cour2({super.key});
 
   @override

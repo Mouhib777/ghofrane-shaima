@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class cour10 extends StatefulWidget {
+  final bool? isAdmin;
+  const cour10({super.key, required this.isAdmin});
   @override
   State<cour10> createState() => _cour10State();
 }

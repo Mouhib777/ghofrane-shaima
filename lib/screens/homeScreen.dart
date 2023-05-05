@@ -267,7 +267,7 @@ class _homeScreenState extends State<homeScreen> {
                                   PageRouteBuilder(
                                     pageBuilder: (context, animation,
                                             secondaryAnimation) =>
-                                        cour1(),
+                                        cour1(isAdmin: ,),
                                   ),
                                 );
                               } else if (courInfo[index].name == 'cour 2') {
