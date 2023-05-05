@@ -44,10 +44,13 @@ class _cour1State extends State<cour1> {
           content: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              Image.network(
-                //! lezem tkoun image.network
-                //? cour_data["ismha fil firestore"]
-                cour_data["img1"],
+              InkWell(
+                onTap: () async {},
+                child: Image.network(
+                  //! lezem tkoun image.network
+                  //? cour_data["ismha fil firestore"]
+                  cour_data["img1"],
+                ),
               ),
               SizedBox(
                 height: 35,
