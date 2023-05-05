@@ -583,7 +583,7 @@ class _homeScreenState extends State<homeScreen> {
                                   );
                                 }
                               } else if (courInfo[index].name == 'cour 17') {
-                                if (widget.isAdmin == 'true')
+                                if (widget.isAdmin == 'true') {
                                   Navigator.push(
                                     context,
                                     PageRouteBuilder(
@@ -592,8 +592,18 @@ class _homeScreenState extends State<homeScreen> {
                                           cour17(isAdmin: "true"),
                                     ),
                                   );
+                                } else if (widget.isAdmin == 'false') {
+                                  Navigator.push(
+                                    context,
+                                    PageRouteBuilder(
+                                      pageBuilder: (context, animation,
+                                              secondaryAnimation) =>
+                                          cour17(isAdmin: "false"),
+                                    ),
+                                  );
+                                }
                               } else if (courInfo[index].name == 'cour 18') {
-                                if (widget.isAdmin == 'true')
+                                if (widget.isAdmin == 'true') {
                                   Navigator.push(
                                     context,
                                     PageRouteBuilder(
@@ -602,8 +612,18 @@ class _homeScreenState extends State<homeScreen> {
                                           cour18(isAdmin: "true"),
                                     ),
                                   );
+                                } else if (widget.isAdmin == 'false') {
+                                  Navigator.push(
+                                    context,
+                                    PageRouteBuilder(
+                                      pageBuilder: (context, animation,
+                                              secondaryAnimation) =>
+                                          cour18(isAdmin: "false"),
+                                    ),
+                                  );
+                                }
                               } else if (courInfo[index].name == 'cour 19') {
-                                if (widget.isAdmin == 'true')
+                                if (widget.isAdmin == 'true') {
                                   Navigator.push(
                                     context,
                                     PageRouteBuilder(
@@ -612,8 +632,18 @@ class _homeScreenState extends State<homeScreen> {
                                           cour19(isAdmin: "true"),
                                     ),
                                   );
+                                } else if (widget.isAdmin == 'false') {
+                                  Navigator.push(
+                                    context,
+                                    PageRouteBuilder(
+                                      pageBuilder: (context, animation,
+                                              secondaryAnimation) =>
+                                          cour19(isAdmin: "false"),
+                                    ),
+                                  );
+                                }
                               } else if (courInfo[index].name == 'cour 20') {
-                                if (widget.isAdmin == 'true')
+                                if (widget.isAdmin == 'true') {
                                   Navigator.push(
                                     context,
                                     PageRouteBuilder(
@@ -622,6 +652,16 @@ class _homeScreenState extends State<homeScreen> {
                                           cour20(isAdmin: "true"),
                                     ),
                                   );
+                                } else if (widget.isAdmin == 'false') {
+                                  Navigator.push(
+                                    context,
+                                    PageRouteBuilder(
+                                      pageBuilder: (context, animation,
+                                              secondaryAnimation) =>
+                                          cour20(isAdmin: "false"),
+                                    ),
+                                  );
+                                }
                               } else if (courInfo[index].name == 'cour 21') {
                                 if (widget.isAdmin == 'true')
                                   Navigator.push(
