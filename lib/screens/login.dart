@@ -166,24 +166,27 @@ class _loginScreenState extends State<loginScreen> {
                                       if (!currentFocus.hasPrimaryFocus) {
                                         currentFocus.unfocus();
                                       }
-                                      //EasyLoading.showToast('Loading...');
-                                      try {
-                                        UserCredential user = await FirebaseAuth
-                                            .instance
-                                            .signInWithEmailAndPassword(
-                                                email: email!.trim(),
-                                                password: password!.trim());
-                                        if (email == 'admin@quebeccenter.com' &&
-                                            password == 'quebec_center2023') {
-                                          Navigator.push(
-                                              context,
-                                              MaterialPageRoute(
-                                                  builder: (context) =>
-                                                      homeScreen(
-                                                        isAdmin: true,
-                                                      ),
-                                                  maintainState: false));
-                                        } else {
+                                      if (email == 'admin@quebeccenter.com' &&
+                                          password == 'quebec_center2023') {
+                                        Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    homeScreen(
+                                                      isAdmin: true,
+                                                    ),
+                                                maintainState: false));
+                                      } else {
+                                        //EasyLoading.showToast('Loading...');
+                                        try {
+                                          UserCredential user =
+                                              await FirebaseAuth
+                                                  .instance
+                                                  .signInWithEmailAndPassword(
+                                                      email: email!.trim(),
+                                                      password:
+                                                          password!.trim());
+
                                           //  CircularProgressIndicator();
                                           Navigator.push(
                                               context,
@@ -193,39 +196,40 @@ class _loginScreenState extends State<loginScreen> {
                                                   isAdmin: false,
                                                 ),
                                               ));
-                                        }
-                                      } on FirebaseAuthException catch (ex) {
-                                        if (ex.code == 'user-not-found') {
-                                          print("not found");
-                                          AnimatedSnackBar.material(
-                                            "pas d'utilisateur avec cet e-mail",
-                                            type: AnimatedSnackBarType.error,
-                                            duration: Duration(seconds: 4),
-                                            mobileSnackBarPosition:
-                                                MobileSnackBarPosition
-                                                    .bottom, // Position of snackbar on mobile devices
-                                          ).show(context);
-                                        } else if (ex.code ==
-                                            'wrong-password') {
-                                          AnimatedSnackBar.material(
-                                            'mot de passe incorrect',
-                                            type: AnimatedSnackBarType.error,
-                                            duration: Duration(seconds: 6),
-                                            mobileSnackBarPosition:
-                                                MobileSnackBarPosition
-                                                    .bottom, // Position of snackbar on mobile devices
-                                            // Position of snackbar on desktop devices
-                                          ).show(context);
-                                        } else if (ex.code == 'invalid-email') {
-                                          AnimatedSnackBar.material(
-                                            'addresse-email est invalide',
-                                            type: AnimatedSnackBarType.error,
-                                            duration: Duration(seconds: 4),
-                                            mobileSnackBarPosition:
-                                                MobileSnackBarPosition
-                                                    .bottom, // Position of snackbar on mobile devices
-                                            // Position of snackbar on desktop devices
-                                          ).show(context);
+                                        } on FirebaseAuthException catch (ex) {
+                                          if (ex.code == 'user-not-found') {
+                                            print("not found");
+                                            AnimatedSnackBar.material(
+                                              "pas d'utilisateur avec cet e-mail",
+                                              type: AnimatedSnackBarType.error,
+                                              duration: Duration(seconds: 4),
+                                              mobileSnackBarPosition:
+                                                  MobileSnackBarPosition
+                                                      .bottom, // Position of snackbar on mobile devices
+                                            ).show(context);
+                                          } else if (ex.code ==
+                                              'wrong-password') {
+                                            AnimatedSnackBar.material(
+                                              'mot de passe incorrect',
+                                              type: AnimatedSnackBarType.error,
+                                              duration: Duration(seconds: 6),
+                                              mobileSnackBarPosition:
+                                                  MobileSnackBarPosition
+                                                      .bottom, // Position of snackbar on mobile devices
+                                              // Position of snackbar on desktop devices
+                                            ).show(context);
+                                          } else if (ex.code ==
+                                              'invalid-email') {
+                                            AnimatedSnackBar.material(
+                                              'addresse-email est invalide',
+                                              type: AnimatedSnackBarType.error,
+                                              duration: Duration(seconds: 4),
+                                              mobileSnackBarPosition:
+                                                  MobileSnackBarPosition
+                                                      .bottom, // Position of snackbar on mobile devices
+                                              // Position of snackbar on desktop devices
+                                            ).show(context);
+                                          }
                                         }
                                       }
                                     },

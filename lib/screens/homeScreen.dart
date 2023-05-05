@@ -259,397 +259,403 @@ class _homeScreenState extends State<homeScreen> {
                           // space: 2
                         )),
                         itemBuilder: (context, index) {
-                          return InkWell(
-                            onTap: () {
-                              if (courInfo[index].name == 'cour 1') {
-                                Navigator.push(
-                                  context,
-                                  PageRouteBuilder(
-                                    pageBuilder: (context, animation,
-                                            secondaryAnimation) =>
-                                        cour1(isAdmin: ,),
-                                  ),
-                                );
-                              } else if (courInfo[index].name == 'cour 2') {
-                                Navigator.push(
-                                  context,
-                                  PageRouteBuilder(
-                                    pageBuilder: (context, animation,
-                                            secondaryAnimation) =>
-                                        cour2(),
-                                  ),
-                                );
-                              } else if (courInfo[index].name == 'cour 3') {
-                                Navigator.push(
-                                  context,
-                                  PageRouteBuilder(
-                                    pageBuilder: (context, animation,
-                                            secondaryAnimation) =>
-                                        cour3(),
-                                  ),
-                                );
-                              } else if (courInfo[index].name == 'cour 4') {
-                                Navigator.push(
-                                  context,
-                                  PageRouteBuilder(
-                                    pageBuilder: (context, animation,
-                                            secondaryAnimation) =>
-                                        cour4(),
-                                  ),
-                                );
-                              } else if (courInfo[index].name == 'cour 5') {
-                                Navigator.push(
-                                  context,
-                                  PageRouteBuilder(
-                                    pageBuilder: (context, animation,
-                                            secondaryAnimation) =>
-                                        cour5(),
-                                  ),
-                                );
-                              } else if (courInfo[index].name == 'cour 6') {
-                                Navigator.push(
-                                  context,
-                                  PageRouteBuilder(
-                                    pageBuilder: (context, animation,
-                                            secondaryAnimation) =>
-                                        cour6(),
-                                  ),
-                                );
-                              } else if (courInfo[index].name == 'cour 7') {
-                                Navigator.push(
-                                  context,
-                                  PageRouteBuilder(
-                                    pageBuilder: (context, animation,
-                                            secondaryAnimation) =>
-                                        cour7(),
-                                  ),
-                                );
-                              } else if (courInfo[index].name == 'cour 8') {
-                                Navigator.push(
-                                  context,
-                                  PageRouteBuilder(
-                                    pageBuilder: (context, animation,
-                                            secondaryAnimation) =>
-                                        cour8(),
-                                  ),
-                                );
-                              } else if (courInfo[index].name == 'cour 9') {
-                                Navigator.push(
-                                  context,
-                                  PageRouteBuilder(
-                                    pageBuilder: (context, animation,
-                                            secondaryAnimation) =>
-                                        cour9(),
-                                  ),
-                                );
-                              } else if (courInfo[index].name == 'cour 10') {
-                                Navigator.push(
-                                  context,
-                                  PageRouteBuilder(
-                                    pageBuilder: (context, animation,
-                                            secondaryAnimation) =>
-                                        cour10(),
-                                  ),
-                                );
-                              } else if (courInfo[index].name == 'cour 11') {
-                                Navigator.push(
-                                  context,
-                                  PageRouteBuilder(
-                                    pageBuilder: (context, animation,
-                                            secondaryAnimation) =>
-                                        cour11(),
-                                  ),
-                                );
-                              } else if (courInfo[index].name == 'cour 12') {
-                                Navigator.push(
-                                  context,
-                                  PageRouteBuilder(
-                                    pageBuilder: (context, animation,
-                                            secondaryAnimation) =>
-                                        cour12(),
-                                  ),
-                                );
-                              } else if (courInfo[index].name == 'cour 13') {
-                                Navigator.push(
-                                  context,
-                                  PageRouteBuilder(
-                                    pageBuilder: (context, animation,
-                                            secondaryAnimation) =>
-                                        cour13(),
-                                  ),
-                                );
-                              } else if (courInfo[index].name == 'cour 14') {
-                                Navigator.push(
-                                  context,
-                                  PageRouteBuilder(
-                                    pageBuilder: (context, animation,
-                                            secondaryAnimation) =>
-                                        cour14(),
-                                  ),
-                                );
-                              } else if (courInfo[index].name == 'cour 15') {
-                                Navigator.push(
-                                  context,
-                                  PageRouteBuilder(
-                                    pageBuilder: (context, animation,
-                                            secondaryAnimation) =>
-                                        cour15(),
-                                  ),
-                                );
-                              } else if (courInfo[index].name == 'cour 16') {
-                                Navigator.push(
-                                  context,
-                                  PageRouteBuilder(
-                                    pageBuilder: (context, animation,
-                                            secondaryAnimation) =>
-                                        cour16(),
-                                  ),
-                                );
-                              } else if (courInfo[index].name == 'cour 17') {
-                                Navigator.push(
-                                  context,
-                                  PageRouteBuilder(
-                                    pageBuilder: (context, animation,
-                                            secondaryAnimation) =>
-                                        cour17(),
-                                  ),
-                                );
-                              } else if (courInfo[index].name == 'cour 18') {
-                                Navigator.push(
-                                  context,
-                                  PageRouteBuilder(
-                                    pageBuilder: (context, animation,
-                                            secondaryAnimation) =>
-                                        cour18(),
-                                  ),
-                                );
-                              } else if (courInfo[index].name == 'cour 19') {
-                                Navigator.push(
-                                  context,
-                                  PageRouteBuilder(
-                                    pageBuilder: (context, animation,
-                                            secondaryAnimation) =>
-                                        cour19(),
-                                  ),
-                                );
-                              } else if (courInfo[index].name == 'cour 20') {
-                                Navigator.push(
-                                  context,
-                                  PageRouteBuilder(
-                                    pageBuilder: (context, animation,
-                                            secondaryAnimation) =>
-                                        cour20(),
-                                  ),
-                                );
-                              } else if (courInfo[index].name == 'cour 21') {
-                                Navigator.push(
-                                  context,
-                                  PageRouteBuilder(
-                                    pageBuilder: (context, animation,
-                                            secondaryAnimation) =>
-                                        cour21(),
-                                  ),
-                                );
-                              } else if (courInfo[index].name == 'cour 22') {
-                                Navigator.push(
-                                  context,
-                                  PageRouteBuilder(
-                                    pageBuilder: (context, animation,
-                                            secondaryAnimation) =>
-                                        cour22(),
-                                  ),
-                                );
-                              } else if (courInfo[index].name == 'cour 23') {
-                                Navigator.push(
-                                  context,
-                                  PageRouteBuilder(
-                                    pageBuilder: (context, animation,
-                                            secondaryAnimation) =>
-                                        cour23(),
-                                  ),
-                                );
-                              } else if (courInfo[index].name == 'cour 24') {
-                                Navigator.push(
-                                  context,
-                                  PageRouteBuilder(
-                                    pageBuilder: (context, animation,
-                                            secondaryAnimation) =>
-                                        cour24(),
-                                  ),
-                                );
-                              } else if (courInfo[index].name == 'cour 25') {
-                                Navigator.push(
-                                  context,
-                                  PageRouteBuilder(
-                                    pageBuilder: (context, animation,
-                                            secondaryAnimation) =>
-                                        cour25(),
-                                  ),
-                                );
-                              } else if (courInfo[index].name == 'cour 26') {
-                                Navigator.push(
-                                  context,
-                                  PageRouteBuilder(
-                                    pageBuilder: (context, animation,
-                                            secondaryAnimation) =>
-                                        cour26(),
-                                  ),
-                                );
-                              } else if (courInfo[index].name == 'cour 27') {
-                                Navigator.push(
-                                  context,
-                                  PageRouteBuilder(
-                                    pageBuilder: (context, animation,
-                                            secondaryAnimation) =>
-                                        cour27(),
-                                  ),
-                                );
-                              } else if (courInfo[index].name == 'cour 28') {
-                                Navigator.push(
-                                  context,
-                                  PageRouteBuilder(
-                                    pageBuilder: (context, animation,
-                                            secondaryAnimation) =>
-                                        cour28(),
-                                  ),
-                                );
-                              } else if (courInfo[index].name == 'cour 29') {
-                                Navigator.push(
-                                  context,
-                                  PageRouteBuilder(
-                                    pageBuilder: (context, animation,
-                                            secondaryAnimation) =>
-                                        cour29(),
-                                  ),
-                                );
-                              } else if (courInfo[index].name == 'cour 30') {
-                                Navigator.push(
-                                  context,
-                                  PageRouteBuilder(
-                                    pageBuilder: (context, animation,
-                                            secondaryAnimation) =>
-                                        cour30(),
-                                  ),
-                                );
-                              } else if (courInfo[index].name == 'cour 31') {
-                                Navigator.push(
-                                  context,
-                                  PageRouteBuilder(
-                                    pageBuilder: (context, animation,
-                                            secondaryAnimation) =>
-                                        cour31(),
-                                  ),
-                                );
-                              } else if (courInfo[index].name == 'cour 32') {
-                                Navigator.push(
-                                  context,
-                                  PageRouteBuilder(
-                                    pageBuilder: (context, animation,
-                                            secondaryAnimation) =>
-                                        cour32(),
-                                  ),
-                                );
-                              } else if (courInfo[index].name == 'cour 33') {
-                                Navigator.push(
-                                  context,
-                                  PageRouteBuilder(
-                                    pageBuilder: (context, animation,
-                                            secondaryAnimation) =>
-                                        cour33(),
-                                  ),
-                                );
-                              } else if (courInfo[index].name == 'cour 34') {
-                                Navigator.push(
-                                  context,
-                                  PageRouteBuilder(
-                                    pageBuilder: (context, animation,
-                                            secondaryAnimation) =>
-                                        cour34(),
-                                  ),
-                                );
-                              } else if (courInfo[index].name == 'cour 35') {
-                                Navigator.push(
-                                  context,
-                                  PageRouteBuilder(
-                                    pageBuilder: (context, animation,
-                                            secondaryAnimation) =>
-                                        cour35(),
-                                  ),
-                                );
-                              } else if (courInfo[index].name == 'cour 36') {
-                                Navigator.push(
-                                  context,
-                                  PageRouteBuilder(
-                                    pageBuilder: (context, animation,
-                                            secondaryAnimation) =>
-                                        cour36(),
-                                  ),
-                                );
-                              } else if (courInfo[index].name == 'cour 37') {
-                                Navigator.push(
-                                  context,
-                                  PageRouteBuilder(
-                                    pageBuilder: (context, animation,
-                                            secondaryAnimation) =>
-                                        cour37(),
-                                  ),
-                                );
-                              } else if (courInfo[index].name == 'cour 38') {
-                                Navigator.push(
-                                  context,
-                                  PageRouteBuilder(
-                                    pageBuilder: (context, animation,
-                                            secondaryAnimation) =>
-                                        cour38(),
-                                  ),
-                                );
-                              } else if (courInfo[index].name == 'cour 39') {
-                                Navigator.push(
-                                  context,
-                                  PageRouteBuilder(
-                                    pageBuilder: (context, animation,
-                                            secondaryAnimation) =>
-                                        cour39(),
-                                  ),
-                                );
-                              } else if (courInfo[index].name == 'cour 40') {
-                                Navigator.push(
-                                  context,
-                                  PageRouteBuilder(
-                                    pageBuilder: (context, animation,
-                                            secondaryAnimation) =>
-                                        cour40(),
-                                  ),
-                                );
-                              } else {
-                                return null;
-                              }
-                            },
-                            child: Stack(
-                              children: [
-                                Column(
-                                  children: [
-                                    const SizedBox(
-                                      height: 100,
+                          if (widget.isAdmin == false) {
+                            return InkWell(
+                              onTap: () {
+                                if (courInfo[index].name == 'cour 1') {
+                                  Navigator.push(
+                                    context,
+                                    PageRouteBuilder(
+                                      pageBuilder: (context, animation,
+                                              secondaryAnimation) =>
+                                          cour1(isAdmin: false),
                                     ),
-                                    CustomCard(
-                                      name: courInfo[index].name,
-                                      description: courInfo[index].description,
+                                  );
+                                } else if (courInfo[index].name == 'cour 2') {
+                                  Navigator.push(
+                                    context,
+                                    PageRouteBuilder(
+                                      pageBuilder: (context, animation,
+                                              secondaryAnimation) =>
+                                          cour2(isAdmin: false),
                                     ),
-                                  ],
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(
-                                      left: 140, top: 100),
-                                  child: Hero(
-                                      tag: courInfo[index].position,
-                                      child: Image.asset(
-                                        courInfo[index].iconImage,
-                                        height: 150,
-                                      )),
-                                )
-                              ],
-                            ),
+                                  );
+                                } else if (courInfo[index].name == 'cour 3') {
+                                  Navigator.push(
+                                    context,
+                                    PageRouteBuilder(
+                                      pageBuilder: (context, animation,
+                                              secondaryAnimation) =>
+                                          cour3(isAdmin: false),
+                                    ),
+                                  );
+                                } else if (courInfo[index].name == 'cour 4') {
+                                  Navigator.push(
+                                    context,
+                                    PageRouteBuilder(
+                                      pageBuilder: (context, animation,
+                                              secondaryAnimation) =>
+                                          cour4(isAdmin: false),
+                                    ),
+                                  );
+                                } else if (courInfo[index].name == 'cour 5') {
+                                  Navigator.push(
+                                    context,
+                                    PageRouteBuilder(
+                                      pageBuilder: (context, animation,
+                                              secondaryAnimation) =>
+                                          cour5(isAdmin: false),
+                                    ),
+                                  );
+                                } else if (courInfo[index].name == 'cour 6') {
+                                  Navigator.push(
+                                    context,
+                                    PageRouteBuilder(
+                                      pageBuilder: (context, animation,
+                                              secondaryAnimation) =>
+                                          cour6(isAdmin: false),
+                                    ),
+                                  );
+                                } else if (courInfo[index].name == 'cour 7') {
+                                  Navigator.push(
+                                    context,
+                                    PageRouteBuilder(
+                                      pageBuilder: (context, animation,
+                                              secondaryAnimation) =>
+                                          cour7(isAdmin: false),
+                                    ),
+                                  );
+                                } else if (courInfo[index].name == 'cour 8') {
+                                  Navigator.push(
+                                    context,
+                                    PageRouteBuilder(
+                                      pageBuilder: (context, animation,
+                                              secondaryAnimation) =>
+                                          cour8(isAdmin: false),
+                                    ),
+                                  );
+                                } else if (courInfo[index].name == 'cour 9') {
+                                  Navigator.push(
+                                    context,
+                                    PageRouteBuilder(
+                                      pageBuilder: (context, animation,
+                                              secondaryAnimation) =>
+                                          cour9(isAdmin: false),
+                                    ),
+                                  );
+                                } else if (courInfo[index].name == 'cour 10') {
+                                  Navigator.push(
+                                    context,
+                                    PageRouteBuilder(
+                                      pageBuilder: (context, animation,
+                                              secondaryAnimation) =>
+                                          cour10(isAdmin: false),
+                                    ),
+                                  );
+                                } else if (courInfo[index].name == 'cour 11') {
+                                  Navigator.push(
+                                    context,
+                                    PageRouteBuilder(
+                                      pageBuilder: (context, animation,
+                                              secondaryAnimation) =>
+                                          cour11(isAdmin: false),
+                                    ),
+                                  );
+                                } else if (courInfo[index].name == 'cour 12') {
+                                  Navigator.push(
+                                    context,
+                                    PageRouteBuilder(
+                                      pageBuilder: (context, animation,
+                                              secondaryAnimation) =>
+                                          cour12(isAdmin: false),
+                                    ),
+                                  );
+                                } else if (courInfo[index].name == 'cour 13') {
+                                  Navigator.push(
+                                    context,
+                                    PageRouteBuilder(
+                                      pageBuilder: (context, animation,
+                                              secondaryAnimation) =>
+                                          cour13(isAdmin: false),
+                                    ),
+                                  );
+                                } else if (courInfo[index].name == 'cour 14') {
+                                  Navigator.push(
+                                    context,
+                                    PageRouteBuilder(
+                                      pageBuilder: (context, animation,
+                                              secondaryAnimation) =>
+                                          cour14(isAdmin: false),
+                                    ),
+                                  );
+                                } else if (courInfo[index].name == 'cour 15') {
+                                  Navigator.push(
+                                    context,
+                                    PageRouteBuilder(
+                                      pageBuilder: (context, animation,
+                                              secondaryAnimation) =>
+                                          cour15(isAdmin: false),
+                                    ),
+                                  );
+                                } else if (courInfo[index].name == 'cour 16') {
+                                  Navigator.push(
+                                    context,
+                                    PageRouteBuilder(
+                                      pageBuilder: (context, animation,
+                                              secondaryAnimation) =>
+                                          cour16(isAdmin: false),
+                                    ),
+                                  );
+                                } else if (courInfo[index].name == 'cour 17') {
+                                  Navigator.push(
+                                    context,
+                                    PageRouteBuilder(
+                                      pageBuilder: (context, animation,
+                                              secondaryAnimation) =>
+                                          cour17(isAdmin: false),
+                                    ),
+                                  );
+                                } else if (courInfo[index].name == 'cour 18') {
+                                  Navigator.push(
+                                    context,
+                                    PageRouteBuilder(
+                                      pageBuilder: (context, animation,
+                                              secondaryAnimation) =>
+                                          cour18(isAdmin: false),
+                                    ),
+                                  );
+                                } else if (courInfo[index].name == 'cour 19') {
+                                  Navigator.push(
+                                    context,
+                                    PageRouteBuilder(
+                                      pageBuilder: (context, animation,
+                                              secondaryAnimation) =>
+                                          cour19(isAdmin: false),
+                                    ),
+                                  );
+                                } else if (courInfo[index].name == 'cour 20') {
+                                  Navigator.push(
+                                    context,
+                                    PageRouteBuilder(
+                                      pageBuilder: (context, animation,
+                                              secondaryAnimation) =>
+                                          cour20(isAdmin: false),
+                                    ),
+                                  );
+                                } else if (courInfo[index].name == 'cour 21') {
+                                  Navigator.push(
+                                    context,
+                                    PageRouteBuilder(
+                                      pageBuilder: (context, animation,
+                                              secondaryAnimation) =>
+                                          cour21(isAdmin: false),
+                                    ),
+                                  );
+                                } else if (courInfo[index].name == 'cour 22') {
+                                  Navigator.push(
+                                    context,
+                                    PageRouteBuilder(
+                                      pageBuilder: (context, animation,
+                                              secondaryAnimation) =>
+                                          cour22(isAdmin: false),
+                                    ),
+                                  );
+                                } else if (courInfo[index].name == 'cour 23') {
+                                  Navigator.push(
+                                    context,
+                                    PageRouteBuilder(
+                                      pageBuilder: (context, animation,
+                                              secondaryAnimation) =>
+                                          cour23(isAdmin: false),
+                                    ),
+                                  );
+                                } else if (courInfo[index].name == 'cour 24') {
+                                  Navigator.push(
+                                    context,
+                                    PageRouteBuilder(
+                                      pageBuilder: (context, animation,
+                                              secondaryAnimation) =>
+                                          cour24(isAdmin: false),
+                                    ),
+                                  );
+                                } else if (courInfo[index].name == 'cour 25') {
+                                  Navigator.push(
+                                    context,
+                                    PageRouteBuilder(
+                                      pageBuilder: (context, animation,
+                                              secondaryAnimation) =>
+                                          cour25(isAdmin: false),
+                                    ),
+                                  );
+                                } else if (courInfo[index].name == 'cour 26') {
+                                  Navigator.push(
+                                    context,
+                                    PageRouteBuilder(
+                                      pageBuilder: (context, animation,
+                                              secondaryAnimation) =>
+                                          cour26(isAdmin: false),
+                                    ),
+                                  );
+                                } else if (courInfo[index].name == 'cour 27') {
+                                  Navigator.push(
+                                    context,
+                                    PageRouteBuilder(
+                                      pageBuilder: (context, animation,
+                                              secondaryAnimation) =>
+                                          cour27(isAdmin: false),
+                                    ),
+                                  );
+                                } else if (courInfo[index].name == 'cour 28') {
+                                  Navigator.push(
+                                    context,
+                                    PageRouteBuilder(
+                                      pageBuilder: (context, animation,
+                                              secondaryAnimation) =>
+                                          cour28(isAdmin: false),
+                                    ),
+                                  );
+                                } else if (courInfo[index].name == 'cour 29') {
+                                  Navigator.push(
+                                    context,
+                                    PageRouteBuilder(
+                                      pageBuilder: (context, animation,
+                                              secondaryAnimation) =>
+                                          cour29(isAdmin: false),
+                                    ),
+                                  );
+                                } else if (courInfo[index].name == 'cour 30') {
+                                  Navigator.push(
+                                    context,
+                                    PageRouteBuilder(
+                                      pageBuilder: (context, animation,
+                                              secondaryAnimation) =>
+                                          cour30(isAdmin: false),
+                                    ),
+                                  );
+                                } else if (courInfo[index].name == 'cour 31') {
+                                  Navigator.push(
+                                    context,
+                                    PageRouteBuilder(
+                                      pageBuilder: (context, animation,
+                                              secondaryAnimation) =>
+                                          cour31(isAdmin: false),
+                                    ),
+                                  );
+                                } else if (courInfo[index].name == 'cour 32') {
+                                  Navigator.push(
+                                    context,
+                                    PageRouteBuilder(
+                                      pageBuilder: (context, animation,
+                                              secondaryAnimation) =>
+                                          cour32(isAdmin: false),
+                                    ),
+                                  );
+                                } else if (courInfo[index].name == 'cour 33') {
+                                  Navigator.push(
+                                    context,
+                                    PageRouteBuilder(
+                                      pageBuilder: (context, animation,
+                                              secondaryAnimation) =>
+                                          cour33(isAdmin: false),
+                                    ),
+                                  );
+                                } else if (courInfo[index].name == 'cour 34') {
+                                  Navigator.push(
+                                    context,
+                                    PageRouteBuilder(
+                                      pageBuilder: (context, animation,
+                                              secondaryAnimation) =>
+                                          cour34(isAdmin: false),
+                                    ),
+                                  );
+                                } else if (courInfo[index].name == 'cour 35') {
+                                  Navigator.push(
+                                    context,
+                                    PageRouteBuilder(
+                                      pageBuilder: (context, animation,
+                                              secondaryAnimation) =>
+                                          cour35(isAdmin: false),
+                                    ),
+                                  );
+                                } else if (courInfo[index].name == 'cour 36') {
+                                  Navigator.push(
+                                    context,
+                                    PageRouteBuilder(
+                                      pageBuilder: (context, animation,
+                                              secondaryAnimation) =>
+                                          cour36(isAdmin: false),
+                                    ),
+                                  );
+                                } else if (courInfo[index].name == 'cour 37') {
+                                  Navigator.push(
+                                    context,
+                                    PageRouteBuilder(
+                                      pageBuilder: (context, animation,
+                                              secondaryAnimation) =>
+                                          cour37(isAdmin: false),
+                                    ),
+                                  );
+                                } else if (courInfo[index].name == 'cour 38') {
+                                  Navigator.push(
+                                    context,
+                                    PageRouteBuilder(
+                                      pageBuilder: (context, animation,
+                                              secondaryAnimation) =>
+                                          cour38(isAdmin: false),
+                                    ),
+                                  );
+                                } else if (courInfo[index].name == 'cour 39') {
+                                  Navigator.push(
+                                    context,
+                                    PageRouteBuilder(
+                                      pageBuilder: (context, animation,
+                                              secondaryAnimation) =>
+                                          cour39(isAdmin: false),
+                                    ),
+                                  );
+                                } else if (courInfo[index].name == 'cour 40') {
+                                  Navigator.push(
+                                    context,
+                                    PageRouteBuilder(
+                                      pageBuilder: (context, animation,
+                                              secondaryAnimation) =>
+                                          cour40(isAdmin: false),
+                                    ),
+                                  );
+                                } else {
+                                  return null;
+                                }
+                              },
+                              child: Stack(
+                                children: [
+                                  Column(
+                                    children: [
+                                      const SizedBox(
+                                        height: 100,
+                                      ),
+                                      CustomCard(
+                                        name: courInfo[index].name,
+                                        description:
+                                            courInfo[index].description,
+                                      ),
+                                    ],
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(
+                                        left: 140, top: 100),
+                                    child: Hero(
+                                        tag: courInfo[index].position,
+                                        child: Image.asset(
+                                          courInfo[index].iconImage,
+                                          height: 150,
+                                        )),
+                                  )
+                                ],
+                              ),
+                            );
+                          }
+                          return Center(
+                            child: CircularProgressIndicator(),
                           );
                         },
                       )),
