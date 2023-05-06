@@ -87,8 +87,6 @@ class _cour1State extends State<cour1> {
                         .doc('1')
                         .update({"img1": imageUrl1});
                     EasyLoading.showSuccess("mriguel");
-                  } else {
-                    EasyLoading.showError("Vous n'etes pas adminstrateur");
                   }
                 },
                 child: Image.network(
@@ -102,10 +100,7 @@ class _cour1State extends State<cour1> {
               ),
               InkWell(
                 onLongPress: () {
-                  if (widget.isAdmin == 'true') {
-                  } else {
-                    EasyLoading.showError("Vous n'etes pas adminstrateur");
-                  }
+                  if (widget.isAdmin == 'true') {}
                 },
                 child: Text(
                   cour_data["text1"],
