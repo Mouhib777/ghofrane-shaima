@@ -12,7 +12,7 @@ import 'package:e_learning/cours/cour%207.dart';
 import 'package:e_learning/screens/login.dart';
 
 import 'package:e_learning/screens/profileScreen.dart';
-import 'package:e_learning/screens/settingScreen.dart';
+import 'package:e_learning/screens/a_propos.dart';
 import 'package:e_learning/widget/card.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
@@ -190,10 +190,9 @@ class _homeScreenState extends State<homeScreen> {
                           ? Icon(Icons.admin_panel_settings)
                           : Icon(Icons.people),
                       title: Text(
-                        widget.isAdmin == 'true'
-                            ? 'Adminstateur'
-                            : '${user_data["nom"]}',
-                        style: GoogleFonts.montserrat(letterSpacing: 2),
+                        widget.isAdmin == 'true' ? 'Adminstateur' : 'Profile',
+                        style: GoogleFonts.montserratAlternates(
+                            letterSpacing: 2, fontSize: 20),
                       ),
                     ),
                     SizedBox(
@@ -204,13 +203,14 @@ class _homeScreenState extends State<homeScreen> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => settingsScreen(),
+                              builder: (context) => a_propos(),
                             ));
                       },
-                      leading: Icon(Icons.settings),
+                      leading: Icon(Icons.info),
                       title: Text(
-                        'Paramétres',
-                        style: GoogleFonts.montserrat(letterSpacing: 2),
+                        'A propos',
+                        style: GoogleFonts.montserratAlternates(
+                            letterSpacing: 2, fontSize: 20),
                       ),
                     ),
                     Spacer(),

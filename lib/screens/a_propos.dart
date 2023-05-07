@@ -4,14 +4,14 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class settingsScreen extends StatefulWidget {
-  const settingsScreen({super.key});
+class a_propos extends StatefulWidget {
+  const a_propos({super.key});
 
   @override
-  State<settingsScreen> createState() => _settingsScreenState();
+  State<a_propos> createState() => _a_proposState();
 }
 
-class _settingsScreenState extends State<settingsScreen> {
+class _a_proposState extends State<a_propos> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,7 +27,7 @@ class _settingsScreenState extends State<settingsScreen> {
         ),
         title: FadeInDown(
           child: Text(
-            "Paramétres",
+            "A propos",
             style: GoogleFonts.montserrat(letterSpacing: 2),
           ),
         ),
