@@ -18,7 +18,7 @@ class registreScreen extends StatefulWidget {
 }
 
 class _registreScreenState extends State<registreScreen> {
-  User? user1 = FirebaseAuth.instance.currentUser;
+  // User? user1 = FirebaseAuth.instance.currentUser;
   String? nom;
   String? prenom;
   String? email;
@@ -218,30 +218,33 @@ class _registreScreenState extends State<registreScreen> {
                                     ),
                                     onPressed: () async {
                                       try {
+                                        final User? user1 =
+                                            FirebaseAuth.instance.currentUser;
+                                        final _uid = user1!.uid;
                                         UserCredential user = await FirebaseAuth
                                             .instance
                                             .createUserWithEmailAndPassword(
                                                 email: email!.trim(),
                                                 password: password!.trim());
-                                        try {
-                                          await FirebaseFirestore.instance
-                                              .collection('utilisateur')
-                                              .doc(user1!.uid)
-                                              .set({
-                                            "email": email,
-                                            "id": user1!.uid,
-                                            "password": password,
-                                            "nom": '$nom $prenom',
-                                          });
-                                          await FirebaseFirestore.instance
-                                              .collection('utilisateur')
-                                              .doc(user1!.uid)
-                                              .collection('score')
-                                              .doc(user1!.uid)
-                                              .set({"test 1": "0"});
-                                        } catch (ex) {
-                                          print(ex);
-                                        }
+                                        // try {
+                                        await FirebaseFirestore.instance
+                                            .collection('utilisateur')
+                                            .doc(_uid)
+                                            .set({
+                                          "email": email,
+                                          "id": _uid,
+                                          "password": password,
+                                          "nom": '$nom $prenom',
+                                        });
+                                        await FirebaseFirestore.instance
+                                            .collection('utilisateur')
+                                            .doc(_uid)
+                                            .collection('score')
+                                            .doc(_uid)
+                                            .set({"test 1": "0"});
+                                        // } catch (ex) {
+                                        //   print(ex);
+                                        // }
 
                                         Navigator.push(
                                             context,
