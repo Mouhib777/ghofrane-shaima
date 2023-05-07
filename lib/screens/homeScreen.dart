@@ -15,6 +15,7 @@ import 'package:e_learning/screens/profileScreen.dart';
 import 'package:e_learning/screens/settingScreen.dart';
 import 'package:e_learning/widget/card.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'package:google_fonts/google_fonts.dart';
@@ -65,9 +66,6 @@ class homeScreen extends StatefulWidget {
 }
 
 class _homeScreenState extends State<homeScreen> {
-  final CollectionReference collectionRef =
-      FirebaseFirestore.instance.collection('cours');
-
   List<Container> cards = [
     Container(
       alignment: Alignment.center,
@@ -95,8 +93,12 @@ class _homeScreenState extends State<homeScreen> {
   var user_data;
 
   Future<DocumentSnapshot> getUser_Data() async {
-    var result1 =
-        await FirebaseFirestore.instance.collection('cours').doc("1").get();
+    final User? user1 = FirebaseAuth.instance.currentUser;
+    String? _uid = user1!.uid;
+    var result1 = await FirebaseFirestore.instance
+        .collection('utilisateur')
+        .doc(_uid)
+        .get();
     setState(() {
       user_data = result1;
     });
@@ -182,9 +184,13 @@ class _homeScreenState extends State<homeScreen> {
                               builder: (context) => profileScreen(),
                             ));
                       },
-                      leading: Icon(Icons.account_circle_rounded),
+                      leading: widget.isAdmin == 'true'
+                          ? Icon(Icons.admin_panel_settings)
+                          : Icon(Icons.people),
                       title: Text(
-                        'Profile',
+                        widget.isAdmin == 'true'
+                            ? 'Adminstateur'
+                            : '${user_data["nom"]} ${user_data["prenom"]}',
                         style: GoogleFonts.montserrat(letterSpacing: 2),
                       ),
                     ),
