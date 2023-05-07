@@ -117,7 +117,7 @@ class _QuizPageState extends State<QuizPage> {
                   ),
                   SizedBox(height: 20),
                   Text(
-                    'Your score is $perc%',
+                    'Votre score est $perc%',
                     style: TextStyle(fontSize: 18),
                     textAlign: TextAlign.center,
                   ),
