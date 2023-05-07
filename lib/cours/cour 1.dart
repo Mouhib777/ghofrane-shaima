@@ -1,5 +1,7 @@
 import 'dart:io';
 import 'dart:math';
+import 'package:audioplayers/audioplayers.dart';
+import 'package:file_picker/file_picker.dart';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
@@ -28,6 +30,7 @@ class _cour1State extends State<cour1> {
   File? _pickedImage;
   ImagePicker? imagePicker;
   final ImagePicker _picker = ImagePicker();
+  AudioPlayer audioPlayer = AudioPlayer();
   // picture _image = picture();
 
   final Random _random = Random();
@@ -172,12 +175,47 @@ class _cour1State extends State<cour1> {
                 height: 35,
               ),
               InkWell(
-                onLongPress: () {
+                onLongPress: () async {
                   print(widget.isAdmin);
+                  final result = await FilePicker.platform.pickFiles(
+                    type: FileType.audio,
+                    allowMultiple: false,
+                  );
+
+                  if (result != null) {
+                    final file = File(result.files.single.path!);
+                    // do something with the selected file
+
+                    final randomName = generateRandomName(10);
+                    //? edheya script li yaaml upload
+                    final ref = FirebaseStorage.instance
+                        .ref()
+                        .child('cour 1')
+                        .child(randomName + '.mp3');
+                    await ref.putFile(file);
+
+                    var sonUrl = await ref.getDownloadURL();
+                    print(sonUrl);
+                    FirebaseFirestore.instance
+                        .collection('cours')
+                        .doc('1')
+                        .update({"son1": sonUrl});
+                    EasyLoading.showSuccess("L'audio à été mettre a jour");
+                  }
                 },
                 child: IconButton(
-                  onPressed: () {
+                  onPressed: () async {
                     print('bonj');
+                    final ref = cour_data["son1"];
+
+                    // final url = await ref.getDownloadURL();
+
+                    final player = AudioPlayer();
+
+                    await player.play(ref);
+                    // if (result == 1) {
+                    //   // success
+                    // }
                   },
                   icon: Icon(
                     CupertinoIcons.speaker_3_fill,
