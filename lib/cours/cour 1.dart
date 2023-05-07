@@ -1,6 +1,6 @@
 import 'dart:io';
 import 'dart:math';
-import 'package:audioplayers/audioplayers.dart';
+// import 'package:audioplayers/audioplayers.dart';
 import 'package:file_picker/file_picker.dart';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -38,7 +38,7 @@ class _cour1State extends State<cour1> {
   String? imageUrl1;
   String? text;
   AudioPlayer audioPlayer = AudioPlayer();
-  bool isPlaying = false;
+  // bool isPlaying = false;
 
   @override
   void dispose() {
@@ -87,6 +87,7 @@ class _cour1State extends State<cour1> {
                 onLongPress: () async {
                   if (widget.isAdmin == 'true') {
                     addGallery();
+                    print('image picked');
 
                     final randomName = generateRandomName(10);
                     //? edheya script li yaaml upload
@@ -95,9 +96,11 @@ class _cour1State extends State<cour1> {
                         .child('cour 1')
                         .child(randomName + '.jpg');
                     await ref.putFile(_pickedImage!);
-
+                    //? edheya script li yekhou lien baed upload
                     imageUrl1 = await ref.getDownloadURL();
+
                     print(imageUrl1);
+                    //? baed ma5dhyt lien shn7otou fil firestore fi blastou *example img1*
                     FirebaseFirestore.instance
                         .collection('cours')
                         .doc('1')
@@ -215,18 +218,43 @@ class _cour1State extends State<cour1> {
                 child: IconButton(
                   onPressed: () async {
                     print('bonj');
-                    if (isPlaying) {
-                      await audioPlayer.stop();
-                      setState(() {
-                        isPlaying = false;
-                      });
-                    } else {
-                      await audioPlayer.play(Uri.parse(
-                          "https://firebasestorage.googleapis.com/v0/b/e-learning-293fd.appspot.com/o/cour%201%2Fb6xxidneox.mp3?alt=media&token=44b5e7f9-3cae-410b-b0a2-7c295a48f87d"));
-                      setState(() {
-                        isPlaying = true;
-                      });
-                    }
+                    Uri uri = Uri.parse(cour_data["son1"]);
+                    final source = AudioSource.uri(uri);
+                    // if (isPlaying) {
+                    //   await audioPlayer.stop();
+                    //   setState(() {
+                    //     isPlaying = false;
+                    //   });
+                    // }
+                    // else {
+                    await audioPlayer.setAudioSource(source);
+                    await audioPlayer.play();
+                    // setState(() {
+                    //   isPlaying = true;
+                    // });
+                    // }
+                    // final source = UriAudioSource(
+                    //   uri :
+                    // )
+                    // final source = UriAudioSource(
+                    //   uri = uri
+
+                    //   // id: uri.toString(),
+                    //   // uri: uri.toString(),
+                    // );
+
+                    // if (isPlaying) {
+                    //   await audioPlayer.stop();
+                    //   setState(() {
+                    //     isPlaying = false;
+                    //   });
+                    // } else {
+                    //   await audioPlayer.play(Uri.parse(
+                    //       "https://firebasestorage.googleapis.com/v0/b/e-learning-293fd.appspot.com/o/cour%201%2Fb6xxidneox.mp3?alt=media&token=44b5e7f9-3cae-410b-b0a2-7c295a48f87d"));
+                    //   setState(() {
+                    //     isPlaying = true;
+                    //   });
+                    // }
                     //  int result =
                     // await audioPlayer.play(cour_data["son1"]);
                     // if (result == 1) {
