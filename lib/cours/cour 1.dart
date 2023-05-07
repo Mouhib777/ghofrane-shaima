@@ -171,11 +171,18 @@ class _cour1State extends State<cour1> {
               SizedBox(
                 height: 35,
               ),
-              IconButton(
-                onPressed: () {},
-                icon: Icon(
-                  CupertinoIcons.speaker_3_fill,
-                  size: 40,
+              InkWell(
+                onLongPress: () {
+                  print(widget.isAdmin);
+                },
+                child: IconButton(
+                  onPressed: () {
+                    print('bonj');
+                  },
+                  icon: Icon(
+                    CupertinoIcons.speaker_3_fill,
+                    size: 40,
+                  ),
                 ),
               ),
               SizedBox(
