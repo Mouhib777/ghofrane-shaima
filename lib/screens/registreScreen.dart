@@ -218,14 +218,17 @@ class _registreScreenState extends State<registreScreen> {
                                     ),
                                     onPressed: () async {
                                       try {
-                                        final User? user1 =
-                                            FirebaseAuth.instance.currentUser;
-                                        final _uid = user1!.uid;
+                                        // final User? user1 =
+                                        //     FirebaseAuth.instance.currentUser;
+                                        // final _uid = user1!.uid;
                                         UserCredential user = await FirebaseAuth
                                             .instance
                                             .createUserWithEmailAndPassword(
                                                 email: email!.trim(),
                                                 password: password!.trim());
+                                        final User? user1 =
+                                            FirebaseAuth.instance.currentUser;
+                                        final _uid = user1!.uid;
                                         // try {
                                         await FirebaseFirestore.instance
                                             .collection('utilisateur')
@@ -234,7 +237,8 @@ class _registreScreenState extends State<registreScreen> {
                                           "email": email,
                                           "id": _uid,
                                           "password": password,
-                                          "nom": '$nom $prenom',
+                                          "nom": nom,
+                                          "prenom": prenom
                                         });
                                         await FirebaseFirestore.instance
                                             .collection('utilisateur')
