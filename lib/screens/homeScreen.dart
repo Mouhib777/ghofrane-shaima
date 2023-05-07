@@ -87,6 +87,23 @@ class _homeScreenState extends State<homeScreen> {
   ];
   final _advancedDrawerController = AdvancedDrawerController();
   @override
+  void initState() {
+    getUser_Data();
+    super.initState();
+  }
+
+  var user_data;
+
+  Future<DocumentSnapshot> getUser_Data() async {
+    var result1 =
+        await FirebaseFirestore.instance.collection('cours').doc("1").get();
+    setState(() {
+      user_data = result1;
+    });
+    return result1;
+  }
+
+  @override
   Widget build(BuildContext context) {
     print(widget.isAdmin);
     return SizedBox(

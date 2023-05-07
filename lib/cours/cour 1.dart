@@ -57,11 +57,11 @@ class _cour1State extends State<cour1> {
 
   @override
   void initState() {
-    getUser_Data();
+    getCour_Data();
     super.initState();
   }
 
-  Future<DocumentSnapshot> getUser_Data() async {
+  Future<DocumentSnapshot> getCour_Data() async {
     var result1 =
         await FirebaseFirestore.instance.collection('cours').doc("1").get();
     setState(() {
@@ -188,31 +188,33 @@ class _cour1State extends State<cour1> {
               ),
               InkWell(
                 onLongPress: () async {
-                  print(widget.isAdmin);
-                  final result = await FilePicker.platform.pickFiles(
-                    type: FileType.audio,
-                    allowMultiple: false,
-                  );
+                  if (widget.isAdmin == 'true') {
+                    print(widget.isAdmin);
+                    final result = await FilePicker.platform.pickFiles(
+                      type: FileType.audio,
+                      allowMultiple: false,
+                    );
 
-                  if (result != null) {
-                    final file = File(result.files.single.path!);
-                    // do something with the selected file
+                    if (result != null) {
+                      final file = File(result.files.single.path!);
+                      // do something with the selected file
 
-                    final randomName = generateRandomName(10);
-                    //? edheya script li yaaml upload
-                    final ref = FirebaseStorage.instance
-                        .ref()
-                        .child('cour 1')
-                        .child(randomName + '.mp3');
-                    await ref.putFile(file);
+                      final randomName = generateRandomName(10);
+                      //? edheya script li yaaml upload
+                      final ref = FirebaseStorage.instance
+                          .ref()
+                          .child('cour 1')
+                          .child(randomName + '.mp3');
+                      await ref.putFile(file);
 
-                    var sonUrl = await ref.getDownloadURL();
-                    print(sonUrl);
-                    FirebaseFirestore.instance
-                        .collection('cours')
-                        .doc('1')
-                        .update({"son1": sonUrl});
-                    EasyLoading.showSuccess("L'audio à été mettre a jour");
+                      var sonUrl = await ref.getDownloadURL();
+                      print(sonUrl);
+                      FirebaseFirestore.instance
+                          .collection('cours')
+                          .doc('1')
+                          .update({"son1": sonUrl});
+                      EasyLoading.showSuccess("L'audio à été mettre a jour");
+                    }
                   }
                 },
                 child: IconButton(
