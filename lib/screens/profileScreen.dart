@@ -33,6 +33,10 @@ class _profileScreenState extends State<profileScreen> {
         ),
         centerTitle: true,
       ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [],
+      ),
     );
   }
 }
