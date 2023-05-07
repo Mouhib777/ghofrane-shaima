@@ -12,6 +12,9 @@ import 'package:provider/provider.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 
 import '../provider/image.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+
+final TextEditingController _textEditingController = TextEditingController();
 
 class cour1 extends StatefulWidget {
   final String? isAdmin;
@@ -29,6 +32,7 @@ class _cour1State extends State<cour1> {
 
   final Random _random = Random();
   String? imageUrl1;
+  String? text;
 
   String generateRandomName(int length) {
     const chars = 'abcdefghijklmnopqrstuvwxyz0123456789';
@@ -76,7 +80,7 @@ class _cour1State extends State<cour1> {
                     //? edheya script li yaaml upload
                     final ref = FirebaseStorage.instance
                         .ref()
-                        .child('cour1')
+                        .child('cour 1')
                         .child(randomName + '.jpg');
                     await ref.putFile(_pickedImage!);
 
@@ -86,7 +90,7 @@ class _cour1State extends State<cour1> {
                         .collection('cours')
                         .doc('1')
                         .update({"img1": imageUrl1});
-                    EasyLoading.showSuccess("mriguel");
+                    EasyLoading.showSuccess("L'image à été mettre a jour");
                   }
                 },
                 child: Image.network(
@@ -100,7 +104,64 @@ class _cour1State extends State<cour1> {
               ),
               InkWell(
                 onLongPress: () {
-                  if (widget.isAdmin == 'true') {}
+                  print(widget.isAdmin);
+                  if (widget.isAdmin == 'true') {
+                    showDialog(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return AlertDialog(
+                          title: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                'modifier le text',
+                                style: GoogleFonts.montserratAlternates(),
+                              ),
+                            ],
+                          ),
+                          content: TextField(
+                            onChanged: (value) {
+                              text = value;
+                            },
+                          ),
+                          actions: <Widget>[
+                            TextButton(
+                              style: TextButton.styleFrom(
+                                textStyle:
+                                    Theme.of(context).textTheme.labelLarge,
+                              ),
+                              child: Text(
+                                'Annuler',
+                                style: GoogleFonts.montserrat(),
+                              ),
+                              onPressed: () {
+                                Navigator.of(context).pop();
+                              },
+                            ),
+                            TextButton(
+                              style: TextButton.styleFrom(
+                                textStyle:
+                                    Theme.of(context).textTheme.labelLarge,
+                              ),
+                              child: Text(
+                                'mettre à jour',
+                                style: GoogleFonts.montserrat(),
+                              ),
+                              onPressed: () async {
+                                await FirebaseFirestore.instance
+                                    .collection('cours')
+                                    .doc('1')
+                                    .update({"text1": text});
+                                EasyLoading.showSuccess(
+                                    "Le texte à été mettre a jour");
+                                Navigator.of(context).pop();
+                              },
+                            ),
+                          ],
+                        );
+                      },
+                    );
+                  }
                 },
                 child: Text(
                   cour_data["text1"],
@@ -468,4 +529,54 @@ class _cour1State extends State<cour1> {
       _pickedImage;
     } else {}
   }
+
+  // Future<void> _dialogBuilder(String text) {
+  //   return showDialog<void>(
+  //     context: context,
+  //     builder: (BuildContext context) {
+  //       return AlertDialog(
+  //         title: Row(
+  //           mainAxisAlignment: MainAxisAlignment.center,
+  //           children: [
+  //             Text(
+  //               'modifier le text',
+  //               style: GoogleFonts.montserratAlternates(),
+  //             ),
+  //           ],
+  //         ),
+  //         content: TextField(
+  //           onChanged: (value) {
+  //             text = value;
+  //           },
+  //         ),
+  //         actions: <Widget>[
+  //           TextButton(
+  //             style: TextButton.styleFrom(
+  //               textStyle: Theme.of(context).textTheme.labelLarge,
+  //             ),
+  //             child: Text(
+  //               'Annuler',
+  //               style: GoogleFonts.montserrat(),
+  //             ),
+  //             onPressed: () {
+  //               Navigator.of(context).pop();
+  //             },
+  //           ),
+  //           TextButton(
+  //             style: TextButton.styleFrom(
+  //               textStyle: Theme.of(context).textTheme.labelLarge,
+  //             ),
+  //             child: Text(
+  //               'mettre à jour',
+  //               style: GoogleFonts.montserrat(),
+  //             ),
+  //             onPressed: () {
+  //               Navigator.of(context).pop();
+  //             },
+  //           ),
+  //         ],
+  //       );
+  //     },
+  //   );
+  // }
 }
