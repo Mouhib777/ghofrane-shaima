@@ -13,6 +13,8 @@ import 'package:e_learning/screens/login.dart';
 
 import 'package:e_learning/screens/profileScreen.dart';
 import 'package:e_learning/screens/a_propos.dart';
+import 'package:e_learning/screens/qcm.dart';
+import 'package:e_learning/screens/quiz.dart';
 import 'package:e_learning/widget/card.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
@@ -180,11 +182,16 @@ class _homeScreenState extends State<homeScreen> {
                     ),
                     ListTile(
                       onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => profileScreen(),
-                            ));
+                        widget.isAdmin == 'false'
+                            ? Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => profileScreen(),
+                                ))
+                            : Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => profileScreen()));
                       },
                       leading: widget.isAdmin == 'true'
                           ? Icon(Icons.admin_panel_settings)
@@ -203,12 +210,30 @@ class _homeScreenState extends State<homeScreen> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => a_propos(),
+                              builder: (context) => QCM(),
                             ));
                       },
                       leading: Icon(Icons.info),
                       title: Text(
                         'A propos',
+                        style: GoogleFonts.montserratAlternates(
+                            letterSpacing: 2, fontSize: 20),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 30,
+                    ),
+                    ListTile(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => QuizPage(),
+                            ));
+                      },
+                      leading: Icon(Icons.question_answer_outlined),
+                      title: Text(
+                        'QCM',
                         style: GoogleFonts.montserratAlternates(
                             letterSpacing: 2, fontSize: 20),
                       ),
