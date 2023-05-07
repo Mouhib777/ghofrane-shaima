@@ -15,6 +15,7 @@ import 'package:flutter_easyloading/flutter_easyloading.dart';
 
 import '../provider/image.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:just_audio/just_audio.dart';
 
 final TextEditingController _textEditingController = TextEditingController();
 
@@ -30,12 +31,20 @@ class _cour1State extends State<cour1> {
   File? _pickedImage;
   ImagePicker? imagePicker;
   final ImagePicker _picker = ImagePicker();
-  AudioPlayer audioPlayer = AudioPlayer();
+
   // picture _image = picture();
 
   final Random _random = Random();
   String? imageUrl1;
   String? text;
+  AudioPlayer audioPlayer = AudioPlayer();
+  bool isPlaying = false;
+
+  @override
+  void dispose() {
+    super.dispose();
+    audioPlayer.dispose();
+  }
 
   String generateRandomName(int length) {
     const chars = 'abcdefghijklmnopqrstuvwxyz0123456789';
@@ -206,15 +215,39 @@ class _cour1State extends State<cour1> {
                 child: IconButton(
                   onPressed: () async {
                     print('bonj');
-                    final ref = cour_data["son1"];
-
-                    // final url = await ref.getDownloadURL();
-
-                    final player = AudioPlayer();
-
-                    await player.play(ref);
+                    if (isPlaying) {
+                      await audioPlayer.stop();
+                      setState(() {
+                        isPlaying = false;
+                      });
+                    } else {
+                      await audioPlayer.play(Uri.parse(
+                          "https://firebasestorage.googleapis.com/v0/b/e-learning-293fd.appspot.com/o/cour%201%2Fb6xxidneox.mp3?alt=media&token=44b5e7f9-3cae-410b-b0a2-7c295a48f87d"));
+                      setState(() {
+                        isPlaying = true;
+                      });
+                    }
+                    //  int result =
+                    // await audioPlayer.play(cour_data["son1"]);
                     // if (result == 1) {
                     //   // success
+                    //   print('Audio played successfully');
+                    // } else {
+                    //   // error
+                    //   print('Error playing audio');
+                    // }
+                    // final ref = cour_data["son1"];
+                    // print(ref);
+
+                    // final url = await ref;
+
+                    // final player = AudioPlayer();
+
+                    // if (player == 1) {
+                    //   await player.play(url);
+                    //   // success
+                    // } else {
+                    //   print("");
                     // }
                   },
                   icon: Icon(
