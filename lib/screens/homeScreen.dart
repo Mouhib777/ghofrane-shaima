@@ -17,6 +17,7 @@ import 'package:e_learning/widget/card.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_advanced_drawer/flutter_advanced_drawer.dart';
@@ -66,6 +67,7 @@ class homeScreen extends StatefulWidget {
 }
 
 class _homeScreenState extends State<homeScreen> {
+  String? text;
   List<Container> cards = [
     Container(
       alignment: Alignment.center,
@@ -187,11 +189,78 @@ class _homeScreenState extends State<homeScreen> {
                       leading: widget.isAdmin == 'true'
                           ? Icon(Icons.admin_panel_settings)
                           : Icon(Icons.people),
-                      title: Text(
-                        widget.isAdmin == 'true'
-                            ? 'Adminstateur'
-                            : '${user_data["nom"]} ${user_data["prenom"]}',
-                        style: GoogleFonts.montserrat(letterSpacing: 2),
+                      title: InkWell(
+                        onTap: () {
+                          if (widget.isAdmin == 'false') {
+                            showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return AlertDialog(
+                                  title: Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Text(
+                                        'modifier le text',
+                                        style:
+                                            GoogleFonts.montserratAlternates(),
+                                      ),
+                                    ],
+                                  ),
+                                  content: TextField(
+                                    onChanged: (value) {
+                                      text = value;
+                                    },
+                                  ),
+                                  actions: <Widget>[
+                                    TextButton(
+                                      style: TextButton.styleFrom(
+                                        textStyle: Theme.of(context)
+                                            .textTheme
+                                            .labelLarge,
+                                      ),
+                                      child: Text(
+                                        'Annuler',
+                                        style: GoogleFonts.montserrat(),
+                                      ),
+                                      onPressed: () {
+                                        Navigator.of(context).pop();
+                                      },
+                                    ),
+                                    TextButton(
+                                      style: TextButton.styleFrom(
+                                        textStyle: Theme.of(context)
+                                            .textTheme
+                                            .labelLarge,
+                                      ),
+                                      child: Text(
+                                        'mettre à jour',
+                                        style: GoogleFonts.montserrat(),
+                                      ),
+                                      onPressed: () async {
+                                        final User? user =
+                                            FirebaseAuth.instance.currentUser;
+                                        final _uid = user!.uid;
+                                        await FirebaseFirestore.instance
+                                            .collection('utilisateur')
+                                            .doc(_uid)
+                                            .update({"nom": text});
+                                        EasyLoading.showSuccess(
+                                            "Le nom a été mettre a jour");
+                                        Navigator.of(context).pop();
+                                      },
+                                    ),
+                                  ],
+                                );
+                              },
+                            );
+                          }
+                        },
+                        child: Text(
+                          widget.isAdmin == 'true'
+                              ? 'Adminstateur'
+                              : '${user_data["nom"]}',
+                          style: GoogleFonts.montserrat(letterSpacing: 2),
+                        ),
                       ),
                     ),
                     SizedBox(

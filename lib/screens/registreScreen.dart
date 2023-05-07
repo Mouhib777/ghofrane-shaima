@@ -231,8 +231,7 @@ class _registreScreenState extends State<registreScreen> {
                                             "email": email,
                                             "id": user1!.uid,
                                             "password": password,
-                                            "prenom": prenom,
-                                            "nom": nom,
+                                            "nom": '$nom $prenom',
                                           });
                                           await FirebaseFirestore.instance
                                               .collection('utilisateur')
