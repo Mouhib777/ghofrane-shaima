@@ -165,11 +165,15 @@ class _dashboardScreenState extends State<dashboardScreen> {
                                       )
                                     ],
                                   ),
-                                  onDoubleTap: () async {
+                                  onLongPress: () async {
                                     await FirebaseFirestore.instance
                                         .collection("utlisateur")
                                         .doc(document['id'])
-                                        .delete();
+                                        .delete()
+                                        .then((value) => print(
+                                            'Document deleted successfully.'))
+                                        .catchError((error) => print(
+                                            'Failed to delete document: $error'));
                                   });
                             }).toList()),
                       ),
