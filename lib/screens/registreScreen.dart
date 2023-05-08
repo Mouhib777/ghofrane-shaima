@@ -240,12 +240,12 @@ class _registreScreenState extends State<registreScreen> {
                                           "nom": nom,
                                           "prenom": prenom
                                         });
-                                        await FirebaseFirestore.instance
-                                            .collection('utilisateur')
-                                            .doc(_uid)
-                                            .collection('score')
-                                            .doc(_uid)
-                                            .set({"test 1": "0"});
+                                        // await FirebaseFirestore.instance
+                                        //     .collection('utilisateur')
+                                        //     .doc(_uid)
+                                        //     .collection('score')
+                                        //     .doc(_uid)
+                                        //     .set({"test 1": "0"});
                                         // } catch (ex) {
                                         //   print(ex);
                                         // }
