@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:e_learning/screens/userDetails.dart';
 import 'package:e_learning/service/userService.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -84,97 +85,108 @@ class _dashboardScreenState extends State<dashboardScreen> {
                             children: snapshot.data!.docs
                                 .map((DocumentSnapshot document) {
                               return InkWell(
-                                  onTap: () {
-                                    EasyLoading.showInfo(document['id']);
-                                    print(document['id']);
-                                    print(document['email']);
-                                    print(document['nom']);
-                                    print(document['prenom']);
-                                  },
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Padding(
-                                          padding: const EdgeInsets.only(),
-                                          child: Container(
-                                            decoration: new BoxDecoration(
-                                              borderRadius:
-                                                  BorderRadius.circular(15),
-                                              color: Colors.transparent,
-                                            ),
-                                            child: ListTile(
-                                                contentPadding:
-                                                    EdgeInsets.symmetric(
-                                                        horizontal: 15.0,
-                                                        vertical: 0.0),
-                                                leading: Container(
-                                                  padding: EdgeInsets.only(
-                                                      right: 12.0),
-                                                  decoration: BoxDecoration(
-                                                      border: Border(
-                                                          right: new BorderSide(
-                                                              width: 1.0,
-                                                              color: Color(
-                                                                  0xFFD9D9D9)))),
-                                                  child: CircleAvatar(
-                                                      backgroundColor:
-                                                          Colors.transparent,
-                                                      radius: 30,
-                                                      backgroundImage: AssetImage(
-                                                          "assets/images/logo.png")),
-                                                ),
-                                                title: Row(
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.start,
-                                                  children: [
-                                                    Column(
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .start,
-                                                      children: [
-                                                        // ),
-                                                        SizedBox(
-                                                          height: 0,
-                                                        ),
-                                                        Text(
-                                                          "${document['nom']} ${document['prenom']}",
-                                                          textAlign:
-                                                              TextAlign.left,
-                                                        ),
-                                                      ],
-                                                    ),
-                                                  ],
-                                                ),
-                                                subtitle: Text(
-                                                  document['email'],
-                                                ),
-                                                trailing: Icon(
-                                                    Icons.keyboard_arrow_right,
-                                                    color: Color(0xFFD9D9D9),
-                                                    size: 30.0)),
-                                          )),
-                                      Divider(
-                                        color: Color(0xFFD9D9D9),
-                                        indent:
-                                            MediaQuery.of(context).size.width *
-                                                0.21,
-                                        endIndent:
-                                            MediaQuery.of(context).size.width *
-                                                0.21,
-                                        thickness: 1.5,
-                                      )
-                                    ],
-                                  ),
-                                  onLongPress: () async {
-                                    await FirebaseFirestore.instance
-                                        .collection("utlisateur")
-                                        .doc(document['id'])
-                                        .delete()
-                                        .then((value) => print(
-                                            'Document deleted successfully.'))
-                                        .catchError((error) => print(
-                                            'Failed to delete document: $error'));
-                                  });
+                                onLongPress: () {
+                                  EasyLoading.showInfo(document['id']);
+                                  print(document['id']);
+                                  print(document['email']);
+                                  print(document['nom']);
+                                  print(document['prenom']);
+                                },
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Padding(
+                                        padding: const EdgeInsets.only(),
+                                        child: Container(
+                                          decoration: new BoxDecoration(
+                                            borderRadius:
+                                                BorderRadius.circular(15),
+                                            color: Colors.transparent,
+                                          ),
+                                          child: ListTile(
+                                              contentPadding:
+                                                  EdgeInsets.symmetric(
+                                                      horizontal: 15.0,
+                                                      vertical: 0.0),
+                                              leading: Container(
+                                                padding: EdgeInsets.only(
+                                                    right: 12.0),
+                                                decoration: BoxDecoration(
+                                                    border: Border(
+                                                        right: new BorderSide(
+                                                            width: 1.0,
+                                                            color: Color(
+                                                                0xFFD9D9D9)))),
+                                                child: CircleAvatar(
+                                                    backgroundColor:
+                                                        Colors.transparent,
+                                                    radius: 30,
+                                                    backgroundImage: AssetImage(
+                                                        "assets/images/logo.png")),
+                                              ),
+                                              title: Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.start,
+                                                children: [
+                                                  Column(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment.start,
+                                                    children: [
+                                                      // ),
+                                                      SizedBox(
+                                                        height: 0,
+                                                      ),
+                                                      Text(
+                                                        "${document['nom']} ${document['prenom']}",
+                                                        textAlign:
+                                                            TextAlign.left,
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ],
+                                              ),
+                                              subtitle: Text(
+                                                document['email'],
+                                              ),
+                                              trailing: Icon(
+                                                  Icons.keyboard_arrow_right,
+                                                  color: Color(0xFFD9D9D9),
+                                                  size: 30.0)),
+                                        )),
+                                    Divider(
+                                      color: Color(0xFFD9D9D9),
+                                      indent:
+                                          MediaQuery.of(context).size.width *
+                                              0.21,
+                                      endIndent:
+                                          MediaQuery.of(context).size.width *
+                                              0.21,
+                                      thickness: 1.5,
+                                    )
+                                  ],
+                                ),
+                                onTap: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => userDetails(
+                                          name:
+                                              "${document['nom']} ${document['prenom']}",
+                                          uid: "${document['id']}",
+                                        ),
+                                      ));
+                                },
+                                // onLongPress: () async {
+                                //   await FirebaseFirestore.instance
+                                //       .collection("utlisateur")
+                                //       .doc(document['id'])
+                                //       .delete()
+                                //       .then((value) => print(
+                                //           'Document deleted successfully.'))
+                                //       .catchError((error) => print(
+                                //           'Failed to delete document: $error'));
+                                // }
+                              );
                             }).toList()),
                       ),
                     ),
