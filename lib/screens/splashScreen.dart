@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:e_learning/screens/homeScreen.dart';
 import 'package:e_learning/screens/login.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -21,7 +22,7 @@ class _splashSCreenState extends State<splashSCreen> {
           seconds: 3,
         ), () async {
       FirebaseAuth.instance.authStateChanges().listen((User? user) {
-        if (user == null) {
+        if (user == null || user_data["nom"] == '') {
           Navigator.of(context).push(
             PageRouteBuilder(
               transitionDuration: Duration.zero,
@@ -45,8 +46,29 @@ class _splashSCreenState extends State<splashSCreen> {
       //       builder: (context) => loginScreen(),
       //     ));
     });
-
+    getUser_Data();
     super.initState();
+  }
+
+  @override
+  // void initState() {
+  //   getUser_Data();
+  //   super.initState();
+  // }
+
+  var user_data;
+
+  Future<DocumentSnapshot> getUser_Data() async {
+    final User? user1 = FirebaseAuth.instance.currentUser;
+    String? _uid = user1!.uid;
+    var result1 = await FirebaseFirestore.instance
+        .collection('utilisateur')
+        .doc(_uid)
+        .get();
+    setState(() {
+      user_data = result1;
+    });
+    return result1;
   }
 
   Widget build(BuildContext context) {
