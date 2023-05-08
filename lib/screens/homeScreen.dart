@@ -9,6 +9,7 @@ import 'package:e_learning/cours/cour%203.dart';
 import 'package:e_learning/cours/cour%204.dart';
 import 'package:e_learning/cours/cour%205.dart';
 import 'package:e_learning/cours/cour%207.dart';
+import 'package:e_learning/screens/dashboard.dart';
 import 'package:e_learning/screens/login.dart';
 
 import 'package:e_learning/screens/profileScreen.dart';
@@ -191,7 +192,7 @@ class _homeScreenState extends State<homeScreen> {
                             : Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => profileScreen()));
+                                    builder: (context) => dashboardScreen()));
                       },
                       leading: widget.isAdmin == 'true'
                           ? Icon(Icons.admin_panel_settings)

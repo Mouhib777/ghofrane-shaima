@@ -169,27 +169,26 @@ class _loginScreenState extends State<loginScreen> {
                                       }
                                       if (email == 'admin@quebeccenter.com' &&
                                           password == 'quebec_center2023') {
-                                        try {
-                                          UserCredential user =
-                                              await FirebaseAuth
-                                                  .instance
-                                                  .signInWithEmailAndPassword(
-                                                      email: email!.trim(),
-                                                      password:
-                                                          password!.trim());
-                                          EasyLoading.showInfo(
-                                              "Entrer en mode admin");
-                                          Navigator.push(
-                                              context,
-                                              MaterialPageRoute(
-                                                builder: (context) =>
-                                                    homeScreen(
-                                                  isAdmin: "true",
-                                                ),
-                                              ));
-                                        } catch (ex) {
-                                          print(ex);
-                                        }
+                                        // try {
+                                        //   UserCredential user =
+                                        //       await FirebaseAuth
+                                        //           .instance
+                                        //           .signInWithEmailAndPassword(
+                                        //               email: email!.trim(),
+                                        //               password:
+                                        //                   password!.trim());
+                                        EasyLoading.showInfo(
+                                            "Entrer en mode admin");
+                                        Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                              builder: (context) => homeScreen(
+                                                isAdmin: "true",
+                                              ),
+                                            ));
+                                        // } catch (ex) {
+                                        //   print(ex);
+                                        // }
                                       } else {
                                         //EasyLoading.showToast('Loading...');
                                         try {
