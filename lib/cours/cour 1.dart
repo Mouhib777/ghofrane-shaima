@@ -222,63 +222,9 @@ class _cour1State extends State<cour1> {
                     print('bonj');
                     Uri uri = Uri.parse(cour_data["son1"]);
                     final source = AudioSource.uri(uri);
-                    // if (isPlaying) {
-                    //   await audioPlayer.stop();
-                    //   setState(() {
-                    //     isPlaying = false;
-                    //   });
-                    // }
-                    // else {
+
                     await audioPlayer.setAudioSource(source);
                     await audioPlayer.play();
-                    // setState(() {
-                    //   isPlaying = true;
-                    // });
-                    // }
-                    // final source = UriAudioSource(
-                    //   uri :
-                    // )
-                    // final source = UriAudioSource(
-                    //   uri = uri
-
-                    //   // id: uri.toString(),
-                    //   // uri: uri.toString(),
-                    // );
-
-                    // if (isPlaying) {
-                    //   await audioPlayer.stop();
-                    //   setState(() {
-                    //     isPlaying = false;
-                    //   });
-                    // } else {
-                    //   await audioPlayer.play(Uri.parse(
-                    //       "https://firebasestorage.googleapis.com/v0/b/e-learning-293fd.appspot.com/o/cour%201%2Fb6xxidneox.mp3?alt=media&token=44b5e7f9-3cae-410b-b0a2-7c295a48f87d"));
-                    //   setState(() {
-                    //     isPlaying = true;
-                    //   });
-                    // }
-                    //  int result =
-                    // await audioPlayer.play(cour_data["son1"]);
-                    // if (result == 1) {
-                    //   // success
-                    //   print('Audio played successfully');
-                    // } else {
-                    //   // error
-                    //   print('Error playing audio');
-                    // }
-                    // final ref = cour_data["son1"];
-                    // print(ref);
-
-                    // final url = await ref;
-
-                    // final player = AudioPlayer();
-
-                    // if (player == 1) {
-                    //   await player.play(url);
-                    //   // success
-                    // } else {
-                    //   print("");
-                    // }
                   },
                   icon: Icon(
                     CupertinoIcons.speaker_3_fill,
@@ -302,15 +248,105 @@ class _cour1State extends State<cour1> {
           content: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              Image.asset(
-                "assets/images/half-moon.png",
+              InkWell(
+                onLongPress: () async {
+                  if (widget.isAdmin == 'true') {
+                    addGallery();
+                    print('image picked');
+
+                    final randomName = generateRandomName(10);
+                    //? edheya script li yaaml upload
+                    final ref = FirebaseStorage.instance
+                        .ref()
+                        .child('cour 1')
+                        .child(randomName + '.jpg');
+                    await ref.putFile(_pickedImage!);
+                    //? edheya script li yekhou lien baed upload
+                    imageUrl1 = await ref.getDownloadURL();
+
+                    print(imageUrl1);
+                    //? baed ma5dhyt lien shn7otou fil firestore fi blastou *example img1*
+                    FirebaseFirestore.instance
+                        .collection('cours')
+                        .doc('1')
+                        .update({"img2": imageUrl1});
+                    EasyLoading.showSuccess("L'image à été mettre a jour");
+                  }
+                },
+                child: Image.network(
+                  //! lezem tkoun image.network
+                  //? cour_data["ismha fil firestore"]
+                  cour_data["img2"],
+                ),
               ),
               SizedBox(
                 height: 35,
               ),
-              Text(
-                "Bonsoir",
-                style: GoogleFonts.montserrat(fontSize: 25, letterSpacing: 4),
+              InkWell(
+                onLongPress: () {
+                  print(widget.isAdmin);
+                  if (widget.isAdmin == 'true') {
+                    showDialog(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return AlertDialog(
+                          title: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                'modifier le text',
+                                style: GoogleFonts.montserratAlternates(),
+                              ),
+                            ],
+                          ),
+                          content: TextField(
+                            onChanged: (value) {
+                              text = value;
+                            },
+                          ),
+                          actions: <Widget>[
+                            TextButton(
+                              style: TextButton.styleFrom(
+                                textStyle:
+                                    Theme.of(context).textTheme.labelLarge,
+                              ),
+                              child: Text(
+                                'Annuler',
+                                style: GoogleFonts.montserrat(),
+                              ),
+                              onPressed: () {
+                                Navigator.of(context).pop();
+                              },
+                            ),
+                            TextButton(
+                              style: TextButton.styleFrom(
+                                textStyle:
+                                    Theme.of(context).textTheme.labelLarge,
+                              ),
+                              child: Text(
+                                'mettre à jour',
+                                style: GoogleFonts.montserrat(),
+                              ),
+                              onPressed: () async {
+                                await FirebaseFirestore.instance
+                                    .collection('cours')
+                                    .doc('1')
+                                    .update({"text2": text});
+                                EasyLoading.showSuccess(
+                                    "Le texte à été mettre a jour");
+                                Navigator.of(context).pop();
+                              },
+                            ),
+                          ],
+                        );
+                      },
+                    );
+                  }
+                },
+                child: Text(
+                  cour_data["text2"],
+                  style: GoogleFonts.montserrat(fontSize: 25, letterSpacing: 4),
+                ),
               ),
               SizedBox(
                 height: 35,

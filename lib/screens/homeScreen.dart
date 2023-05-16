@@ -187,7 +187,7 @@ class _homeScreenState extends State<homeScreen> {
                             ? Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => profileScreen(),
+                                  builder: (context) => ProfilePage(),
                                 ))
                             : Navigator.push(
                                 context,

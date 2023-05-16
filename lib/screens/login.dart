@@ -169,6 +169,11 @@ class _loginScreenState extends State<loginScreen> {
                                       }
                                       if (email == 'admin@quebeccenter.com' &&
                                           password == 'quebec_center2023') {
+                                        // UserCredential user = await FirebaseAuth
+                                        //     .instance
+                                        //     .signInWithEmailAndPassword(
+                                        //         email: email!.trim(),
+                                        //         password: password!.trim());
                                         // try {
                                         //   UserCredential user =
                                         //       await FirebaseAuth
