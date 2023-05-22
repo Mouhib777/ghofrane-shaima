@@ -251,26 +251,27 @@ class _cour1State extends State<cour1> {
               InkWell(
                 onLongPress: () async {
                   if (widget.isAdmin == 'true') {
-                    addGallery();
-                    print('image picked');
+                    setState(() async {
+                      addGallery();
+                      print('image picked');
 
-                    final randomName = generateRandomName(10);
-                    //? edheya script li yaaml upload
-                    final ref = FirebaseStorage.instance
-                        .ref()
-                        .child('cour 1')
-                        .child(randomName + '.jpg');
-                    await ref.putFile(_pickedImage!);
-                    //? edheya script li yekhou lien baed upload
-                    imageUrl1 = await ref.getDownloadURL();
+                      final randomName = generateRandomName(10);
+                      //? edheya script li yaaml upload
+                      final ref = FirebaseStorage.instance
+                          .ref()
+                          .child('cour 1')
+                          .child(randomName + '.jpg');
+                      await ref.putFile(_pickedImage!);
+                      //? edheya script li yekhou lien baed upload
+                      imageUrl1 = await ref.getDownloadURL();
 
-                    print(imageUrl1);
-                    //? baed ma5dhyt lien shn7otou fil firestore fi blastou *example img1*
-                    FirebaseFirestore.instance
-                        .collection('cours')
-                        .doc('1')
-                        .update({"img2": imageUrl1});
-                    EasyLoading.showSuccess("L'image à été mettre a jour");
+                      print(imageUrl1);
+                      FirebaseFirestore.instance
+                          .collection('cours')
+                          .doc('1')
+                          .update({"img2": imageUrl1});
+                      EasyLoading.showSuccess("L'image à été mettre a jour");
+                    });
                   }
                 },
                 child: Image.network(
@@ -351,11 +352,52 @@ class _cour1State extends State<cour1> {
               SizedBox(
                 height: 35,
               ),
-              IconButton(
-                onPressed: () {},
-                icon: Icon(
-                  CupertinoIcons.speaker_3_fill,
-                  size: 40,
+              InkWell(
+                onLongPress: () async {
+                  if (widget.isAdmin == 'true') {
+                    print(widget.isAdmin);
+                    setState(() async {
+                      final result = await FilePicker.platform.pickFiles(
+                        type: FileType.audio,
+                        allowMultiple: false,
+                      );
+
+                      if (result != null) {
+                        final file = File(result.files.single.path!);
+                        // do something with the selected file
+
+                        final randomName = generateRandomName(10);
+                        //? edheya script li yaaml upload
+                        final ref = FirebaseStorage.instance
+                            .ref()
+                            .child('cour 1')
+                            .child(randomName + '.mp3');
+                        await ref.putFile(file);
+
+                        var sonUrl = await ref.getDownloadURL();
+                        print(sonUrl);
+                        FirebaseFirestore.instance
+                            .collection('cours')
+                            .doc('1')
+                            .update({"son2": sonUrl});
+                        EasyLoading.showSuccess("L'audio à été mettre a jour");
+                      }
+                    });
+                  }
+                },
+                child: IconButton(
+                  onPressed: () async {
+                    print('bonj');
+                    Uri uri = Uri.parse(cour_data["son2"]);
+                    final source = AudioSource.uri(uri);
+
+                    await audioPlayer.setAudioSource(source);
+                    await audioPlayer.play();
+                  },
+                  icon: Icon(
+                    CupertinoIcons.speaker_3_fill,
+                    size: 40,
+                  ),
                 ),
               ),
               SizedBox(
@@ -374,24 +416,156 @@ class _cour1State extends State<cour1> {
           content: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              Image.asset(
-                "assets/images/day.png",
+              InkWell(
+                onLongPress: () async {
+                  if (widget.isAdmin == 'true') {
+                    setState(() async {
+                      addGallery();
+                      print('image picked');
+
+                      final randomName = generateRandomName(10);
+                      //? edheya script li yaaml upload
+                      final ref = FirebaseStorage.instance
+                          .ref()
+                          .child('cour 1')
+                          .child(randomName + '.jpg');
+                      await ref.putFile(_pickedImage!);
+                      //? edheya script li yekhou lien baed upload
+                      imageUrl1 = await ref.getDownloadURL();
+
+                      print(imageUrl1);
+                      FirebaseFirestore.instance
+                          .collection('cours')
+                          .doc('1')
+                          .update({"img3": imageUrl1});
+                      EasyLoading.showSuccess("L'image à été mettre a jour");
+                    });
+                  }
+                },
+                child: Image.network(
+                  //! lezem tkoun image.network
+                  //? cour_data["ismha fil firestore"]
+                  cour_data["img3"],
+                ),
               ),
               SizedBox(
                 height: 35,
               ),
-              Text(
-                "Bonne nuit",
-                style: GoogleFonts.montserrat(fontSize: 25, letterSpacing: 4),
+              InkWell(
+                onLongPress: () {
+                  print(widget.isAdmin);
+                  if (widget.isAdmin == 'true') {
+                    showDialog(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return AlertDialog(
+                          title: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                'modifier le text',
+                                style: GoogleFonts.montserratAlternates(),
+                              ),
+                            ],
+                          ),
+                          content: TextField(
+                            onChanged: (value) {
+                              text = value;
+                            },
+                          ),
+                          actions: <Widget>[
+                            TextButton(
+                              style: TextButton.styleFrom(
+                                textStyle:
+                                    Theme.of(context).textTheme.labelLarge,
+                              ),
+                              child: Text(
+                                'Annuler',
+                                style: GoogleFonts.montserrat(),
+                              ),
+                              onPressed: () {
+                                Navigator.of(context).pop();
+                              },
+                            ),
+                            TextButton(
+                              style: TextButton.styleFrom(
+                                textStyle:
+                                    Theme.of(context).textTheme.labelLarge,
+                              ),
+                              child: Text(
+                                'mettre à jour',
+                                style: GoogleFonts.montserrat(),
+                              ),
+                              onPressed: () async {
+                                await FirebaseFirestore.instance
+                                    .collection('cours')
+                                    .doc('1')
+                                    .update({"text3": text});
+                                EasyLoading.showSuccess(
+                                    "Le texte à été mettre a jour");
+                                Navigator.of(context).pop();
+                              },
+                            ),
+                          ],
+                        );
+                      },
+                    );
+                  }
+                },
+                child: Text(
+                  cour_data["text3"],
+                  style: GoogleFonts.montserrat(fontSize: 25, letterSpacing: 4),
+                ),
               ),
               SizedBox(
                 height: 35,
               ),
-              IconButton(
-                onPressed: () {},
-                icon: Icon(
-                  CupertinoIcons.speaker_3_fill,
-                  size: 40,
+              InkWell(
+                onLongPress: () async {
+                  if (widget.isAdmin == 'true') {
+                    print(widget.isAdmin);
+                    setState(() async {
+                      final result = await FilePicker.platform.pickFiles(
+                        type: FileType.audio,
+                        allowMultiple: false,
+                      );
+
+                      if (result != null) {
+                        final file = File(result.files.single.path!);
+                        // do something with the selected file
+
+                        final randomName = generateRandomName(10);
+                        //? edheya script li yaaml upload
+                        final ref = FirebaseStorage.instance
+                            .ref()
+                            .child('cour 1')
+                            .child(randomName + '.mp3');
+                        await ref.putFile(file);
+
+                        var sonUrl = await ref.getDownloadURL();
+                        print(sonUrl);
+                        FirebaseFirestore.instance
+                            .collection('cours')
+                            .doc('1')
+                            .update({"son3": sonUrl});
+                        EasyLoading.showSuccess("L'audio à été mettre a jour");
+                      }
+                    });
+                  }
+                },
+                child: IconButton(
+                  onPressed: () async {
+                    print('bonj');
+                    Uri uri = Uri.parse(cour_data["son3"]);
+                    final source = AudioSource.uri(uri);
+
+                    await audioPlayer.setAudioSource(source);
+                    await audioPlayer.play();
+                  },
+                  icon: Icon(
+                    CupertinoIcons.speaker_3_fill,
+                    size: 40,
+                  ),
                 ),
               ),
               SizedBox(
@@ -409,17 +583,91 @@ class _cour1State extends State<cour1> {
             ),
             content: Column(
               children: [
-                Image.asset(
-                  "assets/images/5.png",
+                InkWell(
+                  onLongPress: () async {
+                    if (widget.isAdmin == 'true') {
+                      setState(() async {
+                        addGallery();
+                        print('image picked');
+
+                        final randomName = generateRandomName(10);
+                        //? edheya script li yaaml upload
+                        final ref = FirebaseStorage.instance
+                            .ref()
+                            .child('cour 1')
+                            .child(randomName + '.jpg');
+                        await ref.putFile(_pickedImage!);
+                        //? edheya script li yekhou lien baed upload
+                        imageUrl1 = await ref.getDownloadURL();
+
+                        print(imageUrl1);
+                        FirebaseFirestore.instance
+                            .collection('cours')
+                            .doc('1')
+                            .update({"img4": imageUrl1});
+                        EasyLoading.showSuccess("L'image à été mettre a jour");
+                      });
+                    }
+                  },
+                  child: Image.network(
+                    //! lezem tkoun image.network
+                    //? cour_data["ismha fil firestore"]
+                    cour_data["img4"],
+                  ),
                 ),
                 SizedBox(
-                  height: 20,
+                  height: 35,
                 ),
-                IconButton(
-                  onPressed: () {},
-                  icon: Icon(
-                    CupertinoIcons.speaker_3_fill,
-                    size: 40,
+                SizedBox(
+                  height: 35,
+                ),
+                InkWell(
+                  onLongPress: () async {
+                    if (widget.isAdmin == 'true') {
+                      print(widget.isAdmin);
+                      setState(() async {
+                        final result = await FilePicker.platform.pickFiles(
+                          type: FileType.audio,
+                          allowMultiple: false,
+                        );
+
+                        if (result != null) {
+                          final file = File(result.files.single.path!);
+                          // do something with the selected file
+
+                          final randomName = generateRandomName(10);
+                          //? edheya script li yaaml upload
+                          final ref = FirebaseStorage.instance
+                              .ref()
+                              .child('cour 1')
+                              .child(randomName + '.mp3');
+                          await ref.putFile(file);
+
+                          var sonUrl = await ref.getDownloadURL();
+                          print(sonUrl);
+                          FirebaseFirestore.instance
+                              .collection('cours')
+                              .doc('1')
+                              .update({"son4": sonUrl});
+                          EasyLoading.showSuccess(
+                              "L'audio à été mettre a jour");
+                        }
+                      });
+                    }
+                  },
+                  child: IconButton(
+                    onPressed: () async {
+                      print('bonj');
+                      Uri uri = Uri.parse(cour_data["son4"]);
+                      final source = AudioSource.uri(uri);
+
+                      await audioPlayer.setAudioSource(source);
+                      await audioPlayer.play();
+                    },
+                    icon: Icon(
+                      CupertinoIcons.speaker_3_fill,
+                      size: 40,
+                    ),
                   ),
                 ),
               ],
@@ -433,17 +681,91 @@ class _cour1State extends State<cour1> {
             ),
             content: Column(
               children: [
-                Image.asset(
-                  "assets/images/6.png",
+                InkWell(
+                  onLongPress: () async {
+                    if (widget.isAdmin == 'true') {
+                      setState(() async {
+                        addGallery();
+                        print('image picked');
+
+                        final randomName = generateRandomName(10);
+                        //? edheya script li yaaml upload
+                        final ref = FirebaseStorage.instance
+                            .ref()
+                            .child('cour 1')
+                            .child(randomName + '.jpg');
+                        await ref.putFile(_pickedImage!);
+                        //? edheya script li yekhou lien baed upload
+                        imageUrl1 = await ref.getDownloadURL();
+
+                        print(imageUrl1);
+                        FirebaseFirestore.instance
+                            .collection('cours')
+                            .doc('1')
+                            .update({"img5": imageUrl1});
+                        EasyLoading.showSuccess("L'image à été mettre a jour");
+                      });
+                    }
+                  },
+                  child: Image.network(
+                    //! lezem tkoun image.network
+                    //? cour_data["ismha fil firestore"]
+                    cour_data["img5"],
+                  ),
                 ),
                 SizedBox(
-                  height: 20,
+                  height: 35,
                 ),
-                IconButton(
-                  onPressed: () {},
-                  icon: Icon(
-                    CupertinoIcons.speaker_3_fill,
-                    size: 40,
+                SizedBox(
+                  height: 35,
+                ),
+                InkWell(
+                  onLongPress: () async {
+                    if (widget.isAdmin == 'true') {
+                      print(widget.isAdmin);
+                      setState(() async {
+                        final result = await FilePicker.platform.pickFiles(
+                          type: FileType.audio,
+                          allowMultiple: false,
+                        );
+
+                        if (result != null) {
+                          final file = File(result.files.single.path!);
+                          // do something with the selected file
+
+                          final randomName = generateRandomName(10);
+                          //? edheya script li yaaml upload
+                          final ref = FirebaseStorage.instance
+                              .ref()
+                              .child('cour 1')
+                              .child(randomName + '.mp3');
+                          await ref.putFile(file);
+
+                          var sonUrl = await ref.getDownloadURL();
+                          print(sonUrl);
+                          FirebaseFirestore.instance
+                              .collection('cours')
+                              .doc('1')
+                              .update({"son5": sonUrl});
+                          EasyLoading.showSuccess(
+                              "L'audio à été mettre a jour");
+                        }
+                      });
+                    }
+                  },
+                  child: IconButton(
+                    onPressed: () async {
+                      print('bonj');
+                      Uri uri = Uri.parse(cour_data["son5"]);
+                      final source = AudioSource.uri(uri);
+
+                      await audioPlayer.setAudioSource(source);
+                      await audioPlayer.play();
+                    },
+                    icon: Icon(
+                      CupertinoIcons.speaker_3_fill,
+                      size: 40,
+                    ),
                   ),
                 ),
               ],
@@ -457,17 +779,91 @@ class _cour1State extends State<cour1> {
             ),
             content: Column(
               children: [
-                Image.asset(
-                  "assets/images/7.png",
+                InkWell(
+                  onLongPress: () async {
+                    if (widget.isAdmin == 'true') {
+                      setState(() async {
+                        addGallery();
+                        print('image picked');
+
+                        final randomName = generateRandomName(10);
+                        //? edheya script li yaaml upload
+                        final ref = FirebaseStorage.instance
+                            .ref()
+                            .child('cour 1')
+                            .child(randomName + '.jpg');
+                        await ref.putFile(_pickedImage!);
+                        //? edheya script li yekhou lien baed upload
+                        imageUrl1 = await ref.getDownloadURL();
+
+                        print(imageUrl1);
+                        FirebaseFirestore.instance
+                            .collection('cours')
+                            .doc('1')
+                            .update({"img6": imageUrl1});
+                        EasyLoading.showSuccess("L'image à été mettre a jour");
+                      });
+                    }
+                  },
+                  child: Image.network(
+                    //! lezem tkoun image.network
+                    //? cour_data["ismha fil firestore"]
+                    cour_data["img6"],
+                  ),
                 ),
                 SizedBox(
-                  height: 20,
+                  height: 35,
                 ),
-                IconButton(
-                  onPressed: () {},
-                  icon: Icon(
-                    CupertinoIcons.speaker_3_fill,
-                    size: 40,
+                SizedBox(
+                  height: 35,
+                ),
+                InkWell(
+                  onLongPress: () async {
+                    if (widget.isAdmin == 'true') {
+                      print(widget.isAdmin);
+                      setState(() async {
+                        final result = await FilePicker.platform.pickFiles(
+                          type: FileType.audio,
+                          allowMultiple: false,
+                        );
+
+                        if (result != null) {
+                          final file = File(result.files.single.path!);
+                          // do something with the selected file
+
+                          final randomName = generateRandomName(10);
+                          //? edheya script li yaaml upload
+                          final ref = FirebaseStorage.instance
+                              .ref()
+                              .child('cour 1')
+                              .child(randomName + '.mp3');
+                          await ref.putFile(file);
+
+                          var sonUrl = await ref.getDownloadURL();
+                          print(sonUrl);
+                          FirebaseFirestore.instance
+                              .collection('cours')
+                              .doc('1')
+                              .update({"son6": sonUrl});
+                          EasyLoading.showSuccess(
+                              "L'audio à été mettre a jour");
+                        }
+                      });
+                    }
+                  },
+                  child: IconButton(
+                    onPressed: () async {
+                      print('bonj');
+                      Uri uri = Uri.parse(cour_data["son6"]);
+                      final source = AudioSource.uri(uri);
+
+                      await audioPlayer.setAudioSource(source);
+                      await audioPlayer.play();
+                    },
+                    icon: Icon(
+                      CupertinoIcons.speaker_3_fill,
+                      size: 40,
+                    ),
                   ),
                 ),
               ],
@@ -481,17 +877,91 @@ class _cour1State extends State<cour1> {
             ),
             content: Column(
               children: [
-                Image.asset(
-                  "assets/images/8.png",
+                InkWell(
+                  onLongPress: () async {
+                    if (widget.isAdmin == 'true') {
+                      setState(() async {
+                        addGallery();
+                        print('image picked');
+
+                        final randomName = generateRandomName(10);
+                        //? edheya script li yaaml upload
+                        final ref = FirebaseStorage.instance
+                            .ref()
+                            .child('cour 1')
+                            .child(randomName + '.jpg');
+                        await ref.putFile(_pickedImage!);
+                        //? edheya script li yekhou lien baed upload
+                        imageUrl1 = await ref.getDownloadURL();
+
+                        print(imageUrl1);
+                        FirebaseFirestore.instance
+                            .collection('cours')
+                            .doc('1')
+                            .update({"img7": imageUrl1});
+                        EasyLoading.showSuccess("L'image à été mettre a jour");
+                      });
+                    }
+                  },
+                  child: Image.network(
+                    //! lezem tkoun image.network
+                    //? cour_data["ismha fil firestore"]
+                    cour_data["img7"],
+                  ),
                 ),
                 SizedBox(
-                  height: 20,
+                  height: 35,
                 ),
-                IconButton(
-                  onPressed: () {},
-                  icon: Icon(
-                    CupertinoIcons.speaker_3_fill,
-                    size: 40,
+                SizedBox(
+                  height: 35,
+                ),
+                InkWell(
+                  onLongPress: () async {
+                    if (widget.isAdmin == 'true') {
+                      print(widget.isAdmin);
+                      setState(() async {
+                        final result = await FilePicker.platform.pickFiles(
+                          type: FileType.audio,
+                          allowMultiple: false,
+                        );
+
+                        if (result != null) {
+                          final file = File(result.files.single.path!);
+                          // do something with the selected file
+
+                          final randomName = generateRandomName(10);
+                          //? edheya script li yaaml upload
+                          final ref = FirebaseStorage.instance
+                              .ref()
+                              .child('cour 1')
+                              .child(randomName + '.mp3');
+                          await ref.putFile(file);
+
+                          var sonUrl = await ref.getDownloadURL();
+                          print(sonUrl);
+                          FirebaseFirestore.instance
+                              .collection('cours')
+                              .doc('1')
+                              .update({"son7": sonUrl});
+                          EasyLoading.showSuccess(
+                              "L'audio à été mettre a jour");
+                        }
+                      });
+                    }
+                  },
+                  child: IconButton(
+                    onPressed: () async {
+                      print('bonj');
+                      Uri uri = Uri.parse(cour_data["son7"]);
+                      final source = AudioSource.uri(uri);
+
+                      await audioPlayer.setAudioSource(source);
+                      await audioPlayer.play();
+                    },
+                    icon: Icon(
+                      CupertinoIcons.speaker_3_fill,
+                      size: 40,
+                    ),
                   ),
                 ),
               ],
@@ -505,17 +975,91 @@ class _cour1State extends State<cour1> {
             ),
             content: Column(
               children: [
-                Image.asset(
-                  "assets/images/9.png",
+                InkWell(
+                  onLongPress: () async {
+                    if (widget.isAdmin == 'true') {
+                      setState(() async {
+                        addGallery();
+                        print('image picked');
+
+                        final randomName = generateRandomName(10);
+                        //? edheya script li yaaml upload
+                        final ref = FirebaseStorage.instance
+                            .ref()
+                            .child('cour 1')
+                            .child(randomName + '.jpg');
+                        await ref.putFile(_pickedImage!);
+                        //? edheya script li yekhou lien baed upload
+                        imageUrl1 = await ref.getDownloadURL();
+
+                        print(imageUrl1);
+                        FirebaseFirestore.instance
+                            .collection('cours')
+                            .doc('1')
+                            .update({"img8": imageUrl1});
+                        EasyLoading.showSuccess("L'image à été mettre a jour");
+                      });
+                    }
+                  },
+                  child: Image.network(
+                    //! lezem tkoun image.network
+                    //? cour_data["ismha fil firestore"]
+                    cour_data["img8"],
+                  ),
                 ),
                 SizedBox(
-                  height: 20,
+                  height: 35,
                 ),
-                IconButton(
-                  onPressed: () {},
-                  icon: Icon(
-                    CupertinoIcons.speaker_3_fill,
-                    size: 40,
+                SizedBox(
+                  height: 35,
+                ),
+                InkWell(
+                  onLongPress: () async {
+                    if (widget.isAdmin == 'true') {
+                      print(widget.isAdmin);
+                      setState(() async {
+                        final result = await FilePicker.platform.pickFiles(
+                          type: FileType.audio,
+                          allowMultiple: false,
+                        );
+
+                        if (result != null) {
+                          final file = File(result.files.single.path!);
+                          // do something with the selected file
+
+                          final randomName = generateRandomName(10);
+                          //? edheya script li yaaml upload
+                          final ref = FirebaseStorage.instance
+                              .ref()
+                              .child('cour 1')
+                              .child(randomName + '.mp3');
+                          await ref.putFile(file);
+
+                          var sonUrl = await ref.getDownloadURL();
+                          print(sonUrl);
+                          FirebaseFirestore.instance
+                              .collection('cours')
+                              .doc('1')
+                              .update({"son8": sonUrl});
+                          EasyLoading.showSuccess(
+                              "L'audio à été mettre a jour");
+                        }
+                      });
+                    }
+                  },
+                  child: IconButton(
+                    onPressed: () async {
+                      print('bonj');
+                      Uri uri = Uri.parse(cour_data["son8"]);
+                      final source = AudioSource.uri(uri);
+
+                      await audioPlayer.setAudioSource(source);
+                      await audioPlayer.play();
+                    },
+                    icon: Icon(
+                      CupertinoIcons.speaker_3_fill,
+                      size: 40,
+                    ),
                   ),
                 ),
               ],
@@ -529,17 +1073,91 @@ class _cour1State extends State<cour1> {
             ),
             content: Column(
               children: [
-                Image.asset(
-                  "assets/images/10.png",
+                InkWell(
+                  onLongPress: () async {
+                    if (widget.isAdmin == 'true') {
+                      setState(() async {
+                        addGallery();
+                        print('image picked');
+
+                        final randomName = generateRandomName(10);
+                        //? edheya script li yaaml upload
+                        final ref = FirebaseStorage.instance
+                            .ref()
+                            .child('cour 1')
+                            .child(randomName + '.jpg');
+                        await ref.putFile(_pickedImage!);
+                        //? edheya script li yekhou lien baed upload
+                        imageUrl1 = await ref.getDownloadURL();
+
+                        print(imageUrl1);
+                        FirebaseFirestore.instance
+                            .collection('cours')
+                            .doc('1')
+                            .update({"img9": imageUrl1});
+                        EasyLoading.showSuccess("L'image à été mettre a jour");
+                      });
+                    }
+                  },
+                  child: Image.network(
+                    //! lezem tkoun image.network
+                    //? cour_data["ismha fil firestore"]
+                    cour_data["img9"],
+                  ),
                 ),
                 SizedBox(
-                  height: 20,
+                  height: 35,
                 ),
-                IconButton(
-                  onPressed: () {},
-                  icon: Icon(
-                    CupertinoIcons.speaker_3_fill,
-                    size: 40,
+                SizedBox(
+                  height: 35,
+                ),
+                InkWell(
+                  onLongPress: () async {
+                    if (widget.isAdmin == 'true') {
+                      print(widget.isAdmin);
+                      setState(() async {
+                        final result = await FilePicker.platform.pickFiles(
+                          type: FileType.audio,
+                          allowMultiple: false,
+                        );
+
+                        if (result != null) {
+                          final file = File(result.files.single.path!);
+                          // do something with the selected file
+
+                          final randomName = generateRandomName(10);
+                          //? edheya script li yaaml upload
+                          final ref = FirebaseStorage.instance
+                              .ref()
+                              .child('cour 1')
+                              .child(randomName + '.mp3');
+                          await ref.putFile(file);
+
+                          var sonUrl = await ref.getDownloadURL();
+                          print(sonUrl);
+                          FirebaseFirestore.instance
+                              .collection('cours')
+                              .doc('1')
+                              .update({"son9": sonUrl});
+                          EasyLoading.showSuccess(
+                              "L'audio à été mettre a jour");
+                        }
+                      });
+                    }
+                  },
+                  child: IconButton(
+                    onPressed: () async {
+                      print('bonj');
+                      Uri uri = Uri.parse(cour_data["son9"]);
+                      final source = AudioSource.uri(uri);
+
+                      await audioPlayer.setAudioSource(source);
+                      await audioPlayer.play();
+                    },
+                    icon: Icon(
+                      CupertinoIcons.speaker_3_fill,
+                      size: 40,
+                    ),
                   ),
                 ),
               ],
@@ -553,17 +1171,91 @@ class _cour1State extends State<cour1> {
             ),
             content: Column(
               children: [
-                Image.asset(
-                  "assets/images/11.png",
+                InkWell(
+                  onLongPress: () async {
+                    if (widget.isAdmin == 'true') {
+                      setState(() async {
+                        addGallery();
+                        print('image picked');
+
+                        final randomName = generateRandomName(10);
+                        //? edheya script li yaaml upload
+                        final ref = FirebaseStorage.instance
+                            .ref()
+                            .child('cour 1')
+                            .child(randomName + '.jpg');
+                        await ref.putFile(_pickedImage!);
+                        //? edheya script li yekhou lien baed upload
+                        imageUrl1 = await ref.getDownloadURL();
+
+                        print(imageUrl1);
+                        FirebaseFirestore.instance
+                            .collection('cours')
+                            .doc('1')
+                            .update({"img10": imageUrl1});
+                        EasyLoading.showSuccess("L'image à été mettre a jour");
+                      });
+                    }
+                  },
+                  child: Image.network(
+                    //! lezem tkoun image.network
+                    //? cour_data["ismha fil firestore"]
+                    cour_data["img10"],
+                  ),
                 ),
                 SizedBox(
-                  height: 20,
+                  height: 35,
                 ),
-                IconButton(
-                  onPressed: () {},
-                  icon: Icon(
-                    CupertinoIcons.speaker_3_fill,
-                    size: 40,
+                SizedBox(
+                  height: 35,
+                ),
+                InkWell(
+                  onLongPress: () async {
+                    if (widget.isAdmin == 'true') {
+                      print(widget.isAdmin);
+                      setState(() async {
+                        final result = await FilePicker.platform.pickFiles(
+                          type: FileType.audio,
+                          allowMultiple: false,
+                        );
+
+                        if (result != null) {
+                          final file = File(result.files.single.path!);
+                          // do something with the selected file
+
+                          final randomName = generateRandomName(10);
+                          //? edheya script li yaaml upload
+                          final ref = FirebaseStorage.instance
+                              .ref()
+                              .child('cour 1')
+                              .child(randomName + '.mp3');
+                          await ref.putFile(file);
+
+                          var sonUrl = await ref.getDownloadURL();
+                          print(sonUrl);
+                          FirebaseFirestore.instance
+                              .collection('cours')
+                              .doc('1')
+                              .update({"son10": sonUrl});
+                          EasyLoading.showSuccess(
+                              "L'audio à été mettre a jour");
+                        }
+                      });
+                    }
+                  },
+                  child: IconButton(
+                    onPressed: () async {
+                      print('bonj');
+                      Uri uri = Uri.parse(cour_data["son10"]);
+                      final source = AudioSource.uri(uri);
+
+                      await audioPlayer.setAudioSource(source);
+                      await audioPlayer.play();
+                    },
+                    icon: Icon(
+                      CupertinoIcons.speaker_3_fill,
+                      size: 40,
+                    ),
                   ),
                 ),
               ],

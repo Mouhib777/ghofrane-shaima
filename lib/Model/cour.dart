@@ -10,7 +10,7 @@ class CourInfo {
 
 List<CourInfo> courInfo = [
   CourInfo(1,
-      name: "Cour 1", iconImage: 'assets/images/logo.png', description: ""),
+      name: "cour 1", iconImage: 'assets/images/logo.png', description: ""),
   CourInfo(2,
       name: "cour 2",
       iconImage: 'assets/images/logo.png',

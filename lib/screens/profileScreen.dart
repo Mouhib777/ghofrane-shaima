@@ -51,337 +51,344 @@ class _ProfilePageState extends State<ProfilePage> {
           ),
         ),
         title: Text(
-          "Profile",
+          "Profil",
           style: GoogleFonts.montserratAlternates(),
         ),
         centerTitle: true,
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            CircleAvatar(
-              radius: 50,
-              backgroundColor: Colors.white,
-              backgroundImage: AssetImage(
-                "assets/images/logo.png",
+        child: Center(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              CircleAvatar(
+                radius: 50,
+                backgroundColor: Colors.white,
+                backgroundImage: AssetImage(
+                  "assets/images/logo.png",
+                ),
               ),
-            ),
-            SizedBox(height: 20),
-            Text(
-              user_data['nom'] + ' ' + user_data['prenom'],
-              style: GoogleFonts.montserratAlternates(
-                  fontSize: 24, fontWeight: FontWeight.w700),
-            ),
-            SizedBox(height: 10),
-            Text(
-              user_data['email'],
-              style: GoogleFonts.montserrat(),
-            ),
-            SizedBox(height: 20),
-            // Text(
-            //   "Bio",
-            //   style: GoogleFonts.montserratAlternates(
-            //       fontSize: 20, fontWeight: FontWeight.w700),
-            // ),
-            SizedBox(height: 10),
-            Text(
-              bio,
-              textAlign: TextAlign.center,
-              style: GoogleFonts.montserrat(),
-            ),
-            SizedBox(
-              height: 30,
-            ),
+              SizedBox(height: 20),
+              Text(
+                // "chaima Mrabti",
+                user_data['nom'] + ' ' + user_data['prenom'],
+                style: GoogleFonts.montserratAlternates(
+                    fontSize: 24, fontWeight: FontWeight.w700),
+              ),
+              SizedBox(height: 10),
+              Text(
+                // "ghofranmrabti@gmail.com",
+                user_data['email'],
+                style: GoogleFonts.montserrat(),
+              ),
+              SizedBox(height: 20),
+              // Text(
+              //   "Bio",
+              //   style: GoogleFonts.montserratAlternates(
+              //       fontSize: 20, fontWeight: FontWeight.w700),
+              // ),
+              SizedBox(height: 10),
+              // Text(
+              //   bio,
+              //   textAlign: TextAlign.center,
+              //   style: GoogleFonts.montserrat(),
+              // ),
+              SizedBox(
+                height: 30,
+              ),
 
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Container(
-                  width: MediaQuery.of(context).size.width * 0.8,
-                  decoration: BoxDecoration(
-                    border: Border.all(color: Colors.blue),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  padding: EdgeInsets.all(10),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      InkWell(
-                        onTap: () {
-                          showDialog(
-                            context: context,
-                            builder: (BuildContext context) {
-                              String? text;
-                              return AlertDialog(
-                                title: Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Text(
-                                      'modifier votre nom',
-                                      style: GoogleFonts.montserratAlternates(),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Container(
+                    width: MediaQuery.of(context).size.width * 0.8,
+                    decoration: BoxDecoration(
+                      border: Border.all(color: Colors.blue),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    padding: EdgeInsets.all(10),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        InkWell(
+                          onTap: () {
+                            showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                String? text;
+                                return AlertDialog(
+                                  title: Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Text(
+                                        'modifier votre nom',
+                                        style:
+                                            GoogleFonts.montserratAlternates(),
+                                      ),
+                                    ],
+                                  ),
+                                  content: TextField(
+                                    onChanged: (value) {
+                                      text = value;
+                                    },
+                                  ),
+                                  actions: <Widget>[
+                                    TextButton(
+                                      style: TextButton.styleFrom(
+                                        textStyle: Theme.of(context)
+                                            .textTheme
+                                            .labelLarge,
+                                      ),
+                                      child: Text(
+                                        'Annuler',
+                                        style: GoogleFonts.montserrat(),
+                                      ),
+                                      onPressed: () {
+                                        Navigator.of(context).pop();
+                                      },
+                                    ),
+                                    TextButton(
+                                      style: TextButton.styleFrom(
+                                        textStyle: Theme.of(context)
+                                            .textTheme
+                                            .labelLarge,
+                                      ),
+                                      child: Text(
+                                        'mettre à jour',
+                                        style: GoogleFonts.montserrat(),
+                                      ),
+                                      onPressed: () async {
+                                        // final User? user =
+                                        //     FirebaseAuth.instance.currentUser;
+                                        // final _uid = user!.uid;
+                                        // await FirebaseFirestore.instance
+                                        //     .collection('utilisateur')
+                                        //     .doc(_uid)
+                                        //     .update({"nom": text});
+                                        EasyLoading.showSuccess(
+                                            "Votre nom à été mettre a jour");
+                                        Navigator.of(context).pop();
+                                      },
                                     ),
                                   ],
-                                ),
-                                content: TextField(
-                                  onChanged: (value) {
-                                    text = value;
-                                  },
-                                ),
-                                actions: <Widget>[
-                                  TextButton(
-                                    style: TextButton.styleFrom(
-                                      textStyle: Theme.of(context)
-                                          .textTheme
-                                          .labelLarge,
-                                    ),
-                                    child: Text(
-                                      'Annuler',
-                                      style: GoogleFonts.montserrat(),
-                                    ),
-                                    onPressed: () {
-                                      Navigator.of(context).pop();
-                                    },
-                                  ),
-                                  TextButton(
-                                    style: TextButton.styleFrom(
-                                      textStyle: Theme.of(context)
-                                          .textTheme
-                                          .labelLarge,
-                                    ),
-                                    child: Text(
-                                      'mettre à jour',
-                                      style: GoogleFonts.montserrat(),
-                                    ),
-                                    onPressed: () async {
-                                      final User? user =
-                                          FirebaseAuth.instance.currentUser;
-                                      final _uid = user!.uid;
-                                      await FirebaseFirestore.instance
-                                          .collection('utilisateur')
-                                          .doc(_uid)
-                                          .update({"nom": text});
-                                      EasyLoading.showSuccess(
-                                          "Votre nom à été mettre a jour");
-                                      Navigator.of(context).pop();
-                                    },
-                                  ),
-                                ],
-                              );
-                            },
-                          );
-                        },
-                        child: Text(
-                          "changer votre nom",
-                          style: TextStyle(color: Colors.blue),
+                                );
+                              },
+                            );
+                          },
+                          child: Text(
+                            "changer votre nom",
+                            style: TextStyle(color: Colors.blue),
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
-                ),
-                SizedBox(
-                  height: 50,
-                ),
-                Container(
-                  width: MediaQuery.of(context).size.width * 0.8,
-                  decoration: BoxDecoration(
-                    border: Border.all(color: Colors.blue),
-                    borderRadius: BorderRadius.circular(10),
+                  SizedBox(
+                    height: 50,
                   ),
-                  padding: EdgeInsets.all(10),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      InkWell(
-                        onTap: () {
-                          showDialog(
-                            context: context,
-                            builder: (BuildContext context) {
-                              String? text;
-                              return AlertDialog(
-                                title: Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Text(
-                                      'modifier votre prenom',
-                                      style: GoogleFonts.montserratAlternates(),
+                  Container(
+                    width: MediaQuery.of(context).size.width * 0.8,
+                    decoration: BoxDecoration(
+                      border: Border.all(color: Colors.blue),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    padding: EdgeInsets.all(10),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        InkWell(
+                          onTap: () {
+                            showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                String? text;
+                                return AlertDialog(
+                                  title: Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Text(
+                                        'modifier votre prenom',
+                                        style:
+                                            GoogleFonts.montserratAlternates(),
+                                      ),
+                                    ],
+                                  ),
+                                  content: TextField(
+                                    onChanged: (value) {
+                                      text = value;
+                                    },
+                                  ),
+                                  actions: <Widget>[
+                                    TextButton(
+                                      style: TextButton.styleFrom(
+                                        textStyle: Theme.of(context)
+                                            .textTheme
+                                            .labelLarge,
+                                      ),
+                                      child: Text(
+                                        'Annuler',
+                                        style: GoogleFonts.montserrat(),
+                                      ),
+                                      onPressed: () {
+                                        Navigator.of(context).pop();
+                                      },
+                                    ),
+                                    TextButton(
+                                      style: TextButton.styleFrom(
+                                        textStyle: Theme.of(context)
+                                            .textTheme
+                                            .labelLarge,
+                                      ),
+                                      child: Text(
+                                        'mettre à jour',
+                                        style: GoogleFonts.montserrat(),
+                                      ),
+                                      onPressed: () async {
+                                        final User? user =
+                                            FirebaseAuth.instance.currentUser;
+                                        final _uid = user!.uid;
+                                        await FirebaseFirestore.instance
+                                            .collection('utilisateur')
+                                            .doc(_uid)
+                                            .update({"prenom": text});
+                                        EasyLoading.showSuccess(
+                                            "Votre prenom à été mettre a jour");
+                                        Navigator.of(context).pop();
+                                      },
                                     ),
                                   ],
-                                ),
-                                content: TextField(
-                                  onChanged: (value) {
-                                    text = value;
-                                  },
-                                ),
-                                actions: <Widget>[
-                                  TextButton(
-                                    style: TextButton.styleFrom(
-                                      textStyle: Theme.of(context)
-                                          .textTheme
-                                          .labelLarge,
-                                    ),
-                                    child: Text(
-                                      'Annuler',
-                                      style: GoogleFonts.montserrat(),
-                                    ),
-                                    onPressed: () {
-                                      Navigator.of(context).pop();
-                                    },
-                                  ),
-                                  TextButton(
-                                    style: TextButton.styleFrom(
-                                      textStyle: Theme.of(context)
-                                          .textTheme
-                                          .labelLarge,
-                                    ),
-                                    child: Text(
-                                      'mettre à jour',
-                                      style: GoogleFonts.montserrat(),
-                                    ),
-                                    onPressed: () async {
-                                      final User? user =
-                                          FirebaseAuth.instance.currentUser;
-                                      final _uid = user!.uid;
-                                      await FirebaseFirestore.instance
-                                          .collection('utilisateur')
-                                          .doc(_uid)
-                                          .update({"prenom": text});
-                                      EasyLoading.showSuccess(
-                                          "Votre prenom à été mettre a jour");
-                                      Navigator.of(context).pop();
-                                    },
-                                  ),
-                                ],
-                              );
-                            },
-                          );
-                        },
-                        child: Text(
-                          "changer votre prenom",
-                          style: TextStyle(color: Colors.blue),
+                                );
+                              },
+                            );
+                          },
+                          child: Text(
+                            "changer votre prenom",
+                            style: TextStyle(color: Colors.blue),
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
-                ),
-                SizedBox(
-                  height: 50,
-                ),
-                Container(
-                  width: MediaQuery.of(context).size.width * 0.8,
-                  decoration: BoxDecoration(
-                    border: Border.all(color: Colors.blue),
-                    borderRadius: BorderRadius.circular(10),
+                  SizedBox(
+                    height: 50,
                   ),
-                  padding: EdgeInsets.all(10),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      SizedBox(
-                        width: 20,
-                      ),
-                      InkWell(
-                        onTap: () {
-                          showDialog(
-                            context: context,
-                            builder: (BuildContext context) {
-                              String? text;
-                              return AlertDialog(
-                                title: Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Text(
-                                      'modifier votre mot de passe',
-                                      style: GoogleFonts.montserratAlternates(
-                                          fontSize: 14),
+                  Container(
+                    width: MediaQuery.of(context).size.width * 0.8,
+                    decoration: BoxDecoration(
+                      border: Border.all(color: Colors.blue),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    padding: EdgeInsets.all(10),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        SizedBox(
+                          width: 20,
+                        ),
+                        InkWell(
+                          onTap: () {
+                            showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                String? text;
+                                return AlertDialog(
+                                  title: Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Text(
+                                        'modifier votre mot de passe',
+                                        style: GoogleFonts.montserratAlternates(
+                                            fontSize: 14),
+                                      ),
+                                    ],
+                                  ),
+                                  content: TextField(
+                                    onChanged: (value) {
+                                      text = value;
+                                    },
+                                  ),
+                                  actions: <Widget>[
+                                    TextButton(
+                                      style: TextButton.styleFrom(
+                                        textStyle: Theme.of(context)
+                                            .textTheme
+                                            .labelLarge,
+                                      ),
+                                      child: Text(
+                                        'Annuler',
+                                        style: GoogleFonts.montserrat(),
+                                      ),
+                                      onPressed: () {
+                                        Navigator.of(context).pop();
+                                      },
+                                    ),
+                                    TextButton(
+                                      style: TextButton.styleFrom(
+                                        textStyle: Theme.of(context)
+                                            .textTheme
+                                            .labelLarge,
+                                      ),
+                                      child: Text(
+                                        'mettre à jour',
+                                        style: GoogleFonts.montserrat(),
+                                      ),
+                                      onPressed: () async {
+                                        final User? user =
+                                            FirebaseAuth.instance.currentUser;
+                                        final _uid = user!.uid;
+                                        await FirebaseFirestore.instance
+                                            .collection('utilisateur')
+                                            .doc(_uid)
+                                            .update({"password": text});
+                                        EasyLoading.showSuccess(
+                                            "Votre password à été mettre a jour");
+                                        // try {
+                                        //   // First, sign in with the user's email and current password
+                                        //   UserCredential userCredential =
+                                        //       await FirebaseAuth.instance
+                                        //           .signInWithEmailAndPassword(
+                                        //     email: user_data["email"],
+                                        //     password: user_data["password"],
+                                        //   );
+
+                                        //   // Then, update the user's password with the new password
+                                        //   await userCredential.user!
+                                        //       .updatePassword(text!);
+
+                                        //   print(
+                                        //       "Password updated successfully");
+                                        // } on FirebaseAuthException catch (e) {
+                                        //   if (e.code == 'wrong-password') {
+                                        //     print('Wrong password provided');
+                                        //   } else {
+                                        //     print(
+                                        //         'Error updating password: ${e.message}');
+                                        //   }
+                                        // }
+                                        Navigator.of(context).pop();
+                                      },
                                     ),
                                   ],
-                                ),
-                                content: TextField(
-                                  onChanged: (value) {
-                                    text = value;
-                                  },
-                                ),
-                                actions: <Widget>[
-                                  TextButton(
-                                    style: TextButton.styleFrom(
-                                      textStyle: Theme.of(context)
-                                          .textTheme
-                                          .labelLarge,
-                                    ),
-                                    child: Text(
-                                      'Annuler',
-                                      style: GoogleFonts.montserrat(),
-                                    ),
-                                    onPressed: () {
-                                      Navigator.of(context).pop();
-                                    },
-                                  ),
-                                  TextButton(
-                                    style: TextButton.styleFrom(
-                                      textStyle: Theme.of(context)
-                                          .textTheme
-                                          .labelLarge,
-                                    ),
-                                    child: Text(
-                                      'mettre à jour',
-                                      style: GoogleFonts.montserrat(),
-                                    ),
-                                    onPressed: () async {
-                                      final User? user =
-                                          FirebaseAuth.instance.currentUser;
-                                      final _uid = user!.uid;
-                                      await FirebaseFirestore.instance
-                                          .collection('utilisateur')
-                                          .doc(_uid)
-                                          .update({"password": text});
-                                      EasyLoading.showSuccess(
-                                          "Votre password à été mettre a jour");
-                                      try {
-                                        // First, sign in with the user's email and current password
-                                        UserCredential userCredential =
-                                            await FirebaseAuth.instance
-                                                .signInWithEmailAndPassword(
-                                          email: user_data["email"],
-                                          password: user_data["password"],
-                                        );
-
-                                        // Then, update the user's password with the new password
-                                        await userCredential.user!
-                                            .updatePassword(text!);
-
-                                        print("Password updated successfully");
-                                      } on FirebaseAuthException catch (e) {
-                                        if (e.code == 'wrong-password') {
-                                          print('Wrong password provided');
-                                        } else {
-                                          print(
-                                              'Error updating password: ${e.message}');
-                                        }
-                                      }
-                                      Navigator.of(context).pop();
-                                    },
-                                  ),
-                                ],
-                              );
-                            },
-                          );
-                        },
-                        child: Text(
-                          "changer votre mot de passe",
-                          style: TextStyle(color: Colors.blue),
+                                );
+                              },
+                            );
+                          },
+                          child: Text(
+                            "changer votre mot de passe",
+                            style: TextStyle(color: Colors.blue),
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
-                ),
-                SizedBox(
-                  height: 50,
-                ),
-              ],
-            ),
-          ],
+                  SizedBox(
+                    height: 50,
+                  ),
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );

@@ -147,23 +147,26 @@ class _homeScreenState extends State<homeScreen> {
                 textColor: Colors.white,
                 iconColor: Colors.white,
                 child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Container(
-                      width: 128.0,
-                      height: 128.0,
-                      margin: EdgeInsets.only(
-                        top: 24.0,
-                        bottom: 64.0,
-                      ),
-                      decoration: BoxDecoration(
-                        color: Colors.black26,
-                        shape: BoxShape.circle,
-                      ),
-                      child: Image.asset(
-                        'assets/images/logo.png',
-                      ),
-                    ),
+                        width: 128.0,
+                        height: 128.0,
+                        margin: EdgeInsets.only(
+                          top: 24.0,
+                          bottom: 64.0,
+                        ),
+                        // decoration: BoxDecoration(
+                        //   color: Colors.black26,
+                        //   shape: BoxShape.circle,
+                        // ),
+                        child: Image.asset("assets/images/logo.png")
+                        // CircleAvatar(
+                        //     radius: 1000,
+                        //     backgroundImage:
+                        //         AssetImage('assets/images/logo.png')),
+                        ),
                     // ListTile(
                     //   onTap: () {
                     //     Navigator.of(context).push(PageRouteBuilder(
@@ -1134,7 +1137,7 @@ class _homeScreenState extends State<homeScreen> {
                                 ),
                                 Padding(
                                   padding: const EdgeInsets.only(
-                                      left: 140, top: 100),
+                                      left: 120, top: 100),
                                   child: Hero(
                                       tag: courInfo[index].position,
                                       child: Image.asset(
@@ -1178,14 +1181,14 @@ class _homeScreenState extends State<homeScreen> {
     );
   }
 
-  void getCourNumber() {
-    var collectionRef = FirebaseFirestore.instance
-        .collection('cours')
-        .get()
-        .then((querySnapshot) {
-      final int numOfCours = querySnapshot.size;
-    });
-  }
+  // void getCourNumber() {
+  //   var collectionRef = FirebaseFirestore.instance
+  //       .collection('cours')
+  //       .get()
+  //       .then((querySnapshot) {
+  //     final int numOfCours = querySnapshot.size;
+  //   });
+  // }
 
   void _handleMenuButtonPressed() {
     // NOTICE: Manage Advanced Drawer state through the Controller.

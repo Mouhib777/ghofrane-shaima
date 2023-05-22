@@ -2,6 +2,7 @@ import 'package:e_learning/cours/cour%201.dart';
 import 'package:e_learning/provider/image.dart';
 import 'package:e_learning/screens/homeScreen.dart';
 import 'package:e_learning/screens/login.dart';
+import 'package:e_learning/screens/profileScreen.dart';
 import 'package:e_learning/screens/quiz.dart';
 import 'package:e_learning/screens/qcm.dart';
 import 'package:e_learning/screens/registreScreen.dart';
